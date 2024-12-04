@@ -14,24 +14,82 @@
 
     <!-- <div style="height: 100vh; align-content: center; text-align: center; "> helo world </div> -->
 
-    <section class="px-20">
+    <section class="px-10 py-20 md:px-28 md:py-28">
         <div>
-            <h2 class="text-5xl text-center leading-normal">Next generation AI: Intelligent document automation for existing processes and applications</h2>
+            <h2 class="text-3xl lg:text-5xl text-center leading-normal">Next generation AI: Intelligent document
+                automation for existing processes and applications</h2>
         </div>
 
-        <div class="px-5 pt-6 w-full grid grid-cols-4 gap-5 text-center">
-            <div class="p-8 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 leading-normal">
-                <h4 class="font-bold text-lg">Intelligent Data Extraction </h4>
-                <p class="py-5 text-sm text-gray-500	">DocAcquire can intelligently process any document by leveraging AI-powered data extraction, classification, and automation to handle diverse formats and layouts. </p>
+        <div id="feature-cards"
+            class="px-5 pt-6 w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 text-center">
+
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="classification.png">
+                <h4 class="pt-5 font-bold text-lg">Intelligent Data Extraction </h4>
+                <p class="py-5 text-sm text-gray-500	">DocAcquire can intelligently process any document by leveraging
+                    AI-powered data extraction, classification, and automation to handle diverse formats and layouts.
+                </p>
             </div>
-            <div class="p-4 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1">Item 2</div>
-            <div class="p-4 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1">Item 3</div>
-            <div class=" p-4 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1">Item 4</div>
-            <div class=" p-4 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1">Item 5</div>
-            <div class=" p-4 rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1">Item 6</div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="docchat.png">
+                <h4 class="pt-5 font-bold text-lg">Document Chat </h4>
+                <p class="py-5 text-sm text-gray-500">Engage with your documents conversationally. Ask questions,
+                    summarize content, or retrieve specific details quickly. </p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="api.png">
+                <h4 class="font-bold text-lg pt-5">Seamless Integrations </h4>
+                <p class="py-5 text-sm text-gray-500">Enables seamless integration by using API’S /webhooks to send
+                    real-time data and event notifications to connected systems.</p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="docsplit.png">
+                <h4 class="pt-5 font-bold text-lg">Document Splitting </h4>
+                <p class="py-5 text-sm text-gray-500">Divide documents into smaller sections or pages for easier
+                    processing and management.</p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="ui.png">
+                <h4 class="pt-5 font-bold text-lg">User Friendly Interface </h4>
+                <p class="py-5 text-sm text-gray-500">Provides a user-friendly interface with no-code/low-code
+                    configurations for easy setup and operation.</p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="ocr.png">
+                <h4 class="pt-5 font-bold text-lg">Highly Accurate OCR </h4>
+                <p class="py-5 text-sm text-gray-500">Utilizes highly accurate OCR for quality text extraction from
+                    scanned PDFs.</p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="humanreview.png">
+                <h4 class="pt-5 font-bold text-lg">Human in the loop </h4>
+                <p class="py-5 text-sm text-gray-500">Allows users to manually verify and correct extracted data to
+                    ensure accuracy before finalizing and exporting it.</p>
+            </div>
+            <div
+                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
+                <img src="security.png">
+                <h4 class="pt-5 font-bold text-lg">Bank Grade Security </h4>
+                <p class="py-5 text-sm text-gray-500">Provides advanced encryption and strict access controls to protect
+                    your data.</p>
+            </div>
+
+
+
+
+        </div>
+
         </div>
     </section>
 
+    <!-- key features detailed section -->
     <section class="md:px-10 lg:px-20">
         <div class="flex relative">
             <div class="h-20 w-5/12 h-min">
@@ -86,12 +144,11 @@
         </div>
     </section>
 
-    <div class="features-container ">
+    <!-- <div class="features-container ">
         <div class="image-container">
             <img id="feature-image" src="slider.jpg" alt="Feature Image">
         </div>
         <div class="features-list">
-            <!-- Primary Key Features -->
             <div class="feature-item" data-image="slider.jpg">
                 <h2>Accurately Classifies and Extracts Key Information</h2>
                 <p>Leverage advanced AI algorithms to classify and extract crucial data from documents with unmatched
@@ -138,11 +195,9 @@
                     extracted data for critical workflows.</p>
             </div>
         </div>
-    </div>
+    </div> -->
 
-
-
-    <div style="height: 100vh; align-content: center; text-align: center; "> helo world </div>
+    <!-- <div style="height: 100vh; align-content: center; text-align: center; "> helo world </div>
 
     <section style="position: relative; overflow: hidden;">
         <div class="scrollable-section" style="display: flex; position: relative; height: 100vh; overflow-y: scroll;">
@@ -166,7 +221,7 @@
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <script src="script.js"></script>
 </body>
