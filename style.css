@@ -63,9 +63,9 @@
 
 
 #feature-cards img{
-  height: 65px;
+  height: 55px;
   align-items: center;
-  justify-self: center;
+  margin: 0px auto;
 }
 
 /* Allow scrolling within the section */
