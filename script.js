@@ -1,7 +1,7 @@
 // Select the features list container and the image element
 const featuresList = document.querySelector('.features-list');
 const imageElement = document.getElementById('feature-image');
-const featuresContainer = document.querySelector('.features-container');
+// const featuresContainer = document.querySelector('.features-container');
 
 // Create an IntersectionObserver to observe each feature item within the list
 const observer = new IntersectionObserver(entries => {
