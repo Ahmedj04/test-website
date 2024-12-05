@@ -1,13 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 
-.features-container {
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+
+}
+p,ul{
+  font-family: 'Roboto', sans-serif;
+}
+
+/* .features-container {
   width: 80%;
   margin: auto;
   display: flex;
   flex-direction: row;
   height: 100vh;
-  /* overflow-y: scroll; */
   position: relative;
-}
+} */
 
 .image-container {
   position: sticky;
@@ -34,7 +42,8 @@
 }
 
 .feature-item {
-  height: 100vh; /* Makes each feature fill most of the viewport */
+  height: 100vh;/* Makes each feature fill most of the viewport*/
+  /* height: 70vh; */
   margin-bottom: 2rem;
   text-align: center;
   align-content: center;
@@ -49,7 +58,23 @@
   /* font-size: 1.5rem; */
   font-size: 2.25rem; /* 36px */
   line-height: 2.5rem; /* 40px */
+  font-weight: 700;
   text-align: left;
+}
+
+.feature-item ul{
+  padding-left: 10px;
+  padding-top: 1.25rem; /* 20px */
+}
+.feature-item li {
+  /* font-size: 1rem; */
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  padding-top: 1.25rem; /* 20px */
+  text-align: left;
+  color: #666;
+  list-style-type: disc;
+
 }
 
 .feature-item p {
@@ -59,6 +84,7 @@
   padding-top: 1.25rem; /* 20px */
   text-align: left;
   color: #666;
+
 }
 
 
