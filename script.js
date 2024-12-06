@@ -63,3 +63,103 @@ document.querySelectorAll('.feature-item').forEach(item => {
 
 //     }
 // });
+
+// =====================================
+// Carousel 
+const track = document.querySelector('.carousel-track');
+const items = Array.from(document.querySelectorAll('.carousel-item'));
+const indicatorsContainer = document.querySelector('.carousel-indicators');
+const firstClone = items[0].cloneNode(true);
+const lastClone = items[items.length - 1].cloneNode(true);
+
+// Clone first and last items
+track.appendChild(firstClone);
+track.insertBefore(lastClone, items[0]);
+
+const allItems = Array.from(document.querySelectorAll('.carousel-item'));
+const itemWidth = 100;
+let currentIndex = 1;
+
+// Initialize carousel position
+track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+
+// Create dots dynamically
+function generateDots() {
+    indicatorsContainer.innerHTML = ''; // Clear any existing dots (for reuse)
+    
+    items.forEach((_, i) => {
+      const dot = document.createElement('button');
+      dot.classList.add('indicator');
+      if (i === 0) dot.classList.add('active'); // First dot is active
+      indicatorsContainer.appendChild(dot);
+  
+      // Add click event to navigate to the corresponding slide
+      dot.addEventListener('click', () => {
+        currentIndex = i + 1; // Adjust index since clones exist
+        updateCarousel();
+        updateDots();
+      });
+    });
+  }
+generateDots();  
+const dots = Array.from(document.querySelectorAll('.indicator'));
+
+// Update the carousel to show the current slide
+function updateCarousel() {
+  track.style.transition = 'transform 0.3s ease-in-out';
+  track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+
+  // Handle seamless looping
+  setTimeout(() => {
+    if (currentIndex === allItems.length - 1) {
+      track.style.transition = 'none';
+      currentIndex = 1; // Reset to the first real slide
+      track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+      updateDots(); // Ensure the first dot is active
+    }
+    if (currentIndex === 0) {
+      track.style.transition = 'none';
+      currentIndex = allItems.length - 2; // Reset to the last real slide
+      track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+      updateDots(); // Ensure the last dot is active
+    }
+  }, 300); // Ensure this happens after the transition
+}
+
+// Update active dot
+function updateDots() {
+  dots.forEach((dot, idx) => {
+    // `currentIndex - 1` adjusts for the clone slides
+    const realIndex = currentIndex - 1; // Ignore the first clone
+    const dotIndex = idx;
+
+    dot.classList.toggle('active', dotIndex === realIndex);
+  });
+}
+
+// Auto-play functionality
+let autoPlay = setInterval(() => {
+  currentIndex++;
+  updateCarousel();
+  updateDots();
+}, 3000);
+
+// Pause auto-play on hover
+track.addEventListener('mouseenter', () => clearInterval(autoPlay));
+track.addEventListener('mouseleave', () => {
+  autoPlay = setInterval(() => {
+    currentIndex++;
+    updateCarousel();
+    updateDots();
+  }, 3000);
+});
+
+// Handle transition reset for looping
+setTimeout(() => {
+  if (currentIndex === 0) {
+    track.style.transition = 'none';
+    currentIndex = allItems.length - 2;
+    track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
+    updateDots();
+  }
+}, 300);
