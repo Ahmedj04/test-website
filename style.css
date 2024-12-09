@@ -185,6 +185,7 @@ p,ul{
   background-color: #333; /* Active dot color */
 }
 .client-review-container{
+  padding: 40px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -207,7 +208,11 @@ p,ul{
   font-size: 17px;
   font-weight: 700;
 }
+.client-rating-mb{
+  display: none;
+}
 .client-rating{
+  display: block;
   align-content: center;
   text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
@@ -221,7 +226,6 @@ p,ul{
   padding-top: 15px;
   color: #666;
 }
-
 
 /* .counter {
   font-size: 2.5rem;
@@ -246,5 +250,36 @@ p,ul{
     font-size: 60px;
     line-height: normal;
   }
+  .client-review-container{
+    padding: 40px 40px 20px;
+  }
+  .client-review-container p{
+    font-size: 15px;
+  }
+  .client-rating{
+   display: none;
+  }
+  .client-rating-mb{
+    display: block;
+    align-content: center;
+    text-align: center;
+    padding: 20px 20px 0px;
+  }
+  .client-rating-mb h2{
+    font-size: 50px;
+    font-weight: 700;
+  }
+  .client-rating-mb span{
+    width: 60%;
+    display: block;
+    margin: 10px auto;
+    height: 1px;
+    border: solid 1px gray;
+  }
+  .client-rating-mb p{
+    padding-top: 15px;
+    color: #666;
+  }
+
   
 }
