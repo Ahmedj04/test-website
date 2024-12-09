@@ -106,7 +106,7 @@ const dots = Array.from(document.querySelectorAll('.indicator'));
 
 // Update the carousel to show the current slide
 function updateCarousel() {
-  track.style.transition = 'transform 0.8s ease-in-out';
+  track.style.transition = 'transform 0.9s ease-in-out';
   track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
 
   // Handle seamless looping
@@ -123,7 +123,7 @@ function updateCarousel() {
       track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
       updateDots(); // Ensure the last dot is active
     }
-  }, 800); // Ensure this happens after the transition
+  }, 900); // Ensure this happens after the transition
 }
 
 // Update active dot
@@ -142,7 +142,7 @@ let autoPlay = setInterval(() => {
   currentIndex++;
   updateCarousel();
   updateDots();
-}, 3000);
+}, 4000);
 
 // Pause auto-play on hover
 track.addEventListener('mouseenter', () => clearInterval(autoPlay));
@@ -151,7 +151,7 @@ track.addEventListener('mouseleave', () => {
     currentIndex++;
     updateCarousel();
     updateDots();
-  }, 3000);
+  }, 4000);
 });
 
 // Handle transition reset for looping
