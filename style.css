@@ -154,7 +154,7 @@ p,ul{
 .carousel-item {
   min-width: 100%;
   /* box-sizing: border-box; */
-  text-align: center;
+  /* text-align: center; */
   padding: 30px;
   /* background-color: #ddd; */
   /* border-right: 1px solid red; */
@@ -187,11 +187,21 @@ p,ul{
 .client-review-container{
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
+
+.client-logo{
+  padding-bottom: 20px;
+}
+.client-logo img{
+  height:50px;
+  margin: 0px auto;
+}
 .client-review p{
   font-size: 24px; 
+  text-align: center;
 }
 .client-name {
   padding-top: 20px;
+  text-align: center;
 }
 .client-name p {
   font-size: 17px;
@@ -199,6 +209,7 @@ p,ul{
 }
 .client-rating{
   align-content: center;
+  text-align: center;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
 .client-rating h2{
@@ -212,6 +223,11 @@ p,ul{
 }
 
 
+/* .counter {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #000;
+} */
 
 
 @media (max-width: 640px) {
