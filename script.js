@@ -163,3 +163,45 @@ setTimeout(() => {
     updateDots();
   }
 }, 900);
+
+
+// =====================================
+// Counter Animation
+// =====================================
+
+// document.addEventListener('DOMContentLoaded', () => {
+//   const counters = document.querySelectorAll('.counter');
+//   const speed = 80; // Adjust this value to control the speed of the count-up animation
+
+//   const countUp = (counter) => {
+//       const target = +counter.getAttribute('data-target');
+//       const updateCount = () => {
+//           const current = +counter.innerText;
+//           const increment = Math.ceil(target / speed);
+
+//           if (current < target) {
+//               counter.innerText = current + increment;
+//               setTimeout(updateCount, 10); // Adjust for smoother animation
+//           } else {
+//               counter.innerText = target; // Ensure it ends exactly at the target
+//           }
+//       };
+//       updateCount();
+//   };
+
+//   const observer = new IntersectionObserver(
+//       (entries, observer) => {
+//           entries.forEach((entry) => {
+//               if (entry.isIntersecting) {
+//                   const counter = entry.target;
+//                   countUp(counter);
+//                   observer.unobserve(counter); // Ensure animation runs only once
+//               }
+//           });
+//       },
+//       { threshold: 0.5 } // Trigger when 50% of the element is visible
+//   );
+
+//   counters.forEach((counter) => observer.observe(counter));
+// });
+
