@@ -15,71 +15,73 @@
     <!-- <div style="height: 100vh; align-content: center; text-align: center; "> helo world </div> -->
 
     <!-- all key features in snapshot -->
-    <section class="px-7 py-20 md:px-28 md:py-28">
-        <div>
-            <h2 class="text-3xl lg:text-5xl text-center leading-normal">Next generation AI: Intelligent document
+    <section class="features-overview-section">
+        <div class="features-overview-header">
+            <h2>Next generation AI: Intelligent document
                 automation for existing processes and applications</h2>
         </div>
 
         <div id="feature-cards"
-            class="px-5 pt-6 w-full grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-5 text-center">
-
-            <div
-                class="p-8 leading-normal border border-gray-300 rounded-lg md:border-none hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg">
-                <img src="classification.png">
-                <h4 class="pt-5 font-bold text-lg">Intelligent Data Extraction </h4>
-                <p class="py-5 text-sm text-gray-500">DocAcquire can intelligently process any document by leveraging
-                    AI-powered data extraction, classification, and automation to handle diverse formats and layouts.
-                </p>
-            </div>
-            <div
+            class="features-overview-grid">
+            <!-- <div
                 class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
                 <img src="zeroshot.png">
                 <h4 class="pt-5 font-bold text-lg">Zero Shot Extraction</h4>
                 <p class="py-5 text-sm text-gray-500">Extract data from documents instantly without prior training,
                     using AI-powered contextual understanding.
                 </p>
+            </div> -->
+
+            <div class="card-container">
+                <img src="zeroshot.png" class="card-image">
+                <h4 class="card-title">Zero Shot Extraction</h4>
+                <p class="card-text">
+                    Extract data from documents instantly without prior training, using AI-powered contextual
+                    understanding.
+                </p>
             </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="docchat2.png">
-                <h4 class="pt-5 font-bold text-lg">Document Chat </h4>
-                <p class="py-5 text-sm text-gray-500">Engage with your documents conversationally. Ask questions,
+
+            <div class="card-container">
+                <img src="docchat2.png" class="card-image">
+                <h4 class="card-title">Document Chat </h4>
+                <p class="card-text">Engage with your documents conversationally. Ask questions,
                     summarize content, or retrieve specific details quickly. </p>
             </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="api2.png">
-                <h4 class="font-bold text-lg pt-5">Seamless Integrations </h4>
-                <p class="py-5 text-sm text-gray-500">Enables seamless integration by using API’s/webhooks to send
-                    real-time data and event notifications to connected systems.</p>
+            <div class="card-container">
+                <img src="classification.png" class="card-image">
+                <h4 class="card-title">Intelligent Data Extraction </h4>
+                <p class="card-text">DocAcquire can intelligently process any document by leveraging
+                    AI-powered data extraction, classification, and automation to handle diverse formats and layouts.
+                </p>
             </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="docsplit.png">
-                <h4 class="pt-5 font-bold text-lg">Document Splitting </h4>
-                <p class="py-5 text-sm text-gray-500">Divide documents into smaller sections or pages for easier
-                    processing and management.</p>
-            </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="ocr2.png">
-                <h4 class="pt-5 font-bold text-lg">Highly Accurate OCR </h4>
-                <p class="py-5 text-sm text-gray-500">Utilizes highly accurate OCR for quality text extraction from
+            <div class="card-container">
+                <img src="ocr2.png" class="card-image">
+                <h4 class="card-title">Highly Accurate OCR </h4>
+                <p class="card-text">Utilizes highly accurate OCR for quality text extraction from
                     scanned PDFs.</p>
             </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="humanreview2.png">
-                <h4 class="pt-5 font-bold text-lg">Human in the loop </h4>
-                <p class="py-5 text-sm text-gray-500">Allows users to manually verify and correct extracted data to
+            <div class="card-container">
+                <img src="docsplit.png" class="card-image">
+                <h4 class="card-title">Document Splitting </h4>
+                <p class="card-text">Divide documents into smaller sections or pages for easier
+                    processing and management.</p>
+            </div>
+            <div class="card-container">
+                <img src="humanreview2.png" class="card-image">
+                <h4 class="card-title">Human in the loop </h4>
+                <p class="card-text">Allows users to manually verify and correct extracted data to
                     ensure accuracy before finalizing and exporting it.</p>
             </div>
-            <div
-                class="p-8 border border-gray-300 md:border-none rounded-lg hover:shadow-2xl transform transition-transform duration-300 hover:-translate-y-1 hover:rounded-lg leading-normal">
-                <img src="security.png">
-                <h4 class="pt-5 font-bold text-lg">Bank Grade Security </h4>
-                <p class="py-5 text-sm text-gray-500">Provides advanced encryption and strict access controls to protect
+            <div class="card-container">
+                <img src="api2.png" class="card-image">
+                <h4 class="card-title">Seamless Integrations </h4>
+                <p class="card-text">Enables seamless integration by using API’s/webhooks to send
+                    real-time data and event notifications to connected systems.</p>
+            </div>
+            <div class="card-container">
+                <img src="security.png" class="card-image">
+                <h4 class="card-title">Bank Grade Security </h4>
+                <p class="card-text">Provides advanced encryption and strict access controls to protect
                     your data.</p>
             </div>
         </div>
@@ -91,113 +93,109 @@
     <section class="features-section ">
         <div class="features-container">
             <div class="features-list">
-                <div class="features-content">
-                    <div class="feature-item" data-image="Classify.jpg">
-                        <h2 class="feature-title">Accurately Classifies and Extracts Key Information</h2>
-                        <ul>
-                            <li>DocAcquire uses advanced AI and machine learning algorithms to identify and categorize
-                                documents based on their content. </li>
+                <div class="feature-item" data-image="Classify.jpg">
+                    <h2 class="feature-title">Accurately Classifies and Extracts Key Information</h2>
+                    <ul>
+                        <li>DocAcquire uses advanced AI and machine learning algorithms to identify and categorize
+                            documents based on their content. </li>
 
-                            <li>It intelligently classifies documents by their type and extracts key details
-                                automatically from a wide range of documents. </li>
+                        <li>It intelligently classifies documents by their type and extracts key details
+                            automatically from a wide range of documents. </li>
 
-                            <li>This saves time and reduces errors by automating the process, improving overall workflow
-                                efficiency. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="Classify.jpg" />
-                    </div>
-                    <div class="feature-item" data-image="zeroshot.png">
-                        <h2 class="feature-title">Instant Data Extraction with Zero Training</h2>
-                        <ul>
-                            <li>Automatically extracts data from documents without requiring prior training on specific
-                                formats. </li>
+                        <li>This saves time and reduces errors by automating the process, improving overall workflow
+                            efficiency. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="Classify.jpg" />
+                </div>
+                <div class="feature-item" data-image="zeroshot.png">
+                    <h2 class="feature-title">Instant Data Extraction with Zero Training</h2>
+                    <ul>
+                        <li>Automatically extracts data from documents without requiring prior training on specific
+                            formats. </li>
 
-                            <li>It leverages pre-trained models and advanced AI algorithms to understand various
-                                document types, enabling it to recognize and extract relevant entities directly. </li>
+                        <li>It leverages pre-trained models and advanced AI algorithms to understand various
+                            document types, enabling it to recognize and extract relevant entities directly. </li>
 
-                            <li>Enables quick and accurate data capture across various document types without manual
-                                configuration. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="zeroshot.png" />
-                    </div>
-                    <div class="feature-item" data-image="documentchat.jpg">
-                        <h2 class="feature-title">Real-Time Conversations in your Documents</h2>
-                        <ul>
-                            <li>This feature allows users to interact with their documents through a conversational
-                                interface. </li>
+                        <li>Enables quick and accurate data capture across various document types without manual
+                            configuration. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="zeroshot.png" />
+                </div>
+                <div class="feature-item" data-image="documentchat.jpg">
+                    <h2 class="feature-title">Real-Time Conversations in your Documents</h2>
+                    <ul>
+                        <li>This feature allows users to interact with their documents through a conversational
+                            interface. </li>
 
-                            <li>It makes it easy to ask questions and get quick insights from your documents without
-                                searching through them manually.</li>
+                        <li>It makes it easy to ask questions and get quick insights from your documents without
+                            searching through them manually.</li>
 
-                            <li>Enhances productivity by providing context-aware support directly in the document. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="documentchat.jpg" />
-                    </div>
+                        <li>Enhances productivity by providing context-aware support directly in the document. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="documentchat.jpg" />
+                </div>
+                <div class="feature-item" data-image="webhook2.jpg">
+                    <h2 class="feature-title">Seamless Integrations</h2>
+                    <ul>
+                        <li>Send data instantly to connected systems using APIs and webhooks, enabling real-time
+                            updates and efficient data flow.</li>
 
-                    <div class="feature-item" data-image="webhook2.jpg">
-                        <h2 class="feature-title">Seamless Integrations</h2>
-                        <ul>
-                            <li>Send data instantly to connected systems using APIs and webhooks, enabling real-time
-                                updates and efficient data flow.</li>
+                        <li>Easily integrate with existing platforms, allowing for a smooth connection that
+                            maintains workflow continuity without disruptions. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="webhook2.jpg" />
+                </div>
+                <div class="feature-item" data-image="documentchat.jpg">
+                    <h2 class="feature-title">Split Documents with Ease</h2>
+                    <ul>
+                        <li>Automatically separates multi-page documents into individual pages or sections based on
+                            predefined rules.</li>
 
-                            <li>Easily integrate with existing platforms, allowing for a smooth connection that
-                                maintains workflow continuity without disruptions. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="webhook2.jpg" />
-                    </div>
+                        <li>Streamline document processing by isolating relevant sections for faster analysis. </li>
 
-                    <div class="feature-item" data-image="documentchat.jpg">
-                        <h2 class="feature-title">Split Documents with Ease</h2>
-                        <ul>
-                            <li>Automatically separates multi-page documents into individual pages or sections based on
-                                predefined rules.</li>
+                        <li>Improves efficiency by ensuring that data extraction and handling are more organized and
+                            accurate. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="documentchat.jpg" />
+                </div>
+                <div class="feature-item" data-image="ocr2.jpg">
+                    <h2 class="feature-title">Maximizing Efficiency with OCR technology</h2>
+                    <ul>
+                        <li>Employs Optical Character Recognition (OCR) to extract text from scanned documents and
+                            images. </li>
 
-                            <li>Streamline document processing by isolating relevant sections for faster analysis. </li>
+                        <li>Ensures high accuracy even with challenging formats like handwritten text. </li>
 
-                            <li>Improves efficiency by ensuring that data extraction and handling are more organized and
-                                accurate. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="documentchat.jpg" />
-                    </div>
-                    <div class="feature-item" data-image="ocr2.jpg">
-                        <h2 class="feature-title">Maximizing Efficiency with OCR technology</h2>
-                        <ul>
-                            <li>Employs Optical Character Recognition (OCR) to extract text from scanned documents and
-                                images. </li>
+                        <li>Minimizes errors, enabling seamless data conversion for further processing. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="ocr2.jpg" />
+                </div>
+                <div class="feature-item" data-image="humaninloop.jpg">
+                    <h2 class="feature-title">Human in the loop</h2>
+                    <ul>
+                        <li>This allows users to review and correct extracted data before final approval. </li>
 
-                            <li>Ensures high accuracy even with challenging formats like handwritten text. </li>
+                        <li>It combines automation with human oversight to improve accuracy and overall quality of
+                            data processing. </li>
 
-                            <li>Minimizes errors, enabling seamless data conversion for further processing. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="ocr2.jpg" />
-                    </div>
-                    <div class="feature-item" data-image="humaninloop.jpg">
-                        <h2 class="feature-title">Human in the loop</h2>
-                        <ul>
-                            <li>This allows users to review and correct extracted data before final approval. </li>
+                        <li>Allowing users to intervene and correct data extraction if necessary, enhancing
+                            reliability. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="humaninloop.jpg" />
+                </div>
+                <div class="feature-item" data-image="security.png">
+                    <h2 class="feature-title">Advanced Encryption protocols for secure document handling</h2>
+                    <ul>
+                        <li>DocAcquire offers bank-grade security features to ensure the highest level of data
+                            protection.</li>
 
-                            <li>It combines automation with human oversight to improve accuracy and overall quality of
-                                data processing. </li>
+                        <li>Protects sensitive data during processing and storage using advanced encryption
+                            protocols. </li>
 
-                            <li>Allowing users to intervene and correct data extraction if necessary, enhancing
-                                reliability. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="humaninloop.jpg" />
-                    </div>
-                    <div class="feature-item" data-image="security.png">
-                        <h2 class="feature-title">Advanced Encryption protocols for secure document handling</h2>
-                        <ul>
-                            <li>DocAcquire offers bank-grade security features to ensure the highest level of data
-                                protection.</li>
-
-                            <li>Protects sensitive data during processing and storage using advanced encryption
-                                protocols. </li>
-
-                            <li>It also complies with industry standards and regulations to safeguard user information
-                                and maintain confidentiality. </li>
-                        </ul>
-                        <img class="feature-image-sm " src="security.png" />
-                    </div>
+                        <li>It also complies with industry standards and regulations to safeguard user information
+                            and maintain confidentiality. </li>
+                    </ul>
+                    <img class="feature-image-sm " src="security.png" />
                 </div>
             </div>
 
@@ -212,41 +210,44 @@
     <!-- customer reviews section -->
     <section id="customer-review" class="my-10 md:px-10 lg:px-20 lg:py-20 ">
         <div>
-            <h2 class="text-center text-3xl lg:text-5xl font-bold ">Our Customer Success</h2>
+            <h2 class="text-center text-3xl lg:text-5xl font-bold ">Our Overall Benefits</h2>
         </div>
 
-        <div class="md:my-7 grid grid-cols-1 md:grid-cols-3 gap-10 text-center reviews-container">
+        <!-- <div class="md:my-7 grid grid-cols-1 md:grid-cols-3 gap-10 text-center reviews-container">
             <div>
                 <h2>83%</h2>
-                <!-- <span>%</span> -->
                 <p>Reduction in manual effort</p>
             </div>
             <div>
                 <h2>85%</h2>
-                <!-- <span>%</span> -->
                 <p>Reduction in processing time</p>
             </div>
             <div>
                 <h2>65%</h2>
-                <!-- <span>%</span> -->
-                <p>Reduction in cost</p>
-            </div>
-        </div>
-        <!-- <div class="py-10 md:px-20 my-10 grid grid-cols-1 md:grid-cols-3 gap-10 text-center reviews-container">
-            <div>
-                <h2 class="counter" data-target="83">0</h2>
-                <p>Reduction in manual effort</p>
-            </div>
-            <div>
-                <h2 class="counter" data-target="85">0</h2>
-                <p>Reduction in processing time</p>
-            </div>
-            <div>
-                <h2 class="counter" data-target="65">0</h2>
                 <p>Reduction in cost</p>
             </div>
         </div> -->
 
+        <div class="md:my-7 grid grid-cols-1 md:grid-cols-3 gap-10 text-center reviews-container">
+            <div>
+                <h2 class="counter" data-target="83">0</h2>
+                <span>%</span>
+                <p>Reduction in manual effort</p>
+            </div>
+            <div>
+                <h2 class="counter" data-target="85">0</h2>
+                <span>%</span>
+                <p>Reduction in processing time</p>
+            </div>
+            <div>
+                <h2 class="counter" data-target="65">0</h2>
+                <span>%</span>
+                <p>Reduction in cost</p>
+            </div>
+        </div>
+        <div class="md:my-7">
+            <h2 class="text-center text-3xl lg:text-5xl font-bold ">Our Customer Success</h2>
+        </div>
         <div class="carousel">
             <div class="carousel-track-container">
                 <div class="carousel-track">

@@ -17,22 +17,99 @@ p,ul{
   position: relative;
 } */
 
-#feature-cards img{
+/* Features Overview Section */
+.features-overview-section {
+  padding: 50px 20px;
+}
+
+/* Features Overview Header */
+.features-overview-header {
+  /* padding-left: 20px; */
+  margin-bottom: 1.25rem; /* Equivalent to mb-5 */
+}
+
+.features-overview-header h2 {
+  font-size: 2rem; /* Equivalent to text-3xl */
+  line-height: 1.5; /* Equivalent to leading-normal */
+  /* text-align: left; */
+  text-align: center;
+}
+
+/* Features Overview Grid */
+.features-overview-grid {
+  padding-top: 1.5rem; /* Equivalent to pt-6 */
+  padding-left: 1.25rem;
+  padding-right: 1.25rem; /* Equivalent to px-5 */
+  width: 100%; /* Equivalent to w-full */
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* Equivalent to grid-cols-1 */
+  gap: 1.25rem; /* Equivalent to gap-5 */
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .features-overview-section {
+    padding: 2.5rem 2.5rem; /* Equivalent to md:px-10 md:py-10 */
+}
+.features-overview-header h2 {
+  text-align: center;
+}
+  .features-overview-grid {
+      grid-template-columns: repeat(3, 1fr); /* Equivalent to md:grid-cols-3 */
+  }
+}
+
+@media (min-width: 1024px) {
+  .features-overview-header h2 {
+    font-size: 3rem; /* Equivalent to lg:text-5xl */
+    line-height: 1.5; /* Equivalent to lg:leading-normal */
+}
+  .features-overview-grid {
+      grid-template-columns: repeat(4, 1fr); /* Equivalent to lg:grid-cols-4 */
+  }
+}
+@media (min-width:2000px) {
+  .features-overview-grid {
+    grid-template-columns: repeat(6, 1fr); /* Equivalent to lg:grid-cols-4 */
+}
+}
+
+
+.card-container {
+  padding: 2rem; /* equivalent to p-8 */
+  border-radius: 0.5rem; /* rounded-lg */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  transition: transform 0.3s, box-shadow 0.3s; /* transition-transform duration-300 */
+}
+
+.card-container:hover {
+  transform: translateY(-0.5rem); /* hover:-translate-y-2 */
+  box-shadow: 0px 4px 20px #fd4539; /* hover:shadow-[0px_4px_20px_#fd4539] */
+}
+
+.card-image {
   height: 55px;
   align-items: center;
   margin: 0px auto;
 }
-/* #feature-image {
-  max-width: 80%;
-  height: 80vh;
-  object-fit: contain;
-} */
+.card-title {
+  padding-top: 1.25rem; /* pt-5 */
+  font-weight: bold; /* font-bold */
+  font-size: 1.125rem; /* text-lg */
+}
+.card-text {
+  padding-top: 1.25rem; /* py-5 */
+  font-size: 0.875rem; /* text-sm */
+  color: #6b7280; /* text-gray-500 */
+}
+
+/* ============== */
 .features-section{
   margin: 64px 0px;
 }
-.features-content{
+.features-list{
   width: 100%;
-  padding:0px 30px;
+  padding:0px 40px;
 }
 .features-image{
   display: none;
@@ -59,6 +136,7 @@ margin-bottom: 24px;
 padding-bottom: 24px;
 border-bottom-width: 2px;
 text-align: center;
+/* text-align: left; */
 }
 
 .feature-item ul{
@@ -79,6 +157,7 @@ list-style-type: disc;
   margin-top: 32px;
   margin-bottom: 16px;
 }
+
 /* 
  @media (min-width:576px) {
 
@@ -95,15 +174,17 @@ list-style-type: disc;
   .features-list{
       width: 41.666667%;
       height: min-content;
-  }
-  .features-content{
-      width: 100%;
       padding-left: 2.5rem;/*40px*/
   }
   .feature-title {
       text-align: left;
-      font-size: 2.25rem; /* 36px */
-      line-height: 2.5rem; /* 40px */   
+      font-size: 45px;
+      line-height: normal;
+      border:none;
+      /* font-size: 2.25rem;  */
+      /* 36px */
+      /* line-height: 2.5rem; */
+       /* 40px */   
     }
     /* img for sm screen */
   .feature-image-sm{
@@ -127,12 +208,6 @@ list-style-type: disc;
     align-items: center;
     justify-content: center;
   }
-  #feature-image {
-    max-width: 80%;
-    height: 80vh;
-    object-fit: contain;
-  }
-
   .feature-item {
     height: 100vh;/* Makes each feature fill most of the viewport*/
     margin-bottom: 2rem;
@@ -183,11 +258,14 @@ list-style-type: disc;
   transition-duration: 300ms;
 }
 .reviews-container div:hover{
-  transform: translateY(-20px);
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
+  /* transform: translateY(-20px); */
+  transform: translateY(-0.5rem);
+  /* box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); */
+  box-shadow: 0px 4px 20px #fd4539;
+
 }
 .reviews-container h2{
-  font-size: 80px;
+  font-size: 90px;
   font-weight: 700;
   display: inline-block;
   line-height: 0.9;
@@ -291,12 +369,11 @@ list-style-type: disc;
   padding-top: 15px;
   color: #666;
 }
-
-/* .counter {
+.counter {
   font-size: 2.5rem;
   font-weight: bold;
   color: #000;
-} */
+}
 
 
 @media (max-width: 640px) {
