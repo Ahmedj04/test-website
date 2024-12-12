@@ -244,22 +244,31 @@ list-style-type: disc;
 @media (min-width:1200px) {}
 
 
-
-
 /* Allow scrolling within the section */
 /* .scrollable-section {
   scrollbar-width: none; 
 }    */
 
-/* #customer-review{
-  box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25);
-  border-radius: 20px;
-  margin:0px 80px;
-} */
- .reviews-container{
-  padding: 40px;
- }
-.reviews-container div{
+
+/* Benefits Section Styles */
+#benefits-section {
+  margin-top: 2.5rem; /* Equivalent to my-10 in Tailwind */
+  margin-bottom: 2.5rem;
+  padding: 0px 20px;
+}
+.benefit-section-header h2{
+  text-align: center;
+  font-size: 2rem; /* text-3xl */
+  font-weight: bold;
+}
+.benefits-list {
+  padding: 40px 20px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr); /* grid-cols-1 */
+  gap: 2.5rem; /* gap-10 */
+  text-align: center;
+}
+.benefits-list div{
   border-radius: 1rem; /* 16px */
   padding: 35px 0px;
   height: 290px;
@@ -270,30 +279,64 @@ list-style-type: disc;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
 }
-.reviews-container div:hover{
-  /* transform: translateY(-20px); */
+.benefits-list div:hover{
   transform: translateY(-0.5rem);
-  /* box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); */
   box-shadow: 0px 4px 20px #fd4539;
-
 }
-.reviews-container h2{
-  font-size: 90px;
+.counter{
+  font-size: 60px;
   font-weight: 700;
   display: inline-block;
-  line-height: 0.9;
+  line-height: normal;
 }
-.reviews-container span{
+.benefits-list span{
   font-size: 24px;
   font-weight: 500;
   margin:auto;
   color: #fd4539;
   vertical-align: top;
 }
-.reviews-container p{
+.benefits-list p{
   font-size: 20px;
-  padding-top: 25px;
+  padding: 25px 15px 0px;
   color: #666;
+}
+
+@media (min-width:768px) {
+  .benefits-section {
+    padding-left: 2.5rem;  /* md:px-10 */
+    padding-right: 2.5rem; /* md:px-10 */
+  }
+  .benefits-list {
+     margin-top: 1.75rem; /* md:my-7 */
+    grid-template-columns: repeat(3, 1fr); /* md:grid-cols-3 */
+}
+  .benefits-list h2{
+    font-size: 90px;
+  }
+}
+@media (min-width: 1024px) {
+  .benefits-section {
+      padding-left: 5rem;  /* lg:px-20 */
+      padding-right: 5rem; /* lg:px-20 */
+      padding-top: 5rem;   /* lg:py-20 */
+      padding-bottom: 5rem; /* lg:py-20 */
+  }
+  .benefit-section-header h2 {
+    font-size: 3rem; /* lg:text-5xl */
+  }
+}
+
+/* review section */
+#review-section {
+  margin-top: 2.5rem;
+  margin-bottom: 2.5rem;
+  padding: 0px 5px;
+}
+.review-section-header h2{
+  text-align: center;
+  font-size: 2rem; 
+  font-weight: bold;
 }
 
 /* carousel styles */
@@ -309,12 +352,11 @@ list-style-type: disc;
 }
 .carousel-item {
   min-width: 100%;
-  /* box-sizing: border-box; */
-  /* text-align: center; */
   padding: 30px;
-  /* background-color: #ddd; */
-  /* border-right: 1px solid red; */
   font-size: 1.5em;
+  display: grid;
+  grid-template-columns: 1fr; 
+  gap: 2.5rem; 
   color: #333;
 }
 .carousel-indicators {
@@ -324,7 +366,7 @@ list-style-type: disc;
   gap: 10px; /* Space between dots */
   margin-top: 20px;
   position: absolute;
-  bottom: 10px;
+  bottom: 5px;
   left: 0;
   right: 0;
 }
@@ -340,11 +382,12 @@ list-style-type: disc;
 .carousel-indicators button.active {
   background-color: #333; /* Active dot color */
 }
+
 .client-review-container{
-  padding: 40px;
+  border-radius: 1rem;
+  padding: 40px 40px 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
 }
-
 .client-logo{
   padding-bottom: 20px;
 }
@@ -353,7 +396,7 @@ list-style-type: disc;
   margin: 0px auto;
 }
 .client-review p{
-  font-size: 24px; 
+  font-size: 15px; 
   text-align: center;
 }
 .client-name {
@@ -361,68 +404,95 @@ list-style-type: disc;
   text-align: center;
 }
 .client-name p {
-  font-size: 17px;
+  font-size: 15px;
   font-weight: 700;
-}
-.client-rating-sm{
-  display: none;
 }
 .client-rating{
-  display: block;
-  align-content: center;
-  text-align: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-}
-.client-rating h2{
-  font-size: 100px;
-  font-weight: 700;
-}
-.client-rating p{
-  font-size: 20px;
-  padding-top: 15px;
-  color: #666;
-}
-.counter {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: #000;
-}
+  display: none;
+ }
+ .client-rating-sm{
+   display: block;
+   align-content: center;
+   text-align: center;
+   padding: 20px;
+   border-radius: 1rem; /* 16px */
+ }
+ .client-rating-sm h2{
+   font-size: 50px;
+   font-weight: 700;
+ }
+ .client-rating-sm span{
+   width: 60%;
+   display: block;
+   margin: 10px auto;
+   height: 1px;
+   border: solid 1px gray;
+ }
+ .client-rating-sm p{
+   padding-top: 15px;
+   font-size: 17px;
+   color: #666;
+ }
 
-
-@media (max-width: 640px) {
-  .reviews-container h2{
-    font-size: 60px;
-    line-height: normal;
+@media (min-width: 768px) {
+  .review-section {
+      padding-left: 2.5rem;  
+      padding-right: 2.5rem;
+  }
+  .review-section-header{
+    margin-top: 1.75rem; 
+  }
+  .review-section-header h2{
+    font-size: 3rem; 
+  }
+  .carousel-item {
+    margin-top: 2.5rem;
+    margin-bottom: 2.5rem;
   }
   .client-review-container{
-    padding: 40px 40px 20px;
+    padding: 40px;
   }
-  .client-review-container p{
-    font-size: 15px;
+  .client-review p{
+    font-size: 24px; 
   }
-  .client-rating{
-   display: none;
+  .client-name p {
+    font-size: 17px;
   }
-  .client-rating-sm{
-    display: block;
-    align-content: center;
-    text-align: center;
-    padding: 20px 20px 0px;
-  }
-  .client-rating-sm h2{
-    font-size: 50px;
-    font-weight: 700;
-  }
-  .client-rating-sm span{
-    width: 60%;
-    display: block;
-    margin: 10px auto;
-    height: 1px;
-    border: solid 1px gray;
-  }
-  .client-rating-sm p{
-    padding-top: 15px;
-    color: #666;
+  .carousel-item {
+    padding: 30px 90px;
   }
   
+}
+
+@media (min-width: 1024px) {
+  .review-section {
+      padding-left: 5rem;  /* lg:px-20 */
+      padding-right: 5rem; /* lg:px-20 */
+      padding-top: 5rem;   /* lg:py-20 */
+      padding-bottom: 5rem; /* lg:py-20 */
+  }
+  .carousel-item {
+    padding: 30px 90px;
+    grid-template-columns: repeat(2, 1fr); /* lg:grid-cols-2 */
+  }
+    .client-rating-sm{
+      display: none;
+    }
+    .client-rating{
+      display: block;
+      align-content: center;
+      text-align: center;
+      padding: 40px;
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+      border-radius: 1rem; /* 16px */
+    }
+    .client-rating h2{
+      font-size: 100px;
+      font-weight: 700;
+    }
+    .client-rating p{
+      font-size: 20px;
+      padding-top: 15px;
+      color: #666;
+    }
 }
