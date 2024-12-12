@@ -7,6 +7,11 @@ h1, h2, h3, h4, h5, h6 {
 p,ul{
   font-family: 'Roboto', sans-serif;
 }
+*{
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
 
 /* .features-container {
   width: 80%;
@@ -101,6 +106,7 @@ p,ul{
   padding-top: 1.25rem; /* py-5 */
   font-size: 0.875rem; /* text-sm */
   color: #6b7280; /* text-gray-500 */
+  /* line-height: 1.5; */
 }
 
 /* ============== */
@@ -134,7 +140,7 @@ line-height: 2.25rem; /* 36px */
 font-weight: 700;
 margin-bottom: 24px;
 padding-bottom: 24px;
-border-bottom-width: 2px;
+border-bottom: 0.1px solid #fd4539;
 text-align: center;
 /* text-align: left; */
 }
@@ -156,6 +162,8 @@ list-style-type: disc;
 .feature-image-sm{
   margin-top: 32px;
   margin-bottom: 16px;
+  max-width: 100%;
+  height: auto;
 }
 
 /* 
@@ -175,6 +183,13 @@ list-style-type: disc;
       width: 41.666667%;
       height: min-content;
       padding-left: 2.5rem;/*40px*/
+  }
+  .feature-item {
+    height: 100vh;/* Makes each feature fill most of the viewport*/
+    margin-bottom: 2rem;
+    text-align: center;
+    align-content: center;
+    padding: 1rem;
   }
   .feature-title {
       text-align: left;
@@ -208,13 +223,11 @@ list-style-type: disc;
     align-items: center;
     justify-content: center;
   }
-  .feature-item {
-    height: 100vh;/* Makes each feature fill most of the viewport*/
-    margin-bottom: 2rem;
-    text-align: center;
-    align-content: center;
-    padding: 1rem;
+  #feature-image{
+   width: 75%;
+   /* height: auto; */
   }
+  
 }
 
 @media (min-width:992px) {
