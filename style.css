@@ -52,6 +52,11 @@ p,ul{
   text-align: center;
 }
 
+@media (min-width:576px) {
+  .features-overview-grid {
+    grid-template-columns: repeat(3, 1fr); /* Equivalent to md:grid-cols-3 */
+}
+}
 @media (min-width: 768px) {
   .features-overview-section {
     padding: 2.5rem 2.5rem; /* Equivalent to md:px-10 md:py-10 */
@@ -160,8 +165,7 @@ list-style-type: disc;
 
 }
 .feature-image-sm{
-  margin-top: 32px;
-  margin-bottom: 16px;
+  margin: 32px auto 16px;
   max-width: 100%;
   height: auto;
 }
