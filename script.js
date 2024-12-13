@@ -313,7 +313,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const speed = 80; // Adjust this value to control the speed of the count-up animation
 
   const countUp = (counter) => {
-      const target = +counter.getAttribute('data-target');
+      const target = +counter.getAttribute('data-target'); //The + operator in front of counter.getAttribute('data-target') is a unary plus operator. It attempts to convert the value into a number.
       const updateCount = () => {
           const current = +counter.innerText;
           const increment = Math.ceil(target / speed);
