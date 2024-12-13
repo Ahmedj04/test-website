@@ -4,7 +4,7 @@ const imageElement = document.getElementById('feature-image');
 // const featuresContainer = document.querySelector('.features-container');
 
 // Create an IntersectionObserver to observe each feature item within the list
-const observer = new IntersectionObserver(entries => {
+const featureItemObserver = new IntersectionObserver(entries => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             const newImage = entry.target.getAttribute('data-image');
@@ -20,7 +20,7 @@ const observer = new IntersectionObserver(entries => {
 
 // Observe each feature item
 document.querySelectorAll('.feature-item').forEach(item => {
-    observer.observe(item);
+  featureItemObserver.observe(item);
 });
 
 // function isSectionFullyVisible(element) {
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', () => {
       updateCount();
   };
 
-  const observer = new IntersectionObserver(
+  const counterObserver = new IntersectionObserver(
       (entries, observer) => {
           entries.forEach((entry) => {
               if (entry.isIntersecting) {
@@ -341,6 +341,6 @@ document.addEventListener('DOMContentLoaded', () => {
       { threshold: 0.5 } // Trigger when 50% of the element is visible
   );
 
-  counters.forEach((counter) => observer.observe(counter));
+  counters.forEach((counter) => counterObserver.observe(counter));
 });
 
