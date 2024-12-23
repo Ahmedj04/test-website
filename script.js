@@ -344,3 +344,7 @@ document.addEventListener('DOMContentLoaded', () => {
   counters.forEach((counter) => counterObserver.observe(counter));
 });
 
+
+
+
+test 2
