@@ -409,10 +409,14 @@ list-style-type: disc;
 }
 .client-logo{
   padding-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .client-logo img{
   height:50px;
-  margin: 0px auto;
+  max-width: 100%;
+  
 }
 .client-review p{
   font-size: 15px; 
