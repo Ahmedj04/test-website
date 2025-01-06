@@ -498,24 +498,30 @@ list-style-type: disc;
     padding: 30px 90px;
     grid-template-columns: repeat(2, 1fr); /* lg:grid-cols-2 */
   }
-    .client-rating-sm{
-      display: none;
-    }
-    .client-rating{
-      display: block;
-      align-content: center;
-      text-align: center;
-      padding: 40px;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-      border-radius: 1rem; /* 16px */
-    }
-    .client-rating h2{
-      font-size: 100px;
-      font-weight: 700;
-    }
-    .client-rating p{
-      font-size: 20px;
-      padding-top: 15px;
-      color: #666;
-    }
+  .client-review p{
+    line-height: 1.5;
+  }
+  .client-name p{
+    line-height: 1.5;
+  }
+  .client-rating-sm{
+    display: none;
+  }
+  .client-rating{
+    display: block;
+    align-content: center;
+    text-align: center;
+    padding: 40px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    border-radius: 1rem; /* 16px */
+  }
+  .client-rating h2{
+    font-size: 100px;
+    font-weight: 700;
+  }
+  .client-rating p{
+    font-size: 20px;
+    padding-top: 15px;
+    color: #666;
+  }
 }
