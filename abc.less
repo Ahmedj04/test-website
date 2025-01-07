@@ -19701,3 +19701,73 @@ h2 {
         color: #666;
     }
 }
+
+// zero-shot-page css
+.section-header{
+    margin-top: 50px;
+    padding: 0 20px;
+    text-align: center;
+
+    h2{
+        padding-bottom: 10px;
+    }
+}
+
+// why choose docacquire section
+.why-docacquire-header{
+    margin-top: 100px;
+    padding: 0 20px;
+    text-align: center;
+
+    h2{
+        padding-bottom: 10px;
+        line-height: 1.5;
+    }
+    .why-docacquire{
+        display: flex;
+        // grid-template-columns: repeat(1, 1fr);
+        text-align: left;
+        flex-direction: column-reverse;
+
+        .product-content-block{
+            padding-top: 20px;
+            
+            ul{
+                padding-left: 25px;
+            }
+        }
+
+        .product-banner-image{
+            max-width: 100%;
+
+            img{
+                width: 100%;
+            }
+        }   
+    }
+}
+@media (min-width: 1024px) {
+
+    .why-docacquire{
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 30px !important;
+        padding-bottom: 30px;
+
+        .product-content-block{
+           flex: 1;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           padding-top: 0px;
+        }
+
+        .product-banner-image{
+            flex: 1;
+        }   
+    }
+     /* Apply alternating layout for even child elements */
+     .why-docacquire:nth-child(odd) {
+        flex-direction: row-reverse !important;
+    }
+}

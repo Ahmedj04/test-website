@@ -16180,3 +16180,59 @@ Contact Us */
     color: #666;
   }
 }
+.section-header {
+  margin-top: 50px;
+  padding: 0 20px;
+  text-align: center;
+}
+.section-header h2 {
+  padding-bottom: 10px;
+}
+.why-docacquire-header {
+  margin-top: 100px;
+  padding: 0 20px;
+  text-align: center;
+}
+.why-docacquire-header h2 {
+  padding-bottom: 10px;
+  line-height: 1.5;
+}
+.why-docacquire-header .why-docacquire {
+  display: flex;
+  text-align: left;
+  flex-direction: column-reverse;
+}
+.why-docacquire-header .why-docacquire .product-content-block {
+  padding-top: 20px;
+}
+.why-docacquire-header .why-docacquire .product-content-block ul {
+  padding-left: 25px;
+}
+.why-docacquire-header .why-docacquire .product-banner-image {
+  max-width: 100%;
+}
+.why-docacquire-header .why-docacquire .product-banner-image img {
+  width: 100%;
+}
+@media (min-width: 1024px) {
+  .why-docacquire {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 30px !important;
+    padding-bottom: 30px;
+  }
+  .why-docacquire .product-content-block {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-top: 0px;
+  }
+  .why-docacquire .product-banner-image {
+    flex: 1;
+  }
+  /* Apply alternating layout for even child elements */
+  .why-docacquire:nth-child(odd) {
+    flex-direction: row-reverse !important;
+  }
+}
