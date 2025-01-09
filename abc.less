@@ -19223,7 +19223,6 @@ h2 {
 }
 
 .card-text {
-    padding-top: 1.25rem;
     font-size: 0.875rem;
     color: #6b7280;
     line-height: 1.5;
@@ -19703,20 +19702,9 @@ h2 {
 }
 
 // zero-shot-page css
-.section-header{
+// what is ZSE section style
+.what-is-zse{
     margin-top: 50px;
-    padding: 0 20px;
-    text-align: center;
-
-    h2{
-        padding-bottom: 10px;
-    }
-}
-
-// why choose docacquire section
-.why-docacquire-section{
-    margin-top: 100px;
-    margin-bottom: 50px;
     padding: 0 20px;
     text-align: center;
 
@@ -19724,59 +19712,23 @@ h2 {
         padding-bottom: 10px;
         line-height: 1.5;
     }
-    .why-docacquire{
-        display: flex;
-        // grid-template-columns: repeat(1, 1fr);
-        text-align: left;
-        flex-direction: column-reverse;
-
-        .product-content-block{
-            padding-top: 20px;
-            
-            ul{
-                padding-left: 25px;
-            }
-        }
-
-        .product-banner-image{
-            max-width: 100%;
-
-            img{
-                width: 100%;
-            }
-        }   
-    }
 }
-@media (min-width: 1024px) {
-
-    .why-docacquire{
-        display: flex !important;
-        flex-direction: row !important;
-        gap: 30px !important;
-        padding-bottom: 30px;
-
-        .product-content-block{
-           flex: 1;
-           display: flex;
-           flex-direction: column;
-           justify-content: center;
-           padding-top: 0px;
+@media (min-width: 768px) {
+   .what-is-zse{
+        p{
+            width: 70%;
+            margin: 0 auto;
         }
+   }
 
-        .product-banner-image{
-            flex: 1;
-        }   
-    }
-     /* Apply alternating layout for even child elements */
-     .why-docacquire:nth-child(odd) {
-        flex-direction: row-reverse !important;
-    }
 }
 
+// how ZSE works section style
 .how-zse-works{
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
+    padding: 0 20px;
 
     h2{
         padding-bottom: 10px;
@@ -19891,5 +19843,162 @@ h2 {
 @media (min-width: 1200px) {
     .zse-work-block{
         gap:20px;
+    }
+}
+
+// book ZSE demo section style
+.book-demo-zse{
+    display: flex;
+    align-items: center;
+    
+    .call_to_action{
+        margin-top: 0px;
+    }
+}
+@media (min-width: 768px) {
+    .book-demo-zse{
+        height: 50vh;
+    }
+}
+
+// why choose docacquire ZSE section style
+.why-docacquire-section{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 0 20px;
+    text-align: center;
+
+    h2{
+        padding-bottom: 10px;
+        line-height: 1.5;
+    }
+    .why-docacquire{
+        display: flex;
+        text-align: left;
+        flex-direction: column-reverse;
+
+        .product-content-block{
+            padding-top: 20px;
+            
+            ul{
+                padding-left: 25px;
+            }
+        }
+
+        .product-banner-image{
+            max-width: 100%;
+
+            img{
+                width: 100%;
+            }
+        }   
+    }
+}
+@media (min-width: 1024px) {
+
+    .why-docacquire{
+        display: flex !important;
+        flex-direction: row !important;
+        gap: 30px !important;
+        padding-bottom: 30px;
+
+        .product-content-block{
+           flex: 1;
+           display: flex;
+           flex-direction: column;
+           justify-content: center;
+           padding-top: 0px;
+        }
+
+        .product-banner-image{
+            flex: 1;
+        }   
+    }
+     /* Apply alternating layout for even child elements */
+     .why-docacquire:nth-child(odd) {
+        flex-direction: row-reverse !important;
+    }
+}
+
+// ZSE use cases section style
+.use-cases{
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 0 20px;
+    h2{
+        padding-bottom: 10px;
+        line-height: 1.5;
+    }
+    
+    .use-case-list{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        gap: 1.25rem;
+    }
+}
+@media (min-width: 768px) {
+    .use-case-list{
+        grid-template-columns: repeat(3, 1fr) !important;
+    }
+}
+
+// ZSE faq section style
+.faq-container {
+    margin-top: 100px;
+    margin-bottom: 50px;
+    padding: 20px;
+
+    h2{
+        text-align: center;
+        line-height: 1.5;
+    }
+
+    .faq-list{
+        margin: auto;
+
+        details {
+            border-bottom: 1px solid #ddd;
+            margin-bottom: 10px;
+        }
+
+        summary {
+            padding: 15px;
+            cursor: pointer;
+            font-size: 18px;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            transition: 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-answer {
+            padding: 15px;
+            background: #fff;
+            font-size: 16px;
+        }
+
+        summary::after {
+            content: '+';
+            font-size: 20px;
+            font-weight: bold;
+        }
+
+        details[open] summary::after {
+            content: '-';
+        }
+    }
+}
+@media (min-width: 768px) {
+    .faq-list{
+        width: 80%;
+    }
+}
+@media (min-width: 1024px) {
+    .faq-list{
+        width: 70%;
     }
 }
