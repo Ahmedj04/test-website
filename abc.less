@@ -19201,7 +19201,8 @@ h2 {
 .card-container {
     padding: 2rem;
     border-radius: 0.5rem;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 36px -2px rgba(0, 0, 0, 0.15);
     transition: transform 0.3s, box-shadow 0.3s;
 }
 
@@ -19703,7 +19704,7 @@ h2 {
 
 // zero-shot-page css
 // what is ZSE section style
-.what-is-zse{
+.what-is-feature-description{
     margin-top: 50px;
     padding: 0 20px;
     text-align: center;
@@ -19714,7 +19715,7 @@ h2 {
     }
 }
 @media (min-width: 768px) {
-   .what-is-zse{
+   .what-is-feature-description{
         p{
             width: 70%;
             margin: 0 auto;
@@ -19724,7 +19725,72 @@ h2 {
 }
 
 // how ZSE works section style
-.how-zse-works{
+// .how-feature-works{
+//     text-align: center;
+//     margin-top: 100px;
+//     margin-bottom: 50px;
+//     padding: 0 20px;
+
+//     h2{
+//         padding-bottom: 10px;
+//         line-height: 1.5;
+
+//     }
+
+//     .work-wrapper{
+//         border: 1px solid #d6d8e0;
+//         border-radius: 16px;
+//         text-align: left;
+
+//         .work-block{
+//             padding: 25px;
+//         }
+
+//         .step-wrapper{
+//             padding-bottom:10px ;
+//         }
+
+//         .work-block.first{
+//             border: none; 
+//             border-bottom: 1px solid #d6d8e0;
+
+//         }
+//         .work-block.last{
+//             border: none; 
+//             border-top: 1px solid #d6d8e0;
+//         }
+
+//         .work-title-block{
+//             display: flex;
+//             gap: 25px;
+//             align-items: center;
+//             margin-bottom: 20px;
+
+//             h4{
+//                 margin-bottom: 0;
+//             }
+//         }
+//     }
+// }
+
+// @media (min-width: 768px) {
+//     .work-wrapper{
+//         display: flex;
+//         margin-top: 50px;
+
+//         .work-block.first{
+//             border: none !important; 
+//             border-right: 1px solid #d6d8e0 !important;
+
+//         }
+//         .work-block.last{
+//             border: none !important; 
+//             border-left: 1px solid #d6d8e0 !important;
+//         }
+//     }
+// }
+// ============== new style 
+.how-feature-works{
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
@@ -19733,104 +19799,54 @@ h2 {
     h2{
         padding-bottom: 10px;
         line-height: 1.5;
+
     }
-
-    .work-wrapper{
-        border: 1px solid #d6d8e0;
-        border-radius: 16px;
+    .feature-work-block{
+        margin-top: 50px;
         text-align: left;
-
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    
         .work-block{
             padding: 25px;
-        }
-
-        .step-wrapper{
-            padding-bottom:10px ;
-        }
-
-        .work-block.first{
-            border: none; 
-            border-bottom: 1px solid #d6d8e0;
-
-        }
-        .work-block.last{
-            border: none; 
-            border-top: 1px solid #d6d8e0;
-        }
-
-        .work-title-block{
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            margin-bottom: 20px;
-
-            h4{
-                margin-bottom: 0;
+            border: 1px solid #d6d8e0;
+            border-radius: 16px;
+            // box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+            box-shadow: 0px 0px 36px -2px rgba(0, 0, 0, 0.15);
+            transition-property: transform;
+            transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+            transition-duration: 300ms;
+    
+            .step{
+                padding-bottom: 20px;
             }
+    
+            .work-title-block{
+                display: flex;
+                gap: 25px;
+                align-items: center;
+                margin-bottom: 20px;
+    
+                h4{
+                    margin-bottom: 0;
+                }
+            }
+    
+            &:hover{
+                transform: translateY(-0.5rem);
+                // box-shadow: 0px 4px 20px #fd4539;   
+            }
+        }  
+    
+        .work-block.first{
+            box-shadow: 0px 4px 20px #fd4539;
         }
     }
 }
 
 @media (min-width: 768px) {
-    .work-wrapper{
-        display: flex;
-        margin-top: 50px;
-
-        .work-block.first{
-            border: none !important; 
-            border-right: 1px solid #d6d8e0 !important;
-
-        }
-        .work-block.last{
-            border: none !important; 
-            border-left: 1px solid #d6d8e0 !important;
-        }
-    }
-}
-// ============== new style 
-.zse-work-block{
-    margin-top: 50px;
-    text-align: left;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-
-    .work-block{
-        padding: 25px;
-        border: 1px solid #d6d8e0;
-        border-radius: 16px;
-        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
-        transition-property: transform;
-        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-        transition-duration: 300ms;
-
-        .step{
-            padding-bottom: 20px;
-        }
-
-        .work-title-block{
-            display: flex;
-            gap: 25px;
-            align-items: center;
-            margin-bottom: 20px;
-
-            h4{
-                margin-bottom: 0;
-            }
-        }
-
-        &:hover{
-            transform: translateY(-0.5rem);
-            // box-shadow: 0px 4px 20px #fd4539;   
-        }
-    }  
-
-    .work-block.first{
-        box-shadow: 0px 4px 20px #fd4539;
-    }
-}
-@media (min-width: 768px) {
-    .zse-work-block{
+    .feature-work-block{
         flex-direction: row !important;
         justify-content: space-around;
         gap: 10px;
@@ -19841,13 +19857,13 @@ h2 {
     }
 }
 @media (min-width: 1200px) {
-    .zse-work-block{
+    .feature-work-block{
         gap:20px;
     }
 }
 
 // book ZSE demo section style
-.book-demo-zse{
+.book-demo-feature{
     display: flex;
     align-items: center;
     
@@ -19856,7 +19872,7 @@ h2 {
     }
 }
 @media (min-width: 768px) {
-    .book-demo-zse{
+    .book-demo-feature{
         height: 50vh;
     }
 }
