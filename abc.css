@@ -16404,6 +16404,9 @@ Contact Us */
   justify-content: space-between;
   align-items: center;
 }
+.faq-container .faq-list details[open] summary {
+  color: #fd4539;
+}
 .faq-container .faq-list .faq-answer {
   padding: 15px;
   background: #fff;
