@@ -15758,7 +15758,6 @@ Contact Us */
     padding-left: 0px;
   }
   .features-overview-header h2 {
-    text-align: center;
     font-size: 34px;
   }
   .features-overview-grid {
@@ -15941,9 +15940,12 @@ Contact Us */
   padding: 50px 20px;
 }
 .benefit-section-header h2 {
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 9px;
+  line-height: 32px;
   text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
+  text-transform: uppercase;
 }
 .benefits-list {
   padding: 40px 20px;
@@ -15958,8 +15960,7 @@ Contact Us */
   padding: 35px 0px;
   height: 290px;
   align-content: center;
-  /* box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); */
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 36px -2px rgba(0, 0, 0, 0.15);
   transition-property: transform;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   transition-duration: 300ms;
@@ -15991,6 +15992,9 @@ Contact Us */
     padding-left: 0px;
     padding-right: 0px;
   }
+  .benefit-section-header h2 {
+    font-size: 34px;
+  }
   .benefits-list {
     margin-top: 1.75rem;
     grid-template-columns: repeat(3, 1fr);
@@ -16002,18 +16006,20 @@ Contact Us */
 }
 @media (min-width: 1024px) {
   .benefit-section-header h2 {
-    font-size: 3rem;
+    line-height: 1.5;
   }
 }
 /* review section */
 #review-section {
-  /* padding: 0px 5px; */
   padding: 50px 20px;
 }
 .review-section-header h2 {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 9px;
+  line-height: 32px;
   text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
 }
 /* carousel styles */
 .carousel {
@@ -16024,7 +16030,7 @@ Contact Us */
 .carousel-track {
   display: flex;
   /* transition: transform 0.3s ease-in-out; */
-  width: calc(100% * (5+2));
+  width: calc(100% * (4+2));
 }
 .carousel-item {
   min-width: 100%;
@@ -16065,7 +16071,7 @@ Contact Us */
 .client-review-container {
   border-radius: 1rem;
   padding: 40px 40px 20px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+  box-shadow: 0px 0px 36px -2px rgba(0, 0, 0, 0.15);
 }
 .client-logo {
   padding-bottom: 20px;
@@ -16074,7 +16080,7 @@ Contact Us */
   align-items: center;
 }
 .client-logo img {
-  height: 50px;
+  height: 40px;
   max-width: 100%;
 }
 .client-review p {
@@ -16120,6 +16126,9 @@ Contact Us */
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
+  .review-section-header h2 {
+    font-size: 34px;
+  }
   .carousel-item {
     padding: 30px 40px;
     margin-top: 2.5rem;
@@ -16143,7 +16152,7 @@ Contact Us */
     padding-bottom: 5rem;
   }
   .review-section-header h2 {
-    font-size: 3rem;
+    line-height: 1.5;
   }
   .carousel-item {
     padding: 30px 20px;
@@ -16166,7 +16175,7 @@ Contact Us */
     align-content: center;
     text-align: center;
     padding: 40px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 0px 36px -2px rgba(0, 0, 0, 0.15);
     border-radius: 16px;
   }
   .client-rating h2 {
