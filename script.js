@@ -213,6 +213,14 @@ const dots = Array.from(document.querySelectorAll('.indicator'));
 
 // Update the carousel to show the current slide
 function updateCarousel() {
+ // If the current index goes below 0 (user moves left past the first slide),
+  // reset it to the second last item (excluding the duplicate last slide).
+  if (currentIndex < 0) currentIndex = allItems.length - 2;
+
+  // If the current index exceeds the total number of items (user moves right past the last slide),
+  // reset it to 1 (skipping the duplicate first slide for seamless looping).
+  if (currentIndex >= allItems.length) currentIndex = 1;
+
   track.style.transition = 'transform 0.9s ease-in-out';
   track.style.transform = `translateX(-${currentIndex * itemWidth}%)`;
 
