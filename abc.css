@@ -16334,13 +16334,18 @@ Contact Us */
   line-height: 1.5;
 }
 .use-cases .use-case-list {
-  display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  display: flex;
+  flex-direction: column;
   gap: 1.25rem;
 }
 @media (min-width: 768px) {
   .use-case-list {
-    grid-template-columns: repeat(3, 1fr) !important;
+    flex-wrap: wrap;
+    flex-direction: row !important;
+    justify-content: center;
+  }
+  .use-case-list .card-container {
+    width: 32%;
   }
 }
 .faq-container {

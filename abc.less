@@ -19948,15 +19948,21 @@ h2 {
     }
     
     .use-case-list{
-        display: grid;
-        grid-template-columns: repeat(1, 1fr);
+        display: flex;
+        flex-direction: column;
         gap: 1.25rem;
     }
 }
 @media (min-width: 768px) {
     .use-case-list{
-        grid-template-columns: repeat(3, 1fr) !important;
-    }
+        flex-wrap: wrap;
+        flex-direction: row !important;
+        justify-content: center;
+    
+        .card-container{
+            width: 32%;
+        }
+    }  
 }
 
 // ZSE faq section style
