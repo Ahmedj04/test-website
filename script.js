@@ -351,3 +351,20 @@ document.addEventListener('DOMContentLoaded', () => {
 
   counters.forEach((counter) => counterObserver.observe(counter));
 });
+
+// =========================
+// Show Use Case
+// =========================
+function showUseCase(useCase) {
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+  // Add active class to clicked button
+  event.currentTarget.classList.add('active');
+
+  // Hide all use-case details
+  document.querySelectorAll('.use-case-detail').forEach(detail => detail.classList.remove('active'));
+
+  // Show the selected use case
+  document.getElementById(useCase).classList.add('active');
+}
