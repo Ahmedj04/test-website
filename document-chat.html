@@ -24,7 +24,12 @@
 
     <section class="container what-is-feature-description">
         <h2>What is Document Chat?</h2>
-        <p>Document Chat is an innovative feature in DocAcquire that enables users to interact with their documents through a smart, conversational interface. Instead of manually searching through pages of information, users can type natural language queries, and the system will instantly analyze the document to provide accurate and contextually relevant answers. Whether dealing with contracts, invoices, research papers, or HR records, Document Chat simplifies information retrieval, reducing time spent on searching and improving overall efficiency.</p>
+        <p>Document Chat is an innovative feature in DocAcquire that enables users to interact with their documents
+            through a smart, conversational interface. Instead of manually searching through pages of information, users
+            can type natural language queries, and the system will instantly analyze the document to provide accurate
+            and contextually relevant answers. Whether dealing with contracts, invoices, research papers, or HR records,
+            Document Chat simplifies information retrieval, reducing time spent on searching and improving overall
+            efficiency.</p>
     </section>
 
     <section class="how-feature-works container">
@@ -35,26 +40,26 @@
                 <div class="step">STEP 1</div>
                 <div class="work-content-block">
                     <div class="work-title-block">
-                        <img src="assets/uploaddoc.gif"
-                            loading="lazy" alt="" width="50" class="work-icon">
+                        <img src="assets/uploaddoc.gif" loading="lazy" alt="" width="50" class="work-icon">
                         <!-- <img src="https://cdn.prod.website-files.com/602f5458a0b1d868c6c84d5b/64798aee11f453d9dd67a533_work-icon-1.svg"
                             loading="lazy" alt="" width="40" class="work-icon"> -->
                         <h4>Upload <br> Your Document</h4>
                     </div>
-                    <p>Drag and drop your file into the upload area or select a document from your computer. No need for complicated setups—just an easy, seamless upload process.</p>
+                    <p>Drag and drop your file into the upload area or select a document from your computer. No need for
+                        complicated setups—just an easy, seamless upload process.</p>
                 </div>
             </div>
             <div class="work-block">
                 <div class="step">STEP 2</div>
                 <div class="work-content-block">
                     <div class="work-title-block">
-                        <img src="assets/askqes.gif"
-                            loading="lazy" alt="" width="50" class="work-icon">
+                        <img src="assets/askqes.gif" loading="lazy" alt="" width="50" class="work-icon">
                         <!-- <img src="https://cdn.prod.website-files.com/602f5458a0b1d868c6c84d5b/64798cc7230dbbddbf925ba9_work-icon-2.svg"
                             loading="lazy" alt="" width="40" class="work-icon"> -->
                         <h4>Ask <br> Question(s)</h4>
                     </div>
-                    <p>Type your question in the chat interface and hit send. Want to know specific details, extract data, or summarize content? It’s all possible with our intuitive chat system.</p>
+                    <p>Type your question in the chat interface and hit send. Want to know specific details, extract
+                        data, or summarize content? It’s all possible with our intuitive chat system.</p>
                 </div>
             </div>
             <div class="work-block">
@@ -65,7 +70,8 @@
                             loading="lazy" alt="" width="40" class="work-icon">
                         <h4>Get <br> Answers</h4>
                     </div>
-                    <p> Instant answers—receive structured, actionable insights without any waiting or manual searches. Get clear, concise information at your fingertips instantly.</p>
+                    <p> Instant answers—receive structured, actionable insights without any waiting or manual searches.
+                        Get clear, concise information at your fingertips instantly.</p>
                 </div>
             </div>
         </div>
@@ -87,7 +93,8 @@
                 <h4>🧠 AI-Powered Understanding</h4>
                 <ul>
                     <li> Automatically detect and extract relevant information from any document. </li>
-                    <li>Uses advanced Natural Language Processing (NLP) for instant comprehension and accurate responses. </li>
+                    <li>Uses advanced Natural Language Processing (NLP) for instant comprehension and accurate
+                        responses. </li>
                 </ul>
 
             </div>
@@ -151,7 +158,7 @@
         </div>
     </section>
 
-    <section class="use-cases container">
+    <!-- <section class="use-cases container">
         <h2>Industry Wise Use-Cases</h2>
         <div class="use-case-list">
             <div class="card-container">
@@ -173,11 +180,87 @@
                 <h4 class="card-title">HR & Employee Records</h4>
                 <p class="card-text"> Retrieve specific employee details from HR documents. </p>
             </div>
-           
+
             <div class="card-container">
                 <img src="assets/research.png" class="card-image">
                 <h4 class="card-title">Reports & Research Papers</h4>
                 <p class="card-text">Summarize key findings without reading the entire document.</p>
+            </div>
+        </div>
+    </section> -->
+    
+    <section class="use-cases-dc container">
+        <h2>Enhance Efficiency with AI-Powered Document Processing</h2>
+
+        <div class="use-case-wrapper">
+            <!-- Tab Navigation -->
+            <div class="tab-menu">
+                <button class="tab-button active" onclick="showUseCase('legal')">Legal & Compliance</button>
+                <button class="tab-button" onclick="showUseCase('finance')">Finance & Invoicing</button>
+                <button class="tab-button" onclick="showUseCase('hr')">HR & Employee Records</button>
+                <button class="tab-button" onclick="showUseCase('research')">Reports & Research Papers</button>
+            </div>
+
+            <!-- Content Section -->
+            <div id="use-case-content" class="use-case-content">
+                <div id="legal" class="use-case-detail active">
+                    <img src="assets/legal.png" class="use-case-image">
+                    <h4>Review & manage legal documents efficiently</h4>
+                    <p>Manage legal documents efficiently with AI-powered insights. Quickly extract key contract terms,
+                        summarize case files, and ensure compliance with automated checks.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Instantly identify key terms, deadlines, and obligations in contracts.</li>
+                            <li>Simplify complex case files into easy-to-read summaries.</li>
+                            <li>Detect missing or unclear compliance requirements.</li>
+                            <li>Extract key dates, events, and evidence from litigation documents.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="finance" class="use-case-detail">
+                    <img src="assets/finance.png" class="use-case-image">
+                    <h4>Automate financial analysis & fraud detection</h4>
+                    <p>Streamline financial analysis by extracting essential data from reports, policies, and investment
+                        research. Detect fraud and ensure accurate decision-making with AI.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li> Analyze financial reports to find essential budget details.</li>
+                            <li> Summarize investment plans and market research.</li>
+                            <li> Highlight crucial rules and terms in policy documents.</li>
+                            <li> Identify anomalies and unusual patterns in audit reports for fraud detection.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="hr" class="use-case-detail">
+                    <img src="assets/hr.png" class="use-case-image">
+                    <h4>Enhance HR efficiency & employee management</h4>
+                    <p>Enhance HR operations by making policy documents more accessible, automating resume screening,
+                        and summarizing performance reviews effortlessly.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li> Clarify HR policies and answer employee queries instantly.</li>
+                            <li> Extract key onboarding details from training materials.</li>
+                            <li> Summarize performance reviews and feedback reports.</li>
+                            <li> Analyze resumes and highlight key qualifications for recruitment.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="research" class="use-case-detail">
+                    <img src="assets/research.png" class="use-case-image">
+                    <h4>Summarize & extract insights from reports</h4>
+                    <p>Quickly process reports and research papers with AI-driven summarization and data extraction.
+                        Gain key insights and answers in seconds.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li> Generate concise summaries of lengthy reports and papers.</li>
+                            <li> Extract important data, figures, and charts efficiently.</li>
+                            <li> Identify key insights and findings across multiple documents.</li>
+                            <li> Compare and cross-reference information between reports.</li>
+                            <li> Provide direct answers to specific queries from documents.</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -188,38 +271,51 @@
             <details>
                 <summary>1. Can Document Chat help me find specific clauses in legal contracts?</summary>
                 <div class="faq-answer">
-                    Yes, Document Chat can quickly retrieve specific clauses or sections from legal documents. Simply type a query like "What is the termination policy in this contract?" and get precise results instantly.
+                    Yes, Document Chat can quickly retrieve specific clauses or sections from legal documents. Simply
+                    type a query like "What is the termination policy in this contract?" and get precise results
+                    instantly.
                 </div>
             </details>
 
             <details>
                 <summary>2. How does Document Chat handle complex or large documents?</summary>
-                <div class="faq-answer">The AI is designed to scan and analyze extensive documents efficiently. It indexes content to provide quick responses without requiring users to sift through pages manually.</div>
+                <div class="faq-answer">The AI is designed to scan and analyze extensive documents efficiently. It
+                    indexes content to provide quick responses without requiring users to sift through pages manually.
+                </div>
             </details>
 
             <details>
                 <summary>3. Can I use Document Chat to compare multiple documents?</summary>
-                <div class="faq-answer">While Document Chat primarily focuses on single-document queries, you can upload multiple documents and ask specific questions about each. Future updates may include cross-document comparison capabilities.</div>
+                <div class="faq-answer">While Document Chat primarily focuses on single-document queries, you can upload
+                    multiple documents and ask specific questions about each. Future updates may include cross-document
+                    comparison capabilities.</div>
             </details>
 
             <details>
                 <summary>4. What happens if the AI doesn't find an answer to my question?</summary>
-                <div class="faq-answer">If the AI cannot find a direct answer, it provides the closest relevant content from the document. You can refine your query or rephrase the question for better results.</div>
+                <div class="faq-answer">If the AI cannot find a direct answer, it provides the closest relevant content
+                    from the document. You can refine your query or rephrase the question for better results.</div>
             </details>
 
             <details>
                 <summary>5. How does Document Chat improve productivity in my organization?</summary>
-                <div class="faq-answer">Document Chat reduces the time spent manually searching for information and allows teams to quickly access key insights without document deep-diving. It also streamlines workflows by integrating with existing document management systems.</div>
+                <div class="faq-answer">Document Chat reduces the time spent manually searching for information and
+                    allows teams to quickly access key insights without document deep-diving. It also streamlines
+                    workflows by integrating with existing document management systems.</div>
             </details>
 
             <details>
                 <summary>6. Is there a limit to the number of documents I can upload?</summary>
-                <div class="faq-answer">There are no strict limits, but performance may vary depending on document size and complexity. For large-scale usage, enterprise solutions are available with enhanced capabilities.</div>
+                <div class="faq-answer">There are no strict limits, but performance may vary depending on document size
+                    and complexity. For large-scale usage, enterprise solutions are available with enhanced
+                    capabilities.</div>
             </details>
 
             <details>
                 <summary>7. Can I train Document Chat to understand industry-specific terminology?</summary>
-                <div class="faq-answer">Yes, the AI learns from user interactions and can be customized for industry-specific use cases. Businesses can enhance performance by providing sample queries and documents.</div>
+                <div class="faq-answer">Yes, the AI learns from user interactions and can be customized for
+                    industry-specific use cases. Businesses can enhance performance by providing sample queries and
+                    documents.</div>
             </details>
         </div>
     </section>
@@ -235,6 +331,8 @@
         </div>
     </section>
 
+
+    <script src="script.js"></script>
 
 </body>
 

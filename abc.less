@@ -19938,6 +19938,7 @@ h2 {
 
 // ZSE use cases section style
 .use-cases{
+    display: block;
     margin-top: 100px;
     margin-bottom: 50px;
     text-align: center;
@@ -19951,6 +19952,11 @@ h2 {
         display: flex;
         flex-direction: column;
         gap: 1.25rem;
+
+        .card-text{
+            text-align: left;
+            padding-left: 20px;
+        }
     }
 }
 @media (min-width: 768px) {
@@ -19964,6 +19970,153 @@ h2 {
         }
     }  
 }
+
+// new use case style
+.use-cases-dc {    
+    display: block;
+    margin-top: 100px;
+    margin-bottom: 50px;
+    text-align: center;
+    padding: 0 20px;
+
+    h2{
+        padding-bottom: 10px;
+        line-height: 1.5;
+    }
+
+    .use-case-wrapper {
+
+        .tab-menu {
+            display: flex;
+            gap: 10px;
+            overflow-x: auto;
+            padding: 0 10px;
+            white-space: nowrap;
+            margin-bottom: 40px;
+        }
+        
+        .tab-button {
+            flex: 0 0 200px; /* Prevents shrinking */
+            min-width: 200px; /* Ensures width is respected */
+            padding: 10px;
+            border: none;
+            outline: none;
+            background-color: #f4f4f4;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .tab-button.active {
+            background: #fd4539;
+            color: #fff;
+            // color: #fd4539;
+        }
+        
+        .use-case-content {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+            // box-shadow: 0px 4px 20px #fd4539;
+            // max-width: 500px;
+            margin: auto;
+        
+            .use-case-detail {
+                display: none;
+            }
+            
+            .use-case-detail.active {
+                display: block;
+                width: 90%;
+
+                .use-case-image {
+                    height: 50px;
+                    margin-bottom: 20px;
+                }
+
+                h4{
+                    font-size: 28px;
+                    line-height: 1.5;
+                } 
+
+                p{
+                    text-align: left;
+                    font-size: 17px;
+                }
+
+                .use-case-list {
+                    text-align: center;
+                    margin: 0 auto;
+                    display: flex;
+                    justify-content: center;
+
+                    ul{
+                        text-align: left;
+                        padding-top: 20px;
+                        list-style-type: none;
+                        font-size: 17px;
+                        padding-left: 0;
+                        width: 100%;
+
+                        // li{
+                        //     padding-bottom: 20px;
+                        //     padding-left: 0px;
+                        //     display: flex;
+                        //     gap:10px;
+
+                        //     svg{
+                        //         width: 15px;
+                        //     }
+                        // }
+                        li {
+                            display: flex;
+                            align-items: center;
+                            gap: 10px;
+                            padding-bottom: 20px;
+                            padding-left: 0px;
+                        }
+                        
+                        li::before {
+                            content: "";
+                            width: 20px;
+                            height: 20px;
+                            padding-right: 20px;
+                            background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
+                            background-size: cover;
+                        }
+                    }
+                }
+
+            }    
+        }
+    }
+}
+@media (min-width: 768px) {       
+    .tab-button{
+        flex: none !important;
+    } 
+}
+
+@media (min-width: 1024px) {
+    .tab-menu{
+        gap: 20px !important;
+        justify-content: center;
+    }
+
+    .use-case-content {
+        width: 70% !important;
+
+        .use-case-list{
+            ul{
+                width: 80% !important;
+            }
+        }
+    }
+}
+
 
 // ZSE faq section style
 .faq-container {
