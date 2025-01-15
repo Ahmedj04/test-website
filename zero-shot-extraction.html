@@ -22,7 +22,7 @@
         </div>
     </section> -->
 
-    <section class="container what-is-feature-description">
+    <section class="container what-is-feature-description slide-up-fade-in">
         <h2>What is Zero Shot Extraction?</h2>
         <p>Zero-shot extraction is a natural language processing (NLP) technique that enables AI models to extract
             specific pieces of information from unstructured text without requiring prior training on labeled data for a
@@ -31,7 +31,7 @@
             instructions or prompts.</p>
     </section>
 
-    <section class="how-feature-works container">
+    <section class="how-feature-works container slide-up-fade-in">
         <h2>How DocAcquire’s <br> Zero Shot Extraction Works?</h2>
 
         <!-- <div class="work-wrapper">
@@ -101,8 +101,7 @@
                 <div class="step">STEP 2</div>
                 <div class="work-content-block">
                     <div class="work-title-block">
-                        <img src="assets/uploaddoc.gif"
-                            loading="lazy" alt="" width="50" class="work-icon">
+                        <img src="assets/uploaddoc.gif" loading="lazy" alt="" width="50" class="work-icon">
                         <!-- <img src="https://cdn.prod.website-files.com/602f5458a0b1d868c6c84d5b/64798aee11f453d9dd67a533_work-icon-1.svg"
                             loading="lazy" alt="" width="40" class="work-icon"> -->
                         <h4>Upload <br> Your Document(s)</h4>
@@ -132,12 +131,15 @@
         </div>
     </section>
 
-    <section class="why-docacquire-section container">
+    <section class="why-docacquire-section container slide-up-fade-in">
         <h2>Why choose Zero Shot Extraction</h2>
 
         <div class="why-docacquire">
             <div class="product-content-block">
-                <h4>🚀 No Predefined Templates</h4>
+                <div class="product-content-heading">
+                    <span>🚀</span>
+                    <h3> No Predefined Templates</h3>
+                </div>
                 <ul>
                     <li>Extract data from diverse document types without manual setup. </li>
                     <li>Start extracting data instantly, reducing onboarding time.</li>
@@ -151,7 +153,10 @@
         </div>
         <div class="why-docacquire">
             <div class="product-content-block">
-                <h4>🧠 AI-Powered Understanding</h4>
+                <div class="product-content-heading">
+                    <span>🧠</span>
+                    <h3> AI-Powered Understanding</h3>
+                </div>
                 <ul>
                     <li>Uses advanced NLP to detect and extract relevant information automatically.</li>
                     <li>Continuously improves accuracy and understanding through AI-driven learning.</li>
@@ -164,7 +169,10 @@
         </div>
         <div class="why-docacquire">
             <div class="product-content-block">
-                <h4>⚡ Instant Processing</h4>
+                <div class="product-content-heading">
+                    <span>⚡</span>
+                    <h3> Instant Processing</h3>
+                </div>
                 <ul>
                     <li>Upload your document and get structured data within seconds. </li>
                     <li>Accelerate workflows and make data-driven decisions faster. </li>
@@ -177,7 +185,10 @@
         </div>
         <div class="why-docacquire">
             <div class="product-content-block">
-                <h4>🌍 Multi-Language Support</h4>
+                <div class="product-content-heading">
+                    <span>🌍</span>
+                    <h3>Multi-Language Support</h3>
+                </div>
                 <ul>
                     <li>Extract data from documents in multiple languages effortlessly.</li>
                     <li>Process multilingual content within the same document.</li>
@@ -190,7 +201,10 @@
         </div>
         <div class="why-docacquire">
             <div class="product-content-block">
-                <h4>📄 Supports Multiple Document Types</h4>
+                <div class="product-content-heading">
+                    <span>📄</span>
+                    <h3>Supports Multiple Document Types</h3>
+                </div>
                 <ul>
                     <li>Effortlessly process highly structured forms, unstructured documents, or long reports.</li>
                     <li>Works with PDFs, scanned images, invoices, contracts, and more.</li>
@@ -205,7 +219,7 @@
 
     </section>
 
-    <section class="use-cases container">
+    <!-- <section class="use-cases container">
         <h2>Industry Wise Use-Cases</h2>
         <div class="use-case-list">
             <div class="card-container">
@@ -238,30 +252,134 @@
                 <p class="card-text">Automate bill of lading, shipping documents, and customs paperwork. </p>
             </div>
         </div>
+    </section> -->
+
+    <section class="use-cases container slide-up-fade-in">
+        <h2>Enhance Efficiency with AI-Powered Document Processing</h2>
+
+        <div class="use-case-wrapper">
+            <!-- Tab Navigation -->
+            <div class="tab-menu">
+                <button class="tab-button active" onclick="showUseCase('finance')">Finance & Accounting</button>
+                <button class="tab-button" onclick="showUseCase('hr')">Human Resources</button>
+                <button class="tab-button" onclick="showUseCase('legal')">Legal & Compliance</button>
+                <button class="tab-button" onclick="showUseCase('healthcare')">Healthcare</button>
+                <button class="tab-button" onclick="showUseCase('logistics')">Logistics & Supply Chain</button>
+            </div>
+
+            <!-- Content Section -->
+            <div id="use-case-content" class="use-case-content">
+                <div id="finance" class="use-case-detail active">
+                    <img src="assets/finance.png" class="use-case-image">
+                    <h4>Automate financial document processing with AI</h4>
+                    <p>Extract key financial details instantly from invoices, reports, and policies without predefined
+                        templates. Reduce manual effort and enhance accuracy in financial operations.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Capture invoice details such as amounts, due dates, and vendor info.</li>
+                            <li>Extract key financial insights from statements and reports.</li>
+                            <li>Identify crucial policy terms and compliance details automatically.</li>
+                            <li>Detect anomalies and potential fraud in audit documents.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="hr" class="use-case-detail">
+                    <img src="assets/hr.png" class="use-case-image">
+                    <h4>Streamline HR document handling effortlessly</h4>
+                    <p>Enhance HR efficiency by automatically extracting key details from resumes, policy documents, and
+                        performance reports without manual input.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Identify and extract essential resume details like experience and skills.</li>
+                            <li>Retrieve key policies and compliance rules from HR handbooks.</li>
+                            <li>Summarize performance reviews and appraisal feedback efficiently.</li>
+                            <li>Capture important onboarding details from training documents.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="legal" class="use-case-detail">
+                    <img src="assets/legal.png" class="use-case-image">
+                    <h4>Accelerate legal document review & compliance checks</h4>
+                    <p>Simplify contract analysis, case summarization, and compliance verification with AI-driven
+                        zero-shot extraction, reducing time spent on manual reviews.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Extract critical contract clauses, deadlines, and obligations instantly.</li>
+                            <li>Summarize legal case files into key insights within seconds.</li>
+                            <li>Identify missing or unclear compliance terms in documents.</li>
+                            <li>Retrieve relevant precedents or case references from legal archives.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="healthcare" class="use-case-detail">
+                    <img src="assets/healthcare.png" class="use-case-image">
+                    <h4>Enhance healthcare document processing with AI</h4>
+                    <p>Extract critical patient information, medical history, and treatment details from unstructured
+                        documents to improve accuracy and efficiency in healthcare workflows.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Capture patient details, diagnosis, and treatment history from records.</li>
+                            <li>Extract insurance and billing information automatically.</li>
+                            <li>Identify key research findings from medical reports and studies.</li>
+                            <li>Summarize discharge summaries and prescriptions efficiently.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div id="logistics" class="use-case-detail">
+                    <img src="assets/logistics.png" class="use-case-image">
+                    <h4>Optimize logistics & supply chain documentation</h4>
+                    <p>Improve supply chain efficiency by extracting essential details from invoices, shipping
+                        documents, and compliance records without predefined templates.</p>
+                    <div class="use-case-list">
+                        <ul>
+                            <li>Retrieve shipment details, tracking numbers, and delivery dates instantly.</li>
+                            <li>Extract key contract terms from supplier agreements and invoices.</li>
+                            <li>Identify missing or incorrect details in customs and compliance documents.</li>
+                            <li>Summarize warehouse reports and inventory data efficiently.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="faq-container container">
+    <section class="faq-container container slide-up-fade-in">
         <h2>Frequently Asked Questions</h2>
         <div class="faq-list">
             <details>
-                <summary>1. What is Zero-Shot Extraction, and how is it different from traditional data extraction?</summary>
-                <div class="faq-answer">Zero-Shot Extraction is a machine learning technique that allows data to be extracted from documents without the need for predefined templates, training, or manual configurations. Unlike traditional extraction methods that require labeled datasets and rule-based approaches, zero-shot extraction understands text contextually and can extract relevant data on the fly. This makes it incredibly flexible for businesses dealing with unstructured or varied document formats.</div>
+                <summary>1. What is Zero-Shot Extraction, and how is it different from traditional data extraction?
+                </summary>
+                <div class="faq-answer">Zero-Shot Extraction is a machine learning technique that allows data to be
+                    extracted from documents without the need for predefined templates, training, or manual
+                    configurations. Unlike traditional extraction methods that require labeled datasets and rule-based
+                    approaches, zero-shot extraction understands text contextually and can extract relevant data on the
+                    fly. This makes it incredibly flexible for businesses dealing with unstructured or varied document
+                    formats.</div>
             </details>
 
             <details>
                 <summary>2. Can Zero-Shot Extraction work with handwritten documents or scanned PDFs?</summary>
-                <div class="faq-answer">Yes, Zero-Shot Extraction can process handwritten documents, scanned PDFs, invoices, receipts, and other unstructured formats. However, its accuracy depends on OCR (Optical Character Recognition) quality and the legibility of the text. Advanced OCR models integrated with Zero-Shot Extraction can intelligently interpret and extract meaningful data even from noisy or low-quality scans.</div>
+                <div class="faq-answer">Yes, Zero-Shot Extraction can process handwritten documents, scanned PDFs,
+                    invoices, receipts, and other unstructured formats. However, its accuracy depends on OCR (Optical
+                    Character Recognition) quality and the legibility of the text. Advanced OCR models integrated with
+                    Zero-Shot Extraction can intelligently interpret and extract meaningful data even from noisy or
+                    low-quality scans.</div>
             </details>
 
             <details>
                 <summary>3. How accurate is Zero-Shot Extraction compared to AI models that require training?</summary>
-                <div class="faq-answer">Zero-Shot Extraction is highly effective in cases where predefined training is not feasible or practical, but its accuracy can vary depending on the complexity of the document. For well-structured data, it can match or even surpass traditional trained models. However, for industry-specific jargon or heavily formatted documents, fine-tuning or human-in-the-loop verification may be needed.</div>
+                <div class="faq-answer">Zero-Shot Extraction is highly effective in cases where predefined training is
+                    not feasible or practical, but its accuracy can vary depending on the complexity of the document.
+                    For well-structured data, it can match or even surpass traditional trained models. However, for
+                    industry-specific jargon or heavily formatted documents, fine-tuning or human-in-the-loop
+                    verification may be needed.</div>
             </details>
 
             <details>
                 <summary>4. What are some real-world use cases where Zero-Shot Extraction is beneficial?</summary>
                 <div class="faq-answer">
-                    1. Invoice & Receipt Processing – Extract amounts, dates, and vendor details without pre-training.<br>
+                    1. Invoice & Receipt Processing – Extract amounts, dates, and vendor details without
+                    pre-training.<br>
                     2. Legal Document Analysis – Identify clauses and obligations without building templates.<br>
                     3. Healthcare Records Processing – Extract patient information from varied medical reports.<br>
                     4. Financial Audits – Automatically pull key figures from balance sheets or bank statements.<br>
@@ -270,17 +388,24 @@
 
             <details>
                 <summary>5. Does Zero-Shot Extraction work in multiple languages?</summary>
-                <div class="faq-answer">Yes! Since it uses advanced NLP (Natural Language Processing) models, Zero-Shot Extraction can understand and extract data across multiple languages. However, accuracy may vary based on language structure, syntax, and available contextual understanding in the model.</div>
+                <div class="faq-answer">Yes! Since it uses advanced NLP (Natural Language Processing) models, Zero-Shot
+                    Extraction can understand and extract data across multiple languages. However, accuracy may vary
+                    based on language structure, syntax, and available contextual understanding in the model.</div>
             </details>
 
             <details>
                 <summary>6. How does Zero-Shot Extraction handle documents with different layouts and formats?</summary>
-                <div class="faq-answer">Traditional extraction methods struggle with different layouts, but Zero-Shot Extraction dynamically adapts. Whether it’s an invoice with columns, a purchase order with tables, or a contract with free-flowing text, it intelligently identifies patterns and extracts relevant data without requiring rigid templates.</div>
+                <div class="faq-answer">Traditional extraction methods struggle with different layouts, but Zero-Shot
+                    Extraction dynamically adapts. Whether it’s an invoice with columns, a purchase order with tables,
+                    or a contract with free-flowing text, it intelligently identifies patterns and extracts relevant
+                    data without requiring rigid templates.</div>
             </details>
 
             <details>
                 <summary>8. Can Zero-Shot Extraction be integrated with my existing workflow and tools?</summary>
-                <div class="faq-answer">Absolutely! Zero-Shot Extraction can be seamlessly integrated with ERP, CRM, RPA, or document management systems through APIs. This means businesses can automate data extraction directly into their existing platforms without disrupting workflows.</div>
+                <div class="faq-answer">Absolutely! Zero-Shot Extraction can be seamlessly integrated with ERP, CRM,
+                    RPA, or document management systems through APIs. This means businesses can automate data extraction
+                    directly into their existing platforms without disrupting workflows.</div>
             </details>
 
             <details>
@@ -302,7 +427,7 @@
         </div>
     </section>
 
-
+    <script src="script.js"></script>
 </body>
 
 </html>

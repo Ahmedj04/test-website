@@ -19210,6 +19210,11 @@ h2 {
     box-shadow: 0px 4px 20px #fd4539;
 }
 
+.card-link:hover{
+    text-decoration:none ;
+    
+}
+
 .card-image {
     height: 55px;
     align-items: center;
@@ -19895,7 +19900,20 @@ h2 {
 
         .product-content-block{
             padding-top: 20px;
-            
+
+            .product-content-heading{
+                display: flex;
+
+                span{
+                    font-size: 24px;
+                    padding-right: 5px;
+                }
+
+                h3{
+                    line-height: 1.5;
+                }
+            }
+
             ul{
                 padding-left: 25px;
             }
@@ -19924,55 +19942,65 @@ h2 {
            flex-direction: column;
            justify-content: center;
            padding-top: 0px;
+
+           .product-content-heading{
+                span{
+                    font-size: 30px !important;
+                }
+                
+                h3{
+                    font-size: 30px !important;
+                }
+        }
         }
 
         .product-banner-image{
             flex: 1;
         }   
     }
-     /* Apply alternating layout for even child elements */
+    //  Apply alternating layout for even child elements 
      .why-docacquire:nth-child(odd) {
         flex-direction: row-reverse !important;
     }
 }
 
 // ZSE use cases section style
-.use-cases{
-    display: block;
-    margin-top: 100px;
-    margin-bottom: 50px;
-    text-align: center;
-    padding: 0 20px;
-    h2{
-        padding-bottom: 10px;
-        line-height: 1.5;
-    }
+// .use-cases{
+//     display: block;
+//     margin-top: 100px;
+//     margin-bottom: 50px;
+//     text-align: center;
+//     padding: 0 20px;
+//     h2{
+//         padding-bottom: 10px;
+//         line-height: 1.5;
+//     }
     
-    .use-case-list{
-        display: flex;
-        flex-direction: column;
-        gap: 1.25rem;
+//     .use-case-list{
+//         display: flex;
+//         flex-direction: column;
+//         gap: 1.25rem;
 
-        .card-text{
-            text-align: left;
-            padding-left: 20px;
-        }
-    }
-}
-@media (min-width: 768px) {
-    .use-case-list{
-        flex-wrap: wrap;
-        flex-direction: row !important;
-        justify-content: center;
+//         .card-text{
+//             text-align: left;
+//             padding-left: 20px;
+//         }
+//     }
+// }
+// @media (min-width: 768px) {
+//     .use-case-list{
+//         flex-wrap: wrap;
+//         flex-direction: row !important;
+//         justify-content: center;
     
-        .card-container{
-            width: 32%;
-        }
-    }  
-}
+//         .card-container{
+//             width: 32%;
+//         }
+//     }  
+// }
 
 // new use case style
-.use-cases-dc {    
+.use-cases {    
     display: block;
     margin-top: 100px;
     margin-bottom: 50px;
@@ -20061,16 +20089,6 @@ h2 {
                         padding-left: 0;
                         width: 100%;
 
-                        // li{
-                        //     padding-bottom: 20px;
-                        //     padding-left: 0px;
-                        //     display: flex;
-                        //     gap:10px;
-
-                        //     svg{
-                        //         width: 15px;
-                        //     }
-                        // }
                         li {
                             display: flex;
                             align-items: center;
@@ -20094,16 +20112,18 @@ h2 {
         }
     }
 }
-@media (min-width: 768px) {       
+@media (min-width: 768px) {      
     .tab-button{
         flex: none !important;
     } 
+    .tab-menu::-webkit-scrollbar {
+        display: none;  /* Hides scrollbar in Chrome, Safari */
+    }
 }
 
 @media (min-width: 1024px) {
     .tab-menu{
         gap: 20px !important;
-        justify-content: center;
     }
 
     .use-case-content {
@@ -20115,6 +20135,11 @@ h2 {
             }
         }
     }
+}
+@media (min-width: 1200px) {
+    .tab-menu{
+        justify-content: center;
+    } 
 }
 
 
