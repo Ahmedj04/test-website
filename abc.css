@@ -16191,14 +16191,31 @@ Contact Us */
     color: #666;
   }
 }
+.section-header-heading {
+  text-transform: uppercase;
+  font-size: 26px;
+  font-weight: 500;
+  letter-spacing: 9px;
+  line-height: 32px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .section-header-heading {
+    font-size: 34px;
+  }
+}
+@media (min-width: 1024px) {
+  .section-header-heading {
+    line-height: 1.5;
+  }
+}
 .what-is-feature-description {
   margin-top: 50px;
   padding: 0 20px;
   text-align: center;
 }
-.what-is-feature-description h2 {
+.what-is-feature-description .section-header-heading {
   padding-bottom: 10px;
-  line-height: 1.5;
 }
 @media (min-width: 768px) {
   .what-is-feature-description p {
@@ -16212,9 +16229,8 @@ Contact Us */
   margin-bottom: 50px;
   padding: 0 20px;
 }
-.how-feature-works h2 {
+.how-feature-works .section-header-heading {
   padding-bottom: 10px;
-  line-height: 1.5;
 }
 .how-feature-works .feature-work-block {
   margin-top: 50px;
@@ -16272,6 +16288,9 @@ Contact Us */
 .book-demo-feature .call_to_action {
   margin-top: 0px;
 }
+.book-demo-feature .call_to_action h1 {
+  text-transform: uppercase;
+}
 @media (min-width: 768px) {
   .book-demo-feature {
     height: 50vh;
@@ -16283,9 +16302,8 @@ Contact Us */
   padding: 0 20px;
   text-align: center;
 }
-.why-docacquire-section h2 {
+.why-docacquire-section .section-header-heading {
   padding-bottom: 10px;
-  line-height: 1.5;
 }
 .why-docacquire-section .why-docacquire {
   display: flex;
@@ -16304,9 +16322,31 @@ Contact Us */
 }
 .why-docacquire-section .why-docacquire .product-content-block .product-content-heading h3 {
   line-height: 1.5;
+  font-weight: 400;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 24px;
 }
 .why-docacquire-section .why-docacquire .product-content-block ul {
-  padding-left: 25px;
+  text-align: left;
+  padding-top: 20px;
+  list-style-type: none;
+  padding-left: 0 !important;
+}
+.why-docacquire-section .why-docacquire .product-content-block ul li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding-bottom: 20px;
+  padding-left: 0px;
+}
+.why-docacquire-section .why-docacquire .product-content-block ul li::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  padding-right: 20px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
+  background-size: cover;
 }
 .why-docacquire-section .why-docacquire .product-banner-image {
   max-width: 100%;
@@ -16328,12 +16368,6 @@ Contact Us */
     justify-content: center;
     padding-top: 0px;
   }
-  .why-docacquire .product-content-block .product-content-heading span {
-    font-size: 30px !important;
-  }
-  .why-docacquire .product-content-block .product-content-heading h3 {
-    font-size: 30px !important;
-  }
   .why-docacquire .product-banner-image {
     flex: 1;
   }
@@ -16348,15 +16382,14 @@ Contact Us */
   text-align: center;
   padding: 0 20px;
 }
-.use-cases h2 {
+.use-cases .section-header-heading {
   padding-bottom: 10px;
-  line-height: 1.5;
 }
 .use-cases .use-case-wrapper .tab-menu {
   display: flex;
   gap: 10px;
   overflow-x: auto;
-  padding: 0 10px;
+  padding: 30px 10px 0px;
   white-space: nowrap;
   margin-bottom: 40px;
 }
@@ -16465,15 +16498,19 @@ Contact Us */
   margin-bottom: 50px;
   padding: 20px;
 }
-.faq-container h2 {
-  text-align: center;
-  line-height: 1.5;
+.faq-container .section-header-heading {
+  padding-bottom: 10px;
+}
+.faq-container .section-header-heading span {
+  font-weight: bolder;
 }
 .faq-container .faq-list {
   margin: auto;
+  padding-top: 30px;
 }
 .faq-container .faq-list details {
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+  border-radius: 15px;
   margin-bottom: 10px;
 }
 .faq-container .faq-list summary {
@@ -16483,17 +16520,19 @@ Contact Us */
   font-weight: bold;
   border: none;
   outline: none;
-  transition: 0.3s;
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+.faq-container .faq-list details[open] {
+  transition: 0.2s;
+  box-shadow: 0px 4px 20px #fd4539;
 }
 .faq-container .faq-list details[open] summary {
   color: #fd4539;
 }
 .faq-container .faq-list .faq-answer {
   padding: 15px;
-  background: #fff;
   font-size: 16px;
 }
 .faq-container .faq-list summary::after {
@@ -16505,11 +16544,17 @@ Contact Us */
   content: '-';
 }
 @media (min-width: 768px) {
+  .faq-container h2 {
+    font-size: 34px;
+  }
   .faq-list {
     width: 80%;
   }
 }
 @media (min-width: 1024px) {
+  .faq-container h2 {
+    line-height: 1.5;
+  }
   .faq-list {
     width: 70%;
   }

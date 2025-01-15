@@ -19707,16 +19707,36 @@ h2 {
     }
 }
 
-// zero-shot-page css
-// what is ZSE section style
+// Feature page css
+
+// uniform style for headings 
+.section-header-heading{
+    text-transform: uppercase;
+    font-size: 26px;
+    font-weight: 500;
+    letter-spacing: 9px;
+    line-height: 32px;
+    text-align: center;
+}
+@media (min-width: 768px) {
+    .section-header-heading{
+        font-size: 34px;
+    }
+    
+}
+@media (min-width: 1024px) {
+    .section-header-heading{
+        line-height: 1.5;
+    } 
+}
+// what is feature section style
 .what-is-feature-description{
     margin-top: 50px;
     padding: 0 20px;
     text-align: center;
 
-    h2{
+    .section-header-heading{
         padding-bottom: 10px;
-        line-height: 1.5;
     }
 }
 @media (min-width: 768px) {
@@ -19729,83 +19749,17 @@ h2 {
 
 }
 
-// how ZSE works section style
-// .how-feature-works{
-//     text-align: center;
-//     margin-top: 100px;
-//     margin-bottom: 50px;
-//     padding: 0 20px;
-
-//     h2{
-//         padding-bottom: 10px;
-//         line-height: 1.5;
-
-//     }
-
-//     .work-wrapper{
-//         border: 1px solid #d6d8e0;
-//         border-radius: 16px;
-//         text-align: left;
-
-//         .work-block{
-//             padding: 25px;
-//         }
-
-//         .step-wrapper{
-//             padding-bottom:10px ;
-//         }
-
-//         .work-block.first{
-//             border: none; 
-//             border-bottom: 1px solid #d6d8e0;
-
-//         }
-//         .work-block.last{
-//             border: none; 
-//             border-top: 1px solid #d6d8e0;
-//         }
-
-//         .work-title-block{
-//             display: flex;
-//             gap: 25px;
-//             align-items: center;
-//             margin-bottom: 20px;
-
-//             h4{
-//                 margin-bottom: 0;
-//             }
-//         }
-//     }
-// }
-
-// @media (min-width: 768px) {
-//     .work-wrapper{
-//         display: flex;
-//         margin-top: 50px;
-
-//         .work-block.first{
-//             border: none !important; 
-//             border-right: 1px solid #d6d8e0 !important;
-
-//         }
-//         .work-block.last{
-//             border: none !important; 
-//             border-left: 1px solid #d6d8e0 !important;
-//         }
-//     }
-// }
-// ============== new style 
+// how feature works section style
 .how-feature-works{
     text-align: center;
     margin-top: 100px;
     margin-bottom: 50px;
     padding: 0 20px;
 
-    h2{
+    .section-header-heading{
         padding-bottom: 10px;
-        line-height: 1.5;
-
     }
+
     .feature-work-block{
         margin-top: 50px;
         text-align: left;
@@ -19867,13 +19821,17 @@ h2 {
     }
 }
 
-// book ZSE demo section style
+// book demo section style
 .book-demo-feature{
     display: flex;
     align-items: center;
     
     .call_to_action{
         margin-top: 0px;
+
+        h1{
+            text-transform: uppercase;
+        }
     }
 }
 @media (min-width: 768px) {
@@ -19882,16 +19840,15 @@ h2 {
     }
 }
 
-// why choose docacquire ZSE section style
+// why choose docacquire section style
 .why-docacquire-section{
     margin-top: 100px;
     margin-bottom: 50px;
     padding: 0 20px;
     text-align: center;
 
-    h2{
+    .section-header-heading {
         padding-bottom: 10px;
-        line-height: 1.5;
     }
     .why-docacquire{
         display: flex;
@@ -19911,11 +19868,40 @@ h2 {
 
                 h3{
                     line-height: 1.5;
+                    font-weight: 400;
+                    letter-spacing: 3px;
+                    text-transform: uppercase;
+                    font-size: 24px;
                 }
             }
 
+            // ul{
+            //     padding-left: 25px;
+            // }
             ul{
-                padding-left: 25px;
+                text-align: left;
+                padding-top: 20px;
+                list-style-type: none;
+                // font-size: 17px;
+                padding-left: 0 !important;
+                // width: 100%;
+
+                li {
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+                    padding-bottom: 20px;
+                    padding-left: 0px;
+                }
+                
+                li::before {
+                    content: "";
+                    width: 20px;
+                    height: 20px;
+                    padding-right: 20px;
+                    background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
+                    background-size: cover;
+                }
             }
         }
 
@@ -19942,16 +19928,6 @@ h2 {
            flex-direction: column;
            justify-content: center;
            padding-top: 0px;
-
-           .product-content-heading{
-                span{
-                    font-size: 30px !important;
-                }
-                
-                h3{
-                    font-size: 30px !important;
-                }
-        }
         }
 
         .product-banner-image{
@@ -19964,7 +19940,7 @@ h2 {
     }
 }
 
-// ZSE use cases section style
+//  use cases section style
 // .use-cases{
 //     display: block;
 //     margin-top: 100px;
@@ -20007,9 +19983,8 @@ h2 {
     text-align: center;
     padding: 0 20px;
 
-    h2{
+    .section-header-heading{
         padding-bottom: 10px;
-        line-height: 1.5;
     }
 
     .use-case-wrapper {
@@ -20018,7 +19993,7 @@ h2 {
             display: flex;
             gap: 10px;
             overflow-x: auto;
-            padding: 0 10px;
+            padding: 30px 10px 0px;
             white-space: nowrap;
             margin-bottom: 40px;
         }
@@ -20143,22 +20118,28 @@ h2 {
 }
 
 
-// ZSE faq section style
+// faq section style
 .faq-container {
     margin-top: 100px;
     margin-bottom: 50px;
     padding: 20px;
 
-    h2{
-        text-align: center;
-        line-height: 1.5;
+    .section-header-heading {
+        padding-bottom: 10px;
+        span{
+            font-weight: bolder;
+        }
+    
     }
 
     .faq-list{
         margin: auto;
+        padding-top: 30px;
 
         details {
-            border-bottom: 1px solid #ddd;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+            // border-bottom: 1px solid #ddd;
             margin-bottom: 10px;
         }
 
@@ -20169,10 +20150,16 @@ h2 {
             font-weight: bold;
             border: none;
             outline: none;
-            transition: 0.3s;
+            // transition: 0.3s;
             display: flex;
             justify-content: space-between;
             align-items: center;
+        }
+
+        details[open] {
+            transition: 0.2s;
+            box-shadow: 0px 4px 20px #fd4539;
+
         }
 
         details[open] summary {
@@ -20181,7 +20168,7 @@ h2 {
 
         .faq-answer {
             padding: 15px;
-            background: #fff;
+            // background: #fff;
             font-size: 16px;
         }
 
@@ -20194,15 +20181,26 @@ h2 {
         details[open] summary::after {
             content: '-';
         }
+
     }
 }
 @media (min-width: 768px) {
+    .faq-container h2{
+        font-size: 34px;
+    }
+
     .faq-list{
         width: 80%;
     }
 }
 @media (min-width: 1024px) {
+    .faq-container h2{
+        line-height: 1.5;
+    }
     .faq-list{
         width: 70%;
     }
 }
+
+
+
