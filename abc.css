@@ -15858,27 +15858,21 @@ Contact Us */
   align-content: center;
 }
 .feature-title {
-  font-size: 1.875rem;
-  /* 30px */
-  line-height: 2.25rem;
-  /* 36px */
+  font-size: 30px;
+  line-height: 36px;
   font-weight: 700;
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 0.1px solid #fd4539;
   text-align: center;
-  /* text-align: left; */
 }
 .feature-item ul {
   padding-left: 10px;
-  /* padding-top: 1.25rem; */
-  /* 20px */
 }
 .feature-item li {
   font-size: 15px;
   line-height: normal;
-  padding-top: 1.25rem;
-  /* 20px */
+  padding-top: 20px;
   text-align: left;
   color: #666;
   list-style-type: disc;
@@ -15886,7 +15880,7 @@ Contact Us */
 .feature-item-action {
   display: flex;
   gap: 10px;
-  margin-top: 20px;
+  margin-top: 30px;
   align-items: center;
   justify-content: center;
 }
@@ -15922,27 +15916,30 @@ Contact Us */
   width: 15px;
 }
 .feature-image-sm {
-  margin: 32px auto 16px;
-  max-width: 100%;
+  margin: 0px auto 16px;
+  display: flex;
+  max-width: 70%;
+  align-items: center;
   height: auto;
 }
-/* 
-   @media (min-width:576px) {
-  
-  } */
 @media (min-width: 768px) {
-  #features-section {
-    padding: 0px;
+  .feature-image-sm {
+    max-width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  .feature-item li {
+    font-size: 20px;
+    line-height: 28px;
   }
   .features-container {
     display: flex;
     position: relative;
   }
   .features-list {
-    width: 41.666667%;
+    width: 45.666667%;
     height: min-content;
-    padding-left: 2.5rem;
-    /*40px*/
+    padding-left: 40px;
   }
   .feature-item {
     /* height: min-content;
@@ -15956,9 +15953,9 @@ Contact Us */
   }
   .feature-title {
     text-align: left;
-    font-size: 25px;
+    font-size: 40px;
     margin-bottom: 0;
-    padding-bottom: 0;
+    padding-bottom: 24px;
     line-height: normal;
     border: none;
   }
@@ -15972,7 +15969,7 @@ Contact Us */
   }
   .features-image {
     display: block;
-    width: 58.333333%;
+    width: 54.333333%;
     height: 100vh;
     position: sticky;
     top: 0px;
@@ -15990,26 +15987,8 @@ Contact Us */
   }
   #feature-image {
     width: 75%;
-    /* height: auto; */
   }
 }
-@media (min-width: 992px) {
-  .feature-item li {
-    font-size: 1.25rem;
-    /* 20px */
-    line-height: 1.75rem;
-    /* 28px */
-  }
-  .feature-title {
-    font-size: 40px;
-    margin-bottom: 24px;
-    padding-bottom: 24px;
-  }
-}
-/* Allow scrolling within the section */
-/* .scrollable-section {
-    scrollbar-width: none; 
-  }    */
 /* Benefits Section Styles */
 #benefits-section {
   padding: 50px 20px;
