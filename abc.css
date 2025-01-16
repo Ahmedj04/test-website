@@ -16586,6 +16586,15 @@ Contact Us */
   padding: 15px;
   font-size: 16px;
 }
+.faq-container .faq-list .faq-answer a {
+  color: #fd4539;
+  font-weight: 900;
+  text-decoration: none;
+  padding-left: 3px;
+}
+.faq-container .faq-list .faq-answer a:hover {
+  text-decoration: underline;
+}
 .faq-container .faq-list summary::after {
   content: '+';
   font-size: 20px;
