@@ -19322,7 +19322,7 @@ h2 {
 .feature-item {
     /* margin-bottom: 2rem; */
     margin-bottom: 64px;
-    text-align: center;
+    // text-align: center;
     align-content: center;
 }
 
@@ -19354,6 +19354,56 @@ h2 {
     color: #666;
     list-style-type: disc;
 
+}
+.feature-item-action{
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    align-items: center;
+    justify-content: center;
+
+}
+
+
+
+.feature-item-action-btn{
+    color: #fff!important;
+    background-color: #fd4539;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    cursor: pointer;
+    
+    &:hover{
+        text-decoration: none;
+    }
+}
+
+.feature-item-action a:nth-child(2):hover{
+    span{
+        background-color: #fd4539;
+        border-radius: 6px !important;
+        transition: 0.3s;
+
+        svg{
+            fill: #fff;
+        }
+    }
+
+    
+}
+.feature-item-action span{
+   display: flex;
+   align-items: center;
+   padding: 10px 10px;
+   border-radius: 6px;
+   border:2px solid #fd4539;    
+}
+
+.feature-item-action svg{
+    height: 15px;
+    width: 15px; 
 }
 
 .feature-image-sm {
@@ -19396,12 +19446,16 @@ h2 {
 
     .feature-title {
         text-align: left;
-        /* font-size: 45px; */
         font-size: 25px;
         margin-bottom: 0;
         padding-bottom: 0;
         line-height: normal;
         border: none;
+    }
+
+    .feature-item-action{
+        padding-left: 10px;
+        justify-content: left;
     }
 
     /* img for sm screen */
@@ -19771,7 +19825,6 @@ h2 {
 }
 
 // Feature page css
-
 // uniform style for headings 
 .section-header-heading{
     text-transform: uppercase;
