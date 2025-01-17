@@ -15867,15 +15867,28 @@ Contact Us */
   text-align: center;
 }
 .feature-item ul {
-  padding-left: 10px;
+  padding-left: 0px;
+  list-style-type: none;
+  text-align: left;
 }
 .feature-item li {
   font-size: 15px;
-  line-height: normal;
-  padding-top: 20px;
-  text-align: left;
   color: #666;
-  list-style-type: disc;
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 0 0 28px;
+}
+.feature-item li::before {
+  content: "";
+  width: 20px;
+  height: 20px;
+  padding-right: 20px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
+  background-size: cover;
+  position: absolute;
+  left: 0;
+  display: block;
+  margin-top: 2px;
 }
 .feature-item-action {
   display: flex;
@@ -15926,6 +15939,9 @@ Contact Us */
   .feature-image-sm {
     max-width: 50%;
   }
+  .feature-item li::before {
+    margin-top: 4px;
+  }
 }
 @media (min-width: 992px) {
   .feature-item li {
@@ -15942,8 +15958,6 @@ Contact Us */
     padding-left: 40px;
   }
   .feature-item {
-    /* height: min-content;
-      height: 100vh; */
     min-height: 100vh;
     /* Makes each feature fill most of the viewport*/
     margin-bottom: 2rem;
@@ -16382,14 +16396,13 @@ Contact Us */
   text-align: left;
   padding-top: 20px;
   list-style-type: none;
+  font-size: 17px;
   padding-left: 0 !important;
 }
 .why-docacquire-section .why-docacquire .product-content-block ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 20px;
-  padding-left: 0px;
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 0 0 28px;
 }
 .why-docacquire-section .why-docacquire .product-content-block ul li::before {
   content: "";
@@ -16398,6 +16411,10 @@ Contact Us */
   padding-right: 20px;
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
   background-size: cover;
+  position: absolute;
+  left: 0;
+  display: block;
+  margin-top: 5px;
 }
 .why-docacquire-section .why-docacquire .product-banner-image {
   max-width: 100%;
@@ -16505,11 +16522,10 @@ Contact Us */
   width: 100%;
 }
 .use-cases .use-case-wrapper .use-case-content .use-case-detail.active .use-case-list ul li {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding-bottom: 20px;
-  padding-left: 0px;
+  color: #666;
+  position: relative;
+  margin: 0 0 20px;
+  padding: 0 0 0 28px;
 }
 .use-cases .use-case-wrapper .use-case-content .use-case-detail.active .use-case-list ul li::before {
   content: "";
@@ -16518,6 +16534,10 @@ Contact Us */
   padding-right: 20px;
   background-image: url('data:image/svg+xml;charset=UTF-8,<svg xmlns="http://www.w3.org/2000/svg" fill="green" viewBox="0 0 512 512"><path d="M256 48a208 208 0 1 1 0 416 208 208 0 1 1 0-416zm0 464A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM369 209c9.4-9.4 9.4-24.6 0-33.9s-24.6-9.4-33.9 0l-111 111-47-47c-9.4-9.4-24.6-9.4-33.9 0s-9.4 24.6 0 33.9l64 64c9.4 9.4 24.6 9.4 33.9 0L369 209z"/></svg>');
   background-size: cover;
+  position: absolute;
+  left: 0;
+  display: block;
+  margin-top: 5px;
 }
 @media (min-width: 768px) {
   .tab-button {
