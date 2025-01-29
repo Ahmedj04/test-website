@@ -15725,13 +15725,6 @@ Contact Us */
   padding-left: 40px;
   margin-bottom: 1.25rem;
 }
-.features-overview-header h2 {
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: 9px;
-  line-height: 32px;
-  text-align: center;
-}
 /* Features Overview Grid */
 .features-overview-grid {
   padding-top: 1.5rem;
@@ -15769,9 +15762,6 @@ Contact Us */
     padding-right: 0px ;
     padding-left: 0px ;
   }
-  .features-overview-header h2 {
-    font-size: 34px;
-  }
   .features-overview-grid a {
     width: 31%;
   }
@@ -15780,9 +15770,6 @@ Contact Us */
   }
 }
 @media (min-width: 1024px) {
-  .features-overview-header h2 {
-    line-height: 1.5;
-  }
   .features-overview-grid a {
     width: 30%;
   }
@@ -15858,9 +15845,10 @@ Contact Us */
   align-content: center;
 }
 .feature-title {
-  font-size: 30px;
-  line-height: 36px;
-  font-weight: 700;
+  line-height: 1.5;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 24px;
   margin-bottom: 24px;
   padding-bottom: 24px;
   border-bottom: 0.1px solid #fd4539;
@@ -15945,17 +15933,17 @@ Contact Us */
 }
 @media (min-width: 992px) {
   .feature-item li {
-    font-size: 20px;
+    font-size: 18px;
     line-height: 28px;
   }
   .features-container {
     display: flex;
     position: relative;
+    width: 100%;
   }
   .features-list {
-    width: 45.666667%;
+    width: 50%;
     height: min-content;
-    padding-left: 40px;
   }
   .feature-item {
     min-height: 100vh;
@@ -15967,11 +15955,9 @@ Contact Us */
   }
   .feature-title {
     text-align: left;
-    font-size: 40px;
-    margin-bottom: 0;
-    padding-bottom: 24px;
-    line-height: normal;
     border: none;
+    margin-bottom: 10px;
+    font-size: 28px;
   }
   .feature-item-action {
     padding-left: 28px;
@@ -15983,7 +15969,7 @@ Contact Us */
   }
   .features-image {
     display: block;
-    width: 54.333333%;
+    width: 50%;
     height: 100vh;
     position: sticky;
     top: 0px;
@@ -16260,8 +16246,8 @@ Contact Us */
   text-transform: uppercase;
   font-size: 26px;
   font-weight: 500;
-  letter-spacing: 9px;
-  line-height: 32px;
+  letter-spacing: 3px;
+  line-height: 1.5;
   text-align: center;
 }
 @media (min-width: 768px) {
@@ -16269,9 +16255,9 @@ Contact Us */
     font-size: 34px;
   }
 }
-@media (min-width: 1024px) {
+@media (min-width: 992px) {
   .section-header-heading {
-    line-height: 1.5;
+    letter-spacing: 5px;
   }
 }
 .what-is-feature-description {
