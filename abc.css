@@ -15993,14 +15993,6 @@ Contact Us */
 #benefits-section {
   padding: 50px 20px;
 }
-.benefit-section-header h2 {
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: 9px;
-  line-height: 32px;
-  text-align: center;
-  text-transform: uppercase;
-}
 .benefits-list {
   padding: 40px 20px;
   display: grid;
@@ -16046,9 +16038,6 @@ Contact Us */
     padding-left: 0px;
     padding-right: 0px;
   }
-  .benefit-section-header h2 {
-    font-size: 34px;
-  }
   .benefits-list {
     margin-top: 1.75rem;
     grid-template-columns: repeat(3, 1fr);
@@ -16058,22 +16047,9 @@ Contact Us */
     font-size: 90px;
   }
 }
-@media (min-width: 1024px) {
-  .benefit-section-header h2 {
-    line-height: 1.5;
-  }
-}
 /* review section */
 #review-section {
   padding: 50px 20px;
-}
-.review-section-header h2 {
-  text-transform: uppercase;
-  font-size: 26px;
-  font-weight: 500;
-  letter-spacing: 9px;
-  line-height: 32px;
-  text-align: center;
 }
 /* carousel styles */
 .carousel {
@@ -16180,9 +16156,6 @@ Contact Us */
     padding-left: 2.5rem;
     padding-right: 2.5rem;
   }
-  .review-section-header h2 {
-    font-size: 34px;
-  }
   .carousel-item {
     padding: 30px 40px;
     margin-top: 2.5rem;
@@ -16204,9 +16177,6 @@ Contact Us */
     padding-right: 5rem;
     padding-top: 5rem;
     padding-bottom: 5rem;
-  }
-  .review-section-header h2 {
-    line-height: 1.5;
   }
   .carousel-item {
     padding: 30px 20px;
