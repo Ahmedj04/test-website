@@ -1,26 +1,28 @@
-// Select the features list container and the image element
-const featuresList = document.querySelector('.features-list');
-const imageElement = document.getElementById('feature-image');
-// const featuresContainer = document.querySelector('.features-container');
+document.addEventListener('DOMContentLoaded', () => {
+  // Select the features list container and the image element
+  const featuresList = document.querySelector('.features-list');
+  const imageElement = document.getElementById('feature-image');
+  // const featuresContainer = document.querySelector('.features-container');
 
-// Create an IntersectionObserver to observe each feature item within the list
-const featureItemObserver = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      const newImage = entry.target.getAttribute('data-image');
-      // Change the image source only if it has changed
-      if (imageElement.src.includes(newImage) === false) {
-        imageElement.src = newImage;
+  // Create an IntersectionObserver to observe each feature item within the list
+  const featureItemObserver = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const newImage = entry.target.getAttribute('data-image');
+        // Change the image source only if it has changed
+        if (imageElement.src.includes(newImage) === false) {
+          imageElement.src = newImage;
+        }
       }
-    }
+    });
+  }, {
+    threshold: 0.5 // Change when the item is at least 50% visible in the viewport
   });
-}, {
-  threshold: 0.5 // Change when the item is at least 50% visible in the viewport
-});
 
-// Observe each feature item
-document.querySelectorAll('.feature-item').forEach(item => {
-  featureItemObserver.observe(item);
+  // Observe each feature item
+  document.querySelectorAll('.feature-item').forEach(item => {
+    featureItemObserver.observe(item);
+  });
 });
 
 // function isSectionFullyVisible(element) {
