@@ -15917,13 +15917,16 @@ Contact Us */
   width: 15px;
 }
 .feature-image-sm {
-  margin: 0px auto 0px;
+  margin: 0px auto 20px;
   display: flex;
   max-width: 100%;
   align-items: center;
   height: auto;
 }
 @media (min-width: 768px) {
+  .feature-image-sm {
+    max-width: 70%;
+  }
   .feature-item li::before {
     margin-top: 4px;
   }
@@ -15939,7 +15942,7 @@ Contact Us */
     width: 100%;
   }
   .features-list {
-    min-width: 50%;
+    width: 50%;
     height: min-content;
   }
   .feature-item {
@@ -15966,7 +15969,7 @@ Contact Us */
   }
   .features-image {
     display: block;
-    min-width: 50%;
+    width: 50%;
     height: 100vh;
     position: sticky;
     top: 0px;
@@ -15983,7 +15986,7 @@ Contact Us */
     justify-content: center;
   }
   #feature-image {
-    width: 120%;
+    width: 100%;
   }
 }
 /* Benefits Section Styles */
