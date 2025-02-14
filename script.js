@@ -371,6 +371,23 @@ function showUseCase(useCase) {
   document.getElementById(useCase).classList.add('active');
 }
 
+// ===========================
+// Function to Show deployment Options
+// ===========================
+function showDeploymentOption(deployment) {
+  // Remove active class from all buttons
+  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+
+  // Add active class to clicked button
+  event.currentTarget.classList.add('active');
+
+  // Hide all use-case details
+  document.querySelectorAll('.deployment-detail').forEach(detail => detail.classList.remove('active'));
+
+  // Show the selected use case
+  document.getElementById(deployment).classList.add('active');
+}
+
 
 // =======================
 //  Open One FAQ at a time
