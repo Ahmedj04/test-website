@@ -14623,7 +14623,6 @@ Contact Us */
   margin-top: 50px;
   padding-top: 50px;
   padding-bottom: 50px;
-  background-color: #f3f3f6;
 }
 .platform .key-features-wrapper .main-title h2 {
   text-transform: uppercase;
@@ -14663,7 +14662,7 @@ Contact Us */
 }
 .platform .key-features-wrapper .key-features-list .key-feature-item {
   margin-bottom: 50px;
-  padding: 40px 40px;
+  padding: 40px 10px;
   border-radius: 30px;
 }
 .platform .key-features-wrapper .key-features-list .key-feature-item .feature-content-block h3 {
@@ -14697,7 +14696,8 @@ Contact Us */
 @media (min-width: 992px) {
   .platform .key-features-wrapper .key-features-list .key-feature-item {
     display: flex;
-    gap: 20px;
+    padding: 40px 0px;
+    gap: 70px;
   }
   .platform .key-features-wrapper .key-features-list .key-feature-item .feature-content-block {
     flex-basis: 50%;
