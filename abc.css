@@ -16482,6 +16482,33 @@ Contact Us */
     letter-spacing: 5px;
   }
 }
+.iframe-wrapper {
+  margin: 50px auto 0px;
+  text-align: center;
+  width: -webkit-fill-available;
+  height: 200px;
+}
+.iframe-wrapper iframe {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  border-top-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-right-width: 0px;
+}
+@media (min-width: 768px) {
+  .iframe-wrapper {
+    width: 660px;
+    height: 400px;
+  }
+}
+@media (min-width: 992px) {
+  .iframe-wrapper {
+    width: 850px;
+    height: 500px;
+  }
+}
 .what-is-feature-description {
   margin-top: 50px;
   padding: 0 20px;
@@ -16490,19 +16517,12 @@ Contact Us */
 .what-is-feature-description .section-header-heading {
   padding-bottom: 10px;
 }
-.what-is-feature-description .iframe-wrapper {
-  margin-top: 50px;
-}
-.what-is-feature-description .iframe-wrapper iframe {
-  width: -webkit-fill-available;
-  height: 200px;
-}
 @media (min-width: 768px) {
   .what-is-feature-description p {
     width: 70%;
     margin: 0 auto;
   }
-  .what-is-feature-description .iframe-wrapper iframe {
+  .what-is-feature-description .iframe-wrapper {
     width: 660px;
     height: 400px;
   }
