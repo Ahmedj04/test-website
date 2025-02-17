@@ -14768,6 +14768,16 @@ Contact Us */
   white-space: nowrap;
   margin-bottom: 40px;
 }
+@media (min-width: 768px) {
+  .platform .deployment-options-wrapper .deployment-options-container .tab-menu {
+    justify-content: center;
+  }
+}
+@media (min-width: 992px) {
+  .platform .deployment-options-wrapper .deployment-options-container .tab-menu {
+    justify-content: center;
+  }
+}
 .platform .deployment-options-wrapper .deployment-options-container .tab-button {
   flex: 0 0 200px;
   /* Prevents shrinking */
