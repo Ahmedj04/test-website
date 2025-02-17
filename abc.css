@@ -14977,6 +14977,42 @@ Contact Us */
 .platform .steps-container {
   margin-top: 50px;
 }
+.platform .steps-container .main-title {
+  margin-bottom: 50px;
+}
+.platform .steps-container .main-title h2 {
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 28px;
+  line-height: 1.3;
+  font-weight: 500;
+  letter-spacing: 3px;
+}
+@media (min-width: 768px) {
+  .platform .steps-container .main-title h2 {
+    font-size: 34px;
+    line-height: 1.5;
+  }
+}
+@media (min-width: 992px) {
+  .platform .steps-container .main-title h2 {
+    font-size: 34px;
+    line-height: 1.5;
+  }
+}
+.platform .steps-container .main-title p {
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .platform .steps-container .main-title p {
+    font-size: 18px;
+  }
+}
+@media (min-width: 992px) {
+  .platform .steps-container .main-title p {
+    font-size: 18px;
+  }
+}
 .platform .steps-container .integrations .button {
   margin-top: 20px;
 }
