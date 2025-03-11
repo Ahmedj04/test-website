@@ -15858,6 +15858,56 @@ footer .footer_links .inner .right ul li:last-of-type {
     }
 }
 
+#contact .office-locations{
+    border-top: 1px solid #ebebeb;
+    margin-top: 30px;
+    padding-top: 30px;
+    margin-bottom: 30px;
+
+    .location-wrapper {
+        .location-details{
+            padding-top:20px;
+
+            h1{
+                line-height: 1.3;
+            }
+
+            .non-mobile({
+                  width: 50%;  
+            });
+        }
+
+        .location-map{      
+            iframe{
+                width: 100%;
+                height: 200px; 
+                
+                .desktop({
+                    height: 350px;
+                })
+            }
+
+            .non-mobile({
+                width: 50%;  
+          });
+        }
+
+        .non-mobile({
+            display: flex;
+            gap:30px;
+            justify-content: space-between;
+            width:100%;
+        });
+    }
+}
+
+@media (min-width: 992px) {
+    #contact .office-locations {
+        margin-top: 60px;
+        padding-top: 60px;
+    }
+}
+
 #contact .contact_form {
     border-top: 1px solid #ebebeb;
     margin-top: 30px;

@@ -12840,6 +12840,69 @@ footer .footer_links .inner .right ul li:last-of-type {
     margin-bottom: 20px;
   }
 }
+#contact .office-locations {
+  border-top: 1px solid #ebebeb;
+  margin-top: 30px;
+  padding-top: 30px;
+  margin-bottom: 30px;
+}
+#contact .office-locations .location-wrapper .location-details {
+  padding-top: 20px;
+}
+#contact .office-locations .location-wrapper .location-details h1 {
+  line-height: 1.3;
+}
+@media (min-width: 768px) {
+  #contact .office-locations .location-wrapper .location-details {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #contact .office-locations .location-wrapper .location-details {
+    width: 50%;
+  }
+}
+#contact .office-locations .location-wrapper .location-map iframe {
+  width: 100%;
+  height: 200px;
+}
+@media (min-width: 992px) {
+  #contact .office-locations .location-wrapper .location-map iframe {
+    height: 350px;
+  }
+}
+@media (min-width: 768px) {
+  #contact .office-locations .location-wrapper .location-map {
+    width: 50%;
+  }
+}
+@media (min-width: 992px) {
+  #contact .office-locations .location-wrapper .location-map {
+    width: 50%;
+  }
+}
+@media (min-width: 768px) {
+  #contact .office-locations .location-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  #contact .office-locations .location-wrapper {
+    display: flex;
+    gap: 30px;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+@media (min-width: 992px) {
+  #contact .office-locations {
+    margin-top: 60px;
+    padding-top: 60px;
+  }
+}
 #contact .contact_form {
   border-top: 1px solid #ebebeb;
   margin-top: 30px;
