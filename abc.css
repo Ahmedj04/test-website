@@ -16376,7 +16376,7 @@ Contact Us */
 .carousel-track {
   display: flex;
   /* transition: transform 0.3s ease-in-out; */
-  width: calc(100% * (4+2));
+  width: calc(100% * (5+2));
 }
 .carousel-item {
   min-width: 100%;
