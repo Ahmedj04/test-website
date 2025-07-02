@@ -1,0 +1,1054 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocAcquire API Guide</title>
+    <style>
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        /* Base styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f9fafb; /* bg-gray-50 */
+            color: #2d3748; /* text-gray-800 */
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Utility classes */
+        .hidden {
+            display: none;
+        }
+
+        /* Sidebar styles */
+        .sidebar {
+            width: 220px; /* Adjusted from 250px */
+            background-color: #fff; /* bg-white */
+            padding: 20px; /* Adjusted from 24px */
+            border-right: 1px solid #e2e8f0; /* border-r border-gray-200 */
+            position: fixed; /* fixed */
+            height: 100vh; /* h-screen */
+            overflow-y: auto; /* overflow-y-auto */
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); /* shadow-lg */
+            transform: translateX(-100%); /* transform -translate-x-full */
+            transition: transform 0.3s ease-in-out; /* transition-transform duration-300 ease-in-out */
+            z-index: 20; /* z-20 */
+        }
+
+        /* Hide scrollbar for sidebar */
+        .sidebar::-webkit-scrollbar {
+            display: none;
+        }
+        .sidebar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        .sidebar-open {
+            transform: translateX(0%);
+        }
+
+        .sidebar h2 {
+            font-size: 1.1rem; /* Adjusted from 1.25rem */
+            font-weight: 700; /* font-bold */
+            color: #1e40af; /* text-blue-800 */
+            margin-bottom: 20px; /* Adjusted from 24px */
+        }
+
+        .sidebar ul {
+            list-style: none;
+        }
+
+        .sidebar ul li {
+            margin-bottom: 6px; /* Adjusted from 8px */
+        }
+
+        .sidebar ul li a {
+            display: block; /* block */
+            padding: 7px 14px; /* Adjusted from 8px 16px */
+            border-radius: 6px; /* rounded-md */
+            color: #374151; /* text-gray-700 */
+            transition: background-color 0.2s, color 0.2s; /* transition-colors duration-200 */
+            text-decoration: none;
+            font-size: 0.9rem; /* Adjusted */
+        }
+
+        .sidebar ul li a:hover {
+            background-color: #eff6ff; /* hover:bg-blue-100 */
+            color: #1d4ed8; /* hover:text-blue-700 */
+        }
+
+        .sidebar ul li a.active {
+            background-color: #dbeafe; /* bg-blue-200 */
+            color: #1e40af; /* text-blue-800 */
+            font-weight: 600; /* font-semibold */
+        }
+
+        /* Mobile sidebar toggle button */
+        .sidebar-toggle {
+            display: block; /* block by default for mobile */
+            position: fixed; /* fixed */
+            top: 12px; /* Adjusted from 16px */
+            left: 12px; /* Adjusted from 16px */
+            z-index: 30; /* z-30 */
+            padding: 6px; /* Adjusted from 8px */
+            background-color: #2563eb; /* bg-blue-600 */
+            color: #fff; /* text-white */
+            border-radius: 6px; /* rounded-md */
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+            border: none;
+            cursor: pointer;
+        }
+
+        .sidebar-toggle svg {
+            height: 20px; /* Adjusted from 24px */
+            width: 20px; /* Adjusted from 24px */
+        }
+
+        /* Main content area */
+        .main-content {
+            flex-grow: 1; /* flex-grow */
+            padding: 24px; /* Adjusted from 32px */
+            overflow-y: auto; /* overflow-y-auto */
+            margin-left: 0; /* Default for mobile */
+        }
+
+        .main-content h1 {
+            font-size: 2rem; /* Adjusted from 2.25rem */
+            font-weight: 800; /* font-extrabold */
+            color: #1e3a8a; /* text-blue-900 */
+            margin-bottom: 12px; /* Adjusted from 16px */
+        }
+
+        .main-content .meta {
+            font-size: 0.8rem; /* Adjusted from 0.875rem */
+            color: #6b7280; /* text-gray-500 */
+            margin-bottom: 24px; /* Adjusted from 32px */
+        }
+
+        /* Intro box */
+        .intro-box {
+            background-color: #eff6ff; /* bg-blue-50 */
+            border-left: 4px solid #3b82f6; /* border-l-4 border-blue-500 */
+            padding: 20px; /* Adjusted from 24px */
+            border-radius: 8px; /* rounded-lg */
+            margin-bottom: 24px; /* Adjusted from 32px */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+        }
+
+        .intro-box p {
+            color: #1e40af; /* text-blue-800 */
+            font-size: 1rem; /* Adjusted from 1.125rem */
+        }
+
+        /* Headings */
+        .main-content h2 {
+            font-size: 1.6rem; /* Adjusted from 1.875rem */
+            font-weight: 700; /* font-bold */
+            color: #1d4ed8; /* text-blue-700 */
+            margin-bottom: 16px; /* Adjusted from 20px */
+        }
+
+        .main-content h3 {
+            font-size: 1.3rem; /* Adjusted from 1.5rem */
+            font-weight: 600; /* font-semibold */
+            color: #2563eb; /* text-blue-600 */
+            margin-bottom: 10px; /* Adjusted from 12px */
+        }
+
+        .main-content h4 {
+            font-size: 1.1rem; /* Adjusted from 1.25rem */
+            font-weight: 500; /* font-medium */
+            color: #3b82f6; /* text-blue-500 */
+            margin-bottom: 6px; /* Adjusted from 8px */
+        }
+
+        /* Paragraphs */
+        .main-content p {
+            color: #374151; /* text-gray-700 */
+            margin-bottom: 12px; /* Adjusted from 16px */
+            max-width: 700px; /* Adjusted from 768px */
+            font-size: 0.95rem; /* Adjusted */
+            line-height: 1.6; /* Added for better readability */
+        }
+
+        /* Code blocks and info boxes */
+        .code-block {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            padding: 14px; /* Adjusted from 16px */
+            border-radius: 6px; /* rounded-md */
+            font-family: monospace; /* font-mono */
+            font-size: 0.85rem; /* Adjusted from 0.875rem */
+            color: #2d3748; /* text-gray-800 */
+            margin-bottom: 20px; /* Adjusted from 24px */
+            max-width: 700px; /* Adjusted from 768px */
+        }
+
+        .code-inline {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            padding: 1px 6px; /* Adjusted from 2px 8px */
+            border-radius: 4px; /* rounded */
+        }
+
+        .code-block pre {
+            background-color: #e5e7eb; /* bg-gray-200 */
+            padding: 6px; /* Adjusted from 8px */
+            border-radius: 6px; /* rounded-md */
+            margin-top: 6px; /* Adjusted from 8px */
+            overflow-x: auto; /* overflow-x-auto */
+            font-size: 0.8rem; /* Adjusted */
+        }
+
+        /* Lists */
+        .main-content ul, .main-content ol {
+            list-style-position: outside; /* Changed from inside to outside */
+            margin-left: 20px; /* Adjusted from 14px */
+            color: #374151; /* text-gray-700 */
+            margin-bottom: 16px; /* Adjusted from 12px */
+            max-width: 700px; /* Adjusted from 768px */
+            font-size: 0.95rem; /* Adjusted */
+            line-height: 1.8; /* Increased line height for lists */
+        }
+
+        .main-content ul li, .main-content ol li {
+            margin-bottom: 8px; /* Added margin between list items */
+        }
+
+        .main-content ol {
+            list-style-type: decimal; /* list-decimal */
+        }
+
+        .main-content ul {
+            list-style-type: disc; /* list-disc */
+        }
+
+        /* Navigation buttons */
+        .nav-buttons {
+            display: flex; /* flex */
+            justify-content: space-between; /* justify-between */
+            max-width: 700px; /* Adjusted from 768px */
+            margin-top: 24px; /* Adjusted from 32px */
+        }
+
+        .nav-buttons a {
+            color: #2563eb; /* text-blue-600 */
+            text-decoration: none; /* hover:underline */
+            font-weight: 500; /* font-medium */
+            font-size: 1rem; /* Adjusted from 1.125rem */
+            display: flex; /* flex */
+            align-items: center; /* items-center */
+            gap: 6px; /* Adjusted from 8px */
+        }
+
+        .nav-buttons a:hover {
+            text-decoration: underline;
+        }
+
+        .nav-buttons .next-link {
+            justify-content: flex-end; /* justify-end */
+        }
+
+        .nav-buttons svg {
+            height: 18px; /* Adjusted from 20px */
+            width: 18px; /* Adjusted from 20px */
+        }
+
+        /* Feedback section */
+        .feedback {
+            margin-top: 24px; /* Adjusted from 32px */
+            padding: 16px; /* Adjusted from 20px */
+            background-color: #fff; /* bg-white */
+            border: 1px solid #e5e7eb; /* border border-gray-200 */
+            border-radius: 8px; /* rounded-lg */
+            display: flex; /* flex */
+            align-items: center; /* items-center */
+            gap: 12px; /* Adjusted from 16px */
+            max-width: 700px; /* Adjusted from 768px */
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05); /* shadow-sm */
+        }
+
+        .feedback span {
+            color: #4b5563; /* text-gray-600 */
+            font-size: 0.9rem; /* Adjusted from 1rem */
+        }
+
+        .feedback button {
+            background-color: #f3f4f6; /* bg-gray-100 */
+            color: #1d4ed8; /* text-blue-700 */
+            padding: 6px 12px; /* Adjusted from 8px 16px */
+            border-radius: 6px; /* rounded-md */
+            border: 1px solid #d1d5db; /* border border-gray-300 */
+            transition: background-color 0.2s, color 0.2s; /* transition-colors duration-200 */
+            cursor: pointer;
+            font-size: 0.9rem; /* Adjusted */
+        }
+
+        .feedback button:hover {
+            background-color: #dbeafe; /* hover:bg-blue-100 */
+            color: #1d4ed8; /* hover:text-blue-700 */
+        }
+
+        /* Tables */
+        .main-content table {
+            width: 100%; /* w-full */
+            text-align: left; /* text-left */
+            table-layout: auto; /* table-auto */
+            border-collapse: collapse;
+            font-size: 0.9rem; /* Adjusted */
+        }
+
+        .main-content table thead tr {
+            background-color: #e5e7eb; /* bg-gray-200 */
+        }
+
+        .main-content table th, .main-content table td {
+            padding: 6px;  
+        }
+
+        .main-content table tbody tr td {
+            border-top: 1px solid #d1d5db;  
+        }
+
+
+        /* Responsive adjustments */
+        @media (min-width: 1024px) { 
+            .sidebar {
+                transform: translateX(0%);  
+                width: 270px;  
+            }
+
+            .sidebar-toggle {
+                display: none; 
+            }
+
+            .main-content {
+                margin-left: 300px; 
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Sidebar for navigation -->
+    <div id="sidebar" class="sidebar">
+        <h2>DocAcquire Guide</h2>
+        <ul>
+            <li>
+                <a href="#step1">Step 1: Authentication</a>
+            </li>
+            <li>
+                <a href="#step2">Step 2: Retrieve Document Types</a>
+            </li>
+            <li>
+                <a href="#step3">Step 3: Document Processing</a>
+            </li>
+            <li>
+                <a href="#step4">Step 4: Document Verification Process</a>
+            </li>
+            <li>
+                <a href="#step5">Step 5: Retrieve Verified Documents</a>
+            </li>
+            <li>
+                <a href="#step6">Step 6: Mark Documents as Exported</a>
+            </li>
+            <li>
+                <a href="#step7">Step 7: Best Practices</a>
+            </li>
+            <li>
+                <a href="#step8">Step 8: Conclusion</a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Mobile sidebar toggle button -->
+    <button id="sidebarToggle" class="sidebar-toggle">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+    </button>
+
+    <!-- Main content area -->
+    <div class="main-content" id="main-content">
+        <h1>Automation Engineer's Guide to the DocAcquire API</h1>
+        <div class="meta">Updated on Jul 02, 2025 • Published on Feb 25, 2025</div>
+
+        <!-- Content for Step 1 -->
+        <div id="step1" class="page">
+            <div class="intro-box">
+                <p>In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the left to learn more.</p>
+            </div>
+            <h2>Step 1: Authentication</h2>
+            <p>The first step in using the DocAcquire API is to authenticate using OAuth2 to obtain an access token, which is required for all subsequent API requests. The access token expires after 3 hours.</p>
+
+            <h3>Obtaining an Access Token</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/oauth/token</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre><code>{
+    "username": "joebloggs@xyz.com",
+    "password": "YourPassword"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    "accessToken": "token here",
+    "validTo": 157679999,
+    "refreshToken": "refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre><code>"Invalid credentials."</code></pre>
+            </div>
+
+            <h3>Refreshing an Access Token</h3>
+            <p>When the access token expires, use the refresh token to obtain a new one. Check for expiration by:
+                <ol>
+                    <li>Verifying the <code>validTo</code> property in the token response.</li>
+                    <li>Checking for a <code>"token-expired": "true"</code> header in API responses.</li>
+                </ol>
+                <p class="mt-2">The refresh token expires after 24 hours.</p>
+            </p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/oauth/refresh</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre><code>{
+    "accessToken": "token here",
+    "validTo": 157679999,
+    "refreshToken": "refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    "accessToken": "new token here",
+    "validTo": 157679999,
+    "refreshToken": "new refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre><code>"Invalid credentials."</code></pre>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="nav-buttons">
+                <div></div> <!-- Placeholder for previous button on first page -->
+                <a href="#step2" class="next-link">
+                    Next: Step 2
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+
+            <!-- Feedback section -->
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 2 -->
+        <div id="step2" class="page hidden">
+            <h2>Step 2: Retrieve Document Types</h2>
+            <p>After authentication, retrieve the list of document types to identify the IDs needed for document classification and data extraction in later steps.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Document Types</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>[
+    {
+        "Id": "100",
+        "Name": "Invoice",
+        "StandardDocumentType": "1"
+    },
+    {
+        "Id": "102",
+        "Name": "Contract",
+        "StandardDocumentType": "7"
+    }
+]</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#step1">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 1
+                </a>
+                <a href="#step3">
+                    Next: Step 3
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 3 -->
+        <div id="step3" class="page hidden">
+            <h2>Step 3: Document Processing</h2>
+            <p>After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The API supports two processing modes: synchronous and asynchronous. The primary difference is that synchronous processing is designed for lightweight documents (up to 5 pages) with immediate results, while asynchronous processing is suited for heavy documents (up to 2000 pages, depending on subscription) or batch processing, with results retrieved later.</p>
+
+            <h3>Synchronous Processing</h3>
+            <p>Synchronous processing involves uploading a document to the API, where the server immediately processes it—performing tasks like splitting, classification, and data extraction—and returns the extracted data (fields, tables, and metadata) within the same request cycle. The client waits for the processing to complete, making it suitable for scenarios where instant results are needed for small documents.</p>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li><strong>Immediate Results:</strong> The response is returned in real-time, typically within seconds, depending on document complexity.</li>
+                <li><strong>Lightweight Documents:</strong> Limited to documents with a maximum of 5 pages.</li>
+                <li><strong>Single Request Cycle:</strong> The entire process (upload, processing, and result retrieval) occurs in one API call.</li>
+            </ul>
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Processing small documents, such as single invoices or short contracts.</li>
+                <li>Quick validation of lightweight documents where immediate feedback is required.</li>
+            </ul>
+            <h4>Limitations:</h4>
+            <ul>
+                <li>Maximum of 5 pages per document.</li>
+                <li>Not suitable for batch or large file processing.</li>
+            </ul>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/document/ExtractSync</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append("files", file, "invoice.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[100,200]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Response:</strong> (200) Includes extracted fields, tables, and document metadata.</p>
+                <p class="mt-2"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    "Result": "success",
+    "Documents": [
+        {
+            "Id": null,
+            "Name": "Page (2-2) invoice test.pdf",
+            "DocumentType": "invoice",
+            "Fields": [
+                { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+                { "Id": 18513, "Name": "total", "Value": "90000" }
+            ],
+            "Tables": [
+                {
+                    "Name": "line items",
+                    "Rows": [
+                        {
+                            "Cells": [
+                                { "Name": "qty", "Id": 5796, "Value": "200" },
+                                { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                                { "Name": "unit price", "Id": 7797, "Value": "900" },
+                                { "Name": "amount", "Id": 7798, "Value": "9000" }
+                            ],
+                            "RowNo": 1,
+                            "IsHeader": false
+                        }
+                    ]
+                }
+            ],
+            "Result": 1,
+            "ResultString": "success"
+        },
+        // ... more documents if applicable
+    ]
+}</code></pre>
+            </div>
+
+            <h3>Asynchronous Processing</h3>
+            <p>Asynchronous processing allows the client to upload one or more documents, receiving an immediate acknowledgment (e.g., a document ID). The server queues the documents for processing in the background, performing tasks like splitting, classification, and data extraction. The client must later query a separate endpoint (using the document ID) to retrieve the results, making it ideal for handling large documents or multiple files without requiring the client to wait.</p>
+            <h4>Key Characteristics:</h4>
+            <ul>
+                <li><strong>Background Processing:</strong> Processing occurs on the server after the initial upload, freeing the client to perform other tasks.</li>
+                <li><strong>Heavy Documents and Batch Processing:</strong> Supports documents up to 2000 pages (based on subscription) and batch uploads of up to 10 documents at once.</li>
+                <li><strong>Two-Step Process:</strong> Upload documents to receive a document ID, then poll or use a callback to retrieve results later.</li>
+            </ul>
+            <h4>Use Cases:</h4>
+            <ul>
+                <li>Processing large documents, such as multi-page reports or contracts.</li>
+                <li>Batch processing multiple documents simultaneously.</li>
+                <li>Background workflows or bulk automation where immediate results are not required.</li>
+            </ul>
+            <h4>Advantages:</h4>
+            <ul>
+                <li>No page limit (up to 2000 pages based on subscription).</li>
+                <li>Supports uploading multiple files at once.</li>
+            </ul>
+
+            <h4>Upload Single Document</h4>
+            <p>The client sends a POST request with a single document file to the <code class="code-inline">/api/v4/Document/UploadSingle</code> endpoint. The server acknowledges the upload and queues the document for background processing. The client can later query the status or retrieve results using the provided document ID.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append("files", file, "invoice.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[100,200]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentId": 1005
+}</code></pre>
+            </div>
+
+            <h4>Upload Multiple Documents</h4>
+            <p>The client sends a POST request with up to 10 documents to the <code class="code-inline">/api/v4/Document/UploadMultiple</code> endpoint. The server acknowledges the upload and processes each document in the background. The client retrieves results for each document using the respective document IDs.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadMultiple</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre><code>const formData = new FormData();
+formData.append("files", file, "invoice1.pdf");
+formData.append("files", file, "invoice2.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[1000,2000]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentIdList": [1005,1006 ...]
+}</code></pre>
+            </div>
+
+            <h4>Upload Document in Base64</h4>
+            <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to the <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves results later using the document ID.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre><code>{
+    "Filename": "invoice.pdf",
+    "Content": "&lt;&lt;BASE64 STRING HERE&gt;&gt;",
+    "TaskId": 0, //optional
+    "DocumentTypeList": [100, 200] //optional
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentId": 1005
+}</code></pre>
+            </div>
+
+            <h3>Choosing Between Synchronous and Asynchronous</h3>
+            <div class="code-block">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Feature</th>
+                            <th>Synchronous</th>
+                            <th>Asynchronous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Max Pages</td>
+                            <td>5</td>
+                            <td>Up to 2000 (based on subscription)</td>
+                        </tr>
+                        <tr>
+                            <td>Batch Document Processing</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                        <tr>
+                            <td>Large Documents</td>
+                            <td>No</td>
+                            <td>Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#step2">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 2
+                </a>
+                <a href="#step4">
+                    Next: Step 4
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 4 -->
+        <div id="step4" class="page hidden">
+            <h2>Step 4: Document Verification Process</h2>
+            <p>Based on the review method configured during document type setup, the following steps apply to verify documents before data extraction:</p>
+            <ul>
+                <li><strong>Manual Review:</strong> If configured for manual review, you must manually review and mark documents as verified before extracting data via APIs.</li>
+                <li><strong>Skip Review:</strong> If set to skip review, documents are automatically verified and moved to the Reviewed stage, enabling immediate data extraction via APIs.</li>
+                <li><strong>Auto Review:</strong> If configured for auto review, extracted fields undergo automated validation checks. If all checks pass, documents are moved to the Reviewed stage, and data can be extracted directly via APIs.</li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#step3">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 3
+                </a>
+                <a href="#step5">
+                    Next: Step 5
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 5 -->
+        <div id="step5" class="page hidden">
+            <h2>Step 5: Retrieve Verified Documents</h2>
+            <p>After documents are verified, retrieve verified (human or system-verified) documents using document type or ID, in standard or flattened formats.</p>
+
+            <h3>By Document Type</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentTypeId : Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    "Result": "success",
+    "Documents": [
+        {
+            "Id": 100,
+            "Name": "Page (2 - 2) - invoice test.pdf",
+            "DocumentType": "invoice",
+            "Fields": [
+                { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+                { "Id": 18513, "Name": "total", "Value": "90000" }
+            ],
+            "Tables": [
+                {
+                    "Name": "line items",
+                    "Rows": [
+                        {
+                            "Cells": [
+                                { "Name": "qty", "Id": 5796, "Value": "200" },
+                                { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                                { "Name": "unit price", "Id": 7797, "Value": "900" },
+                                { "Name": "amount", "Id": 7798, "Value": "9000" }
+                            ],
+                            "RowNo": 1,
+                            "IsHeader": false
+                        }
+                    ]
+                }
+            ],
+            "Result": 1,
+            "ResultString": "success"
+        },
+        // ... more documents
+    ]
+}</code></pre>
+            </div>
+
+            <h3>By Document Type (Flattened)</h3>
+            <p>Returns verified documents in a simplified key/value pair format without additional metadata like confidence scores.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentTypeId: Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>[
+    {
+        "CustomerName": "DASHER TECHNOLOGIES INC",
+        "TotalTax": "$606.42",
+        "Amount": "$2,196.00"
+    },
+    {
+        "CustomerName": "ABC INC",
+        "TotalTax": "$450.51",
+        "Amount": "$5,065.96"
+    }
+]</code></pre>
+            </div>
+
+            <h3>By Document ID</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentId : Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre><code>{
+    "Id": 100,
+    "Name": "Page (2 - 2) - invoice test.pdf",
+    "DocumentType": "invoice",
+    "Fields": [
+        { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+        { "Id": 18513, "Name": "total", "Value": "90000" }
+    ],
+    "Tables": [
+        {
+            "Name": "line items",
+            "Rows": [
+                {
+                    "Cells": [
+                        { "Name": "qty", "Id": 5796, "Value": "200" },
+                        { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                        { "Name": "unit price", "Id": 7797, "Value": "900" }
+                    ],
+                    "RowNo": 1,
+                    "IsHeader": false
+                }
+            ]
+        }
+    ],
+    "Result": 1,
+    "ResultString": "success"
+}</code></pre>
+            </div>
+
+            <h3>By Document ID (Flattened)</h3>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentId: Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    "Supplier": "Alpine Ski House",
+    "InvoiceNumber": "500045/22",
+    "OrderNumber": "NUMBER",
+    "IssueDate": "10/07/17",
+    "TotalNet": "1100.00",
+    "TotalTax": "45.00",
+    "TotalGross": "1160.00",
+    "EmailAddress": "dstemp@xyzconsulting.com",
+    "Phone": "0207783463",
+    "lineitems": [
+        {
+            "Tax": "10",
+            "Description": "Computer Monitors",
+            "Quantity": "100",
+            "Amount": "1000.00"
+        },
+        {
+            "Tax": "5",
+            "Description": "Video Cards",
+            "Quantity": "20",
+            "Amount": "100.00"
+        }
+    ]
+}</code></pre>
+            </div>
+
+            <div class="nav-buttons">
+                <a href="#step4">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 4
+                </a>
+                <a href="#step6">
+                    Next: Step 6
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 6 -->
+        <div id="step6" class="page hidden">
+            <h2>Step 6: Mark Documents as Exported</h2>
+            <p>The final step is to mark processed documents as exported to track their status. An error is thrown for invalid document IDs.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/MarkDocumentsExported</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre><code>{
+    "DocumentIdList": [1001,1002,1003]
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre><code>{
+    "Success": "true",
+    "Message": "Success"
+}</code></pre>
+            </div>
+            <div class="nav-buttons">
+                <a href="#step5">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 5
+                </a>
+                <a href="#step7">
+                    Next: Best Practices
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 7 -->
+        <div id="step7" class="page hidden">
+            <h2>Best Practices</h2>
+            <ul>
+                <li><strong>Synchronous Processing:</strong> Use for lightweight documents (up to 5 pages) requiring immediate results.</li>
+                <li><strong>Asynchronous Processing:</strong> Use for heavy documents or batch document processing. Implement a polling or callback mechanism to retrieve results.</li>
+                <li><strong>Token Management:</strong> Monitor token expiry and use the refresh token to maintain uninterrupted access.</li>
+                <li><strong>Document Type Specification:</strong> Include document type IDs when uploading documents to improve classification accuracy.</li>
+                <li><strong>Verification Process:</strong> Ensure the review method (Manual, Skip, or Auto) aligns with your workflow to streamline verification and data extraction.</li>
+                <li><strong>Error Handling:</strong> Check for <code>"token-expired": "true"</code> headers and handle invalid credential errors appropriately.</li>
+            </ul>
+            <div class="nav-buttons">
+                <a href="#step6">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Step 6
+                </a>
+                <a href="#step8">
+                    Next: Conclusion
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41zM4 6l6 6-6 6 1.41-1.41L6.83 12 4 9.17 5.41 7.76z"/></svg>
+                </a>
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 8 -->
+        <div id="step8" class="page hidden">
+            <h2>Conclusion</h2>
+            <p>The DocAcquire API provides a structured workflow for document processing, starting with authentication, followed by retrieving document types, processing documents (synchronously or asynchronously), retrieving verified documents, and marking documents as exported.</p>
+            <div class="nav-buttons">
+                <a href="#step7">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+                    Previous: Best Practices
+                </a>
+                <div></div> <!-- Placeholder for next button on last page -->
+            </div>
+            <div class="feedback">
+                <span>Was this article helpful?</span>
+                <button>Yes</button>
+                <button>No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 8;
+        const pages = document.querySelectorAll('.page');
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        // Function to show the selected page and update active link
+        function showPage(pageNum) {
+            pages.forEach((page, index) => {
+                page.classList.toggle('hidden', (index + 1 !== pageNum));
+            });
+
+            sidebarLinks.forEach(a => a.classList.remove('active'));
+            const activeLink = document.querySelector(`.sidebar a[href="#step${pageNum}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active');
+            }
+
+            // Scroll to top of content when page changes
+            document.querySelector('.main-content').scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Hide sidebar on mobile after navigation
+            if (window.innerWidth < 1024) { // 1024px is the breakpoint for 'lg'
+                sidebar.classList.remove('sidebar-open');
+            }
+        }
+
+        // Event listeners for sidebar navigation
+        sidebarLinks.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Event listeners for next/previous navigation buttons
+        document.querySelectorAll('.nav-buttons a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Toggle sidebar visibility on mobile
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('sidebar-open');
+        });
+
+        // Initial page load
+        showPage(currentPage);
+    </script>
+</body>
+</html>
