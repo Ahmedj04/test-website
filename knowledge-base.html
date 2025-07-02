@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DocAcquire API Guide</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        /* Hide scrollbar for sidebar, but allow scrolling */
+        .sidebar::-webkit-scrollbar {
+            display: none;
+        }
+        .sidebar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 min-h-screen flex">
+    <!-- Sidebar for navigation -->
+    <div id="sidebar" class="sidebar w-64 bg-white p-6 border-r border-gray-200 fixed h-screen overflow-y-auto shadow-lg
+                transform -translate-x-full lg:translate-x-0 transition-transform duration-300 ease-in-out z-20">
+        <h2 class="text-xl font-bold text-blue-800 mb-6">DocAcquire Guide</h2>
+        <ul>
+            <li class="mb-2">
+                <a href="#step1" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 1: Authentication
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step2" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 2: Retrieve Document Types
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step3" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 3: Document Processing
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step4" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 4: Document Verification Process
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step5" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 5: Retrieve Verified Documents
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step6" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 6: Mark Documents as Exported
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step7" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 7: Best Practices
+                </a>
+            </li>
+            <li class="mb-2">
+                <a href="#step8" class="block py-2 px-4 rounded-md text-gray-700 hover:bg-blue-100 hover:text-blue-700 transition-colors duration-200">
+                    Step 8: Conclusion
+                </a>
+            </li>
+        </ul>
+    </div>
+
+    <!-- Mobile sidebar toggle button -->
+    <button id="sidebarToggle" class="lg:hidden fixed top-4 left-4 z-30 p-2 bg-blue-600 text-white rounded-md shadow-md">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+    </button>
+
+    <!-- Main content area -->
+    <div class="flex-grow p-8 lg:ml-64 overflow-y-auto">
+        <h1 class="text-4xl font-extrabold text-blue-900 mb-4">Automation Engineer's Guide to the DocAcquire API</h1>
+        <div class="text-sm text-gray-500 mb-8">Updated on Jul 02, 2025 • Published on Feb 25, 2025</div>
+
+        <!-- Content for Step 1 -->
+        <div id="step1" class="page">
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 rounded-lg mb-8 shadow-sm">
+                <p class="text-blue-800 text-lg">In this guide, you will find steps for using the DocAcquire API effectively. Browse the topics on the left to learn more.</p>
+            </div>
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 1: Authentication</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">The first step in using the DocAcquire API is to authenticate using OAuth2 to obtain an access token, which is required for all subsequent API requests. The access token expires after 3 hours.</p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">Obtaining an Access Token</h3>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-4 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/oauth/token</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "username": "joebloggs@xyz.com",
+    "password": "YourPassword"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "accessToken": "token here",
+    "validTo": 157679999,
+    "refreshToken": "refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>"Invalid credentials."</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">Refreshing an Access Token</h3>
+            <p class="text-gray-700 mb-4 max-w-3xl">When the access token expires, use the refresh token to obtain a new one. Check for expiration by:
+                <ol class="list-decimal list-inside ml-4 mt-2">
+                    <li>Verifying the <code>validTo</code> property in the token response.</li>
+                    <li>Checking for a <code>"token-expired": "true"</code> header in API responses.</li>
+                </ol>
+                <p class="mt-2">The refresh token expires after 24 hours.</p>
+            </p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/oauth/refresh</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p><strong>Payload:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "accessToken": "token here",
+    "validTo": 157679999,
+    "refreshToken": "refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "accessToken": "new token here",
+    "validTo": 157679999,
+    "refreshToken": "new refresh token here"
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (400 - Invalid Credentials):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>"Invalid credentials."</code></pre>
+            </div>
+
+            <!-- Navigation buttons -->
+            <div class="nav-buttons flex justify-end max-w-3xl mt-8">
+                <a href="#step2" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Step 2
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+
+            <!-- Feedback section -->
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 2 -->
+        <div id="step2" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 2: Retrieve Document Types</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">After authentication, retrieve the list of document types to identify the IDs needed for document classification and data extraction in later steps.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/Document Types</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>[
+    {
+        "Id": "100",
+        "Name": "Invoice",
+        "StandardDocumentType": "1"
+    },
+    {
+        "Id": "102",
+        "Name": "Contract",
+        "StandardDocumentType": "7"
+    }
+]</code></pre>
+            </div>
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step1" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 1
+                </a>
+                <a href="#step3" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Step 3
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 3 -->
+        <div id="step3" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 3: Document Processing</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">After retrieving document type IDs, you can upload and process documents using the DocAcquire API. The API supports two processing modes: synchronous and asynchronous. The primary difference is that synchronous processing is designed for lightweight documents (up to 5 pages) with immediate results, while asynchronous processing is suited for heavy documents (up to 2000 pages, depending on subscription) or batch processing, with results retrieved later.</p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">Synchronous Processing</h3>
+            <p class="text-gray-700 mb-4 max-w-3xl">Synchronous processing involves uploading a document to the API, where the server immediately processes it—performing tasks like splitting, classification, and data extraction—and returns the extracted data (fields, tables, and metadata) within the same request cycle. The client waits for the processing to complete, making it suitable for scenarios where instant results are needed for small documents.</p>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Key Characteristics:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li><strong>Immediate Results:</strong> The response is returned in real-time, typically within seconds, depending on document complexity.</li>
+                <li><strong>Lightweight Documents:</strong> Limited to documents with a maximum of 5 pages.</li>
+                <li><strong>Single Request Cycle:</strong> The entire process (upload, processing, and result retrieval) occurs in one API call.</li>
+            </ul>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Use Cases:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li>Processing small documents, such as single invoices or short contracts.</li>
+                <li>Quick validation of lightweight documents where immediate feedback is required.</li>
+            </ul>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Limitations:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li>Maximum of 5 pages per document.</li>
+                <li>Not suitable for batch or large file processing.</li>
+            </ul>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/document/ExtractSync</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>const formData = new FormData();
+formData.append("files", file, "invoice.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[100,200]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Response:</strong> (200) Includes extracted fields, tables, and document metadata.</p>
+                <p class="mt-2"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Result": "success",
+    "Documents": [
+        {
+            "Id": null,
+            "Name": "Page (2-2) invoice test.pdf",
+            "DocumentType": "invoice",
+            "Fields": [
+                { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+                { "Id": 18513, "Name": "total", "Value": "90000" }
+            ],
+            "Tables": [
+                {
+                    "Name": "line items",
+                    "Rows": [
+                        {
+                            "Cells": [
+                                { "Name": "qty", "Id": 5796, "Value": "200" },
+                                { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                                { "Name": "unit price", "Id": 7797, "Value": "900" },
+                                { "Name": "amount", "Id": 7798, "Value": "9000" }
+                            ],
+                            "RowNo": 1,
+                            "IsHeader": false
+                        }
+                    ]
+                }
+            ],
+            "Result": 1,
+            "ResultString": "success"
+        },
+        // ... more documents if applicable
+    ]
+}</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">Asynchronous Processing</h3>
+            <p class="text-gray-700 mb-4 max-w-3xl">Asynchronous processing allows the client to upload one or more documents, receiving an immediate acknowledgment (e.g., a document ID). The server queues the documents for processing in the background, performing tasks like splitting, classification, and data extraction. The client must later query a separate endpoint (using the document ID) to retrieve the results, making it ideal for handling large documents or multiple files without requiring the client to wait.</p>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Key Characteristics:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li><strong>Background Processing:</strong> Processing occurs on the server after the initial upload, freeing the client to perform other tasks.</li>
+                <li><strong>Heavy Documents and Batch Processing:</strong> Supports documents up to 2000 pages (based on subscription) and batch uploads of up to 10 documents at once.</li>
+                <li><strong>Two-Step Process:</strong> Upload documents to receive a document ID, then poll or use a callback to retrieve results later.</li>
+            </ul>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Use Cases:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li>Processing large documents, such as multi-page reports or contracts.</li>
+                <li>Batch processing multiple documents simultaneously.</li>
+                <li>Background workflows or bulk automation where immediate results are not required.</li>
+            </ul>
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Advantages:</h4>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-4 max-w-3xl">
+                <li>No page limit (up to 2000 pages based on subscription).</li>
+                <li>Supports uploading multiple files at once.</li>
+            </ul>
+
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Upload Single Document</h4>
+            <p class="text-gray-700 mb-4 max-w-3xl">The client sends a POST request with a single document file to the <code>/api/v4/Document/UploadSingle</code> endpoint. The server acknowledges the upload and queues the document for background processing. The client can later query the status or retrieve results using the provided document ID.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/UploadSingle</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>const formData = new FormData();
+formData.append("files", file, "invoice.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[100,200]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentId": 1005
+}</code></pre>
+            </div>
+
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Upload Multiple Documents</h4>
+            <p class="text-gray-700 mb-4 max-w-3xl">The client sends a POST request with up to 10 documents to the <code>/api/v4/Document/UploadMultiple</code> endpoint. The server acknowledges the upload and processes each document in the background. The client retrieves results for each document using the respective document IDs.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/UploadMultiple</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Accept: application/json
+enctype: multipart/form-data
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>const formData = new FormData();
+formData.append("files", file, "invoice1.pdf");
+formData.append("files", file, "invoice2.pdf");
+let headers = new HttpHeaders();
+headers = headers.set("Accept", "application/json");
+headers = headers.set("enctype", "multipart/form-data");
+headers = headers.set("Authorization", "Bearer {AUTH TOKEN}");
+headers = headers.set("docTypeIds", "[1000,2000]");
+
+var request = new XMLHttpRequest();
+request.open("POST", "https://foo.com/submitform.php");
+request.send(formData);</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentIdList": [1005,1006 ...]
+}</code></pre>
+            </div>
+
+            <h4 class="text-xl font-medium text-blue-500 mb-2">Upload Document in Base64</h4>
+            <p class="text-gray-700 mb-4 max-w-3xl">The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to the <code>/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves results later using the document ID.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/UploadSingle/Base64</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Filename": "invoice.pdf",
+    "Content": "&lt;&lt;BASE64 STRING HERE&gt;&gt;",
+    "TaskId": 0, //optional
+    "DocumentTypeList": [100, 200] //optional
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentId": 1005
+}</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">Choosing Between Synchronous and Asynchronous</h3>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <table class="w-full text-left table-auto">
+                    <thead>
+                        <tr class="bg-gray-200">
+                            <th class="p-2">Feature</th>
+                            <th class="p-2">Synchronous</th>
+                            <th class="p-2">Asynchronous</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="p-2 border-t border-gray-300">Max Pages</td>
+                            <td class="p-2 border-t border-gray-300">5</td>
+                            <td class="p-2 border-t border-gray-300">Up to 2000 (based on subscription)</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border-t border-gray-300">Batch Document Processing</td>
+                            <td class="p-2 border-t border-gray-300">No</td>
+                            <td class="p-2 border-t border-gray-300">Yes</td>
+                        </tr>
+                        <tr>
+                            <td class="p-2 border-t border-gray-300">Large Documents</td>
+                            <td class="p-2 border-t border-gray-300">No</td>
+                            <td class="p-2 border-t border-gray-300">Yes</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step2" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 2
+                </a>
+                <a href="#step4" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Step 4
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 4 -->
+        <div id="step4" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 4: Document Verification Process</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">Based on the review method configured during document type setup, the following steps apply to verify documents before data extraction:</p>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-6 max-w-3xl">
+                <li><strong>Manual Review:</strong> If configured for manual review, you must manually review and mark documents as verified before extracting data via APIs.</li>
+                <li><strong>Skip Review:</strong> If set to skip review, documents are automatically verified and moved to the Reviewed stage, enabling immediate data extraction via APIs.</li>
+                <li><strong>Auto Review:</strong> If configured for auto review, extracted fields undergo automated validation checks. If all checks pass, documents are moved to the Reviewed stage, and data can be extracted directly via APIs.</li>
+            </ul>
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step3" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 3
+                </a>
+                <a href="#step5" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Step 5
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 5 -->
+        <div id="step5" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 5: Retrieve Verified Documents</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">After documents are verified, retrieve verified (human or system-verified) documents using document type or ID, in standard or flattened formats.</p>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">By Document Type</h3>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-4 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="bg-gray-200 px-2 py-1 rounded">DocumentTypeId : Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Result": "success",
+    "Documents": [
+        {
+            "Id": 100,
+            "Name": "Page (2 - 2) - invoice test.pdf",
+            "DocumentType": "invoice",
+            "Fields": [
+                { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+                { "Id": 18513, "Name": "total", "Value": "90000" }
+            ],
+            "Tables": [
+                {
+                    "Name": "line items",
+                    "Rows": [
+                        {
+                            "Cells": [
+                                { "Name": "qty", "Id": 5796, "Value": "200" },
+                                { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                                { "Name": "unit price", "Id": 7797, "Value": "900" },
+                                { "Name": "amount", "Id": 7798, "Value": "9000" }
+                            ],
+                            "RowNo": 1,
+                            "IsHeader": false
+                        }
+                    ]
+                }
+            ],
+            "Result": 1,
+            "ResultString": "success"
+        },
+        // ... more documents
+    ]
+}</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">By Document Type (Flattened)</h3>
+            <p class="text-gray-700 mb-4 max-w-3xl">Returns verified documents in a simplified key/value pair format without additional metadata like confidence scores.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-4 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="bg-gray-200 px-2 py-1 rounded">DocumentTypeId: Id of the Document Type</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>[
+    {
+        "CustomerName": "DASHER TECHNOLOGIES INC",
+        "TotalTax": "$606.42",
+        "Amount": "$2,196.00"
+    },
+    {
+        "CustomerName": "ABC INC",
+        "TotalTax": "$450.51",
+        "Amount": "$5,065.96"
+    }
+]</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">By Document ID</h3>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-4 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/Verified/{DocumentId}</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="bg-gray-200 px-2 py-1 rounded">DocumentId : Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Id": 100,
+    "Name": "Page (2 - 2) - invoice test.pdf",
+    "DocumentType": "invoice",
+    "Fields": [
+        { "Id": 16510, "Name": "invoice no.", "Value": "INVOICE #200" },
+        { "Id": 18513, "Name": "total", "Value": "90000" }
+    ],
+    "Tables": [
+        {
+            "Name": "line items",
+            "Rows": [
+                {
+                    "Cells": [
+                        { "Name": "qty", "Id": 5796, "Value": "200" },
+                        { "Name": "description", "Id": 7796, "Value": "Decorative clay pottery (LG)" },
+                        { "Name": "unit price", "Id": 7797, "Value": "900" }
+                    ],
+                    "RowNo": 1,
+                    "IsHeader": false
+                }
+            ]
+        }
+    ],
+    "Result": 1,
+    "ResultString": "success"
+}</code></pre>
+            </div>
+
+            <h3 class="text-2xl font-semibold text-blue-600 mb-3">By Document ID (Flattened)</h3>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">GET</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Query String:</strong> <code class="bg-gray-200 px-2 py-1 rounded">DocumentId: Id of the Document</code></p>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Supplier": "Alpine Ski House",
+    "InvoiceNumber": "500045/22",
+    "OrderNumber": "NUMBER",
+    "IssueDate": "10/07/17",
+    "TotalNet": "1100.00",
+    "TotalTax": "45.00",
+    "TotalGross": "1160.00",
+    "EmailAddress": "dstemp@xyzconsulting.com",
+    "Phone": "0207783463",
+    "lineitems": [
+        {
+            "Tax": "10",
+            "Description": "Computer Monitors",
+            "Quantity": "100",
+            "Amount": "1000.00"
+        },
+        {
+            "Tax": "5",
+            "Description": "Video Cards",
+            "Quantity": "20",
+            "Amount": "100.00"
+        }
+    ]
+}</code></pre>
+            </div>
+
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step4" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 4
+                </a>
+                <a href="#step6" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Step 6
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 6 -->
+        <div id="step6" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Step 6: Mark Documents as Exported</h2>
+            <p class="text-gray-700 mb-4 max-w-3xl">The final step is to mark processed documents as exported to track their status. An error is thrown for invalid document IDs.</p>
+            <div class="bg-gray-100 p-4 rounded-md font-mono text-sm text-gray-800 mb-6 max-w-3xl">
+                <p><strong>Endpoint:</strong> <code class="bg-gray-200 px-2 py-1 rounded">/api/v4/Document/MarkDocumentsExported</code></p>
+                <p><strong>Method:</strong> <code class="bg-gray-200 px-2 py-1 rounded">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "DocumentIdList": [1001,1002,1003]
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
+                <pre class="bg-gray-200 p-2 rounded-md mt-2 overflow-x-auto"><code>{
+    "Success": "true",
+    "Message": "Success"
+}</code></pre>
+            </div>
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step5" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 5
+                </a>
+                <a href="#step7" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Best Practices
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 7 -->
+        <div id="step7" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Best Practices</h2>
+            <ul class="list-disc list-inside ml-4 text-gray-700 mb-6 max-w-3xl">
+                <li><strong>Synchronous Processing:</strong> Use for lightweight documents (up to 5 pages) requiring immediate results.</li>
+                <li><strong>Asynchronous Processing:</strong> Use for heavy documents or batch document processing. Implement a polling or callback mechanism to retrieve results.</li>
+                <li><strong>Token Management:</strong> Monitor token expiry and use the refresh token to maintain uninterrupted access.</li>
+                <li><strong>Document Type Specification:</strong> Include document type IDs when uploading documents to improve classification accuracy.</li>
+                <li><strong>Verification Process:</strong> Ensure the review method (Manual, Skip, or Auto) aligns with your workflow to streamline verification and data extraction.</li>
+                <li><strong>Error Handling:</strong> Check for <code>"token-expired": "true"</code> headers and handle invalid credential errors appropriately.</li>
+            </ul>
+            <div class="nav-buttons flex justify-between max-w-3xl mt-8">
+                <a href="#step6" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Step 6
+                </a>
+                <a href="#step8" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    Next: Conclusion
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M10.293 15.707a1 1 0 010-1.414L14.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                        <path fill-rule="evenodd" d="M4.293 15.707a1 1 0 010-1.414L8.586 10l-4.293-4.293a1 1 0 111.414-1.414l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                    </svg>
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+
+        <!-- Content for Step 8 -->
+        <div id="step8" class="page hidden">
+            <h2 class="text-3xl font-bold text-blue-700 mb-5">Conclusion</h2>
+            <p class="text-gray-700 mb-6 max-w-3xl">The DocAcquire API provides a structured workflow for document processing, starting with authentication, followed by retrieving document types, processing documents (synchronously or asynchronously), retrieving verified documents, and marking documents as exported.</p>
+            <div class="nav-buttons flex justify-start max-w-3xl mt-8">
+                <a href="#step7" class="text-blue-600 hover:underline font-medium text-lg flex items-center gap-2">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M9.707 4.293a1 1 0 00-1.414 0l-5 5a1 1 0 000 1.414l5 5a1 1 0 001.414-1.414L5.414 11H16a1 1 0 100-2H5.414l4.293-4.293a1 1 0 000-1.414z" clip-rule="evenodd" />
+                    </svg>
+                    Previous: Best Practices
+                </a>
+            </div>
+            <div class="feedback mt-8 p-5 bg-white border border-gray-200 rounded-lg flex items-center gap-4 max-w-3xl shadow-sm">
+                <span class="text-gray-600 text-base">Was this article helpful?</span>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">Yes</button>
+                <button class="bg-gray-100 hover:bg-blue-100 text-blue-700 py-2 px-4 rounded-md border border-gray-300 transition-colors duration-200">No</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let currentPage = 1;
+        const totalPages = 8;
+        const pages = document.querySelectorAll('.page');
+        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        const sidebar = document.getElementById('sidebar');
+        const sidebarToggle = document.getElementById('sidebarToggle');
+
+        // Function to show the selected page and update active link
+        function showPage(pageNum) {
+            pages.forEach((page, index) => {
+                page.classList.toggle('hidden', (index + 1 !== pageNum)); // Use hidden class for display toggle
+            });
+
+            sidebarLinks.forEach(a => a.classList.remove('active', 'bg-blue-200', 'text-blue-800', 'font-semibold'));
+            const activeLink = document.querySelector(`.sidebar a[href="#step${pageNum}"]`);
+            if (activeLink) {
+                activeLink.classList.add('active', 'bg-blue-200', 'text-blue-800', 'font-semibold');
+            }
+
+            // Scroll to top of content when page changes
+            document.querySelector('.flex-grow').scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Hide sidebar on mobile after navigation
+            if (window.innerWidth < 1024) { // 1024px is Tailwind's 'lg' breakpoint
+                sidebar.classList.add('-translate-x-full');
+            }
+        }
+
+        // Event listeners for sidebar navigation
+        sidebarLinks.forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Event listeners for next/previous navigation buttons
+        document.querySelectorAll('.nav-buttons a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const pageId = this.getAttribute('href').replace('#', '');
+                currentPage = parseInt(pageId.replace('step', ''));
+                showPage(currentPage);
+            });
+        });
+
+        // Toggle sidebar visibility on mobile
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Initial page load
+        showPage(currentPage);
+    </script>
+</body>
+</html>
