@@ -207,6 +207,12 @@
             font-size: 0.8rem; /* Adjusted */
         }
 
+        .code-block >:first-child code{
+            white-space: normal;
+            /* word-break: break-all; */
+            overflow-wrap: anywhere;  /* modern, good for paths */
+        }
+       
         /* Lists */
         .main-content ul, .main-content ol {
             list-style-position: outside; /* Changed from inside to outside */
@@ -318,8 +324,6 @@
             border-top: 1px solid #d1d5db;  
         }
 
-
-        /* Responsive adjustments */
         @media (min-width: 1024px) { 
             .sidebar {
                 transform: translateX(0%);  
@@ -454,7 +458,7 @@
             <h2>Step 2: Retrieve Document Types</h2>
             <p>After authentication, retrieve the list of document types to identify the IDs needed for document classification and data extraction in later steps.</p>
             <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Document Types</code></p>
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/DocumentTypes</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
                 <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
@@ -1005,7 +1009,7 @@ request.send(formData);</code></pre>
             </div>
         </div>
     </div>
-
+    
     <script>
         let currentPage = 1;
         const totalPages = 8;
@@ -1063,5 +1067,6 @@ request.send(formData);</code></pre>
         // Initial page load
         showPage(currentPage);
     </script>
+    
 </body>
 </html>
