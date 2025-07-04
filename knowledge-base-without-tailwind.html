@@ -457,7 +457,7 @@
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Document Types</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Sample Response (200 - Success):</strong></p>
                 <pre><code>[
     {
@@ -518,7 +518,7 @@
                 <p class="mt-4"><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
-Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
                 <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
@@ -539,6 +539,7 @@ request.send(formData);</code></pre>
     "Documents": [
         {
             "Id": null,
+            "MasterId": null,
             "Name": "Page (2-2) invoice test.pdf",
             "DocumentType": "invoice",
             "Fields": [
@@ -598,7 +599,7 @@ request.send(formData);</code></pre>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
-Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
                 <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
@@ -617,7 +618,33 @@ request.send(formData);</code></pre>
     "Success": "true",
     "Message": "Uploaded successfully",
     "FailureLevel": 0,
-    "DocumentId": 1005
+    "DocumentId": 1005,
+    "MasterId": "35951a9e-ded6-4620-9c97-de69a327577f" 
+}</code></pre>
+            </div>
+
+            <h4>Upload Single Document in Base64</h4>
+            <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to the <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves results later using the document ID.</p>
+            <div class="code-block">
+                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
+                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
+                <p class="mt-4"><strong>Request Headers:</strong></p>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
+DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
+                <p class="mt-4"><strong>Request Payload:</strong></p>
+                <pre><code>{
+    "Filename": "invoice.pdf",
+    "Content": "&lt;&lt;BASE64 STRING HERE&gt;&gt;",
+    "TaskId": 0, //optional
+    "DocumentTypeList": [100, 200] //optional
+}</code></pre>
+                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
+                <pre><code>{
+    "Success": "true",
+    "Message": "Uploaded successfully",
+    "FailureLevel": 0,
+    "DocumentId": 1005,
+    "MasterId": "35951a9e-ded6-4620-9c97-de69a327577f"
 }</code></pre>
             </div>
 
@@ -629,7 +656,7 @@ request.send(formData);</code></pre>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
                 <pre><code>Accept: application/json
 enctype: multipart/form-data
-Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
+Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)
 docTypeIds: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
                 <p class="mt-4"><strong>Body - Form Data Example:</strong></p>
                 <pre><code>const formData = new FormData();
@@ -649,31 +676,8 @@ request.send(formData);</code></pre>
     "Success": "true",
     "Message": "Uploaded successfully",
     "FailureLevel": 0,
-    "DocumentIdList": [1005,1006 ...]
-}</code></pre>
-            </div>
-
-            <h4>Upload Document in Base64</h4>
-            <p>The client sends a POST request with a JSON payload containing the document as a Base64-encoded string to the <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code> endpoint. The server decodes the Base64 string, acknowledges the upload, and queues the document for processing. The client retrieves results later using the document ID.</p>
-            <div class="code-block">
-                <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/UploadSingle/Base64</code></p>
-                <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
-                <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)
-DocumentTypeList: is optional to help the classifier engine to classify the documents. You can pass in one or many document type ids.</code></pre>
-                <p class="mt-4"><strong>Request Payload:</strong></p>
-                <pre><code>{
-    "Filename": "invoice.pdf",
-    "Content": "&lt;&lt;BASE64 STRING HERE&gt;&gt;",
-    "TaskId": 0, //optional
-    "DocumentTypeList": [100, 200] //optional
-}</code></pre>
-                <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
-                <pre><code>{
-    "Success": "true",
-    "Message": "Uploaded successfully",
-    "FailureLevel": 0,
-    "DocumentId": 1005
+    "DocumentIdList": [1005,1006, ...],
+    "MasterIdList": ["35951a9e-ded6-4620-9c97-de69a327577f", "12345abc-def6-7890-ghij-klmnopqrstuv", ...]
 }</code></pre>
             </div>
 
@@ -760,7 +764,7 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentTypeId : Id of the Document Type</code></p>
                 <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
                 <pre><code>{
@@ -768,6 +772,7 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
     "Documents": [
         {
             "Id": 100,
+            "MasterId": "33213a9e-ded6-4323-9c97-de69a327577z",
             "Name": "Page (2 - 2) - invoice test.pdf",
             "DocumentType": "invoice",
             "Fields": [
@@ -805,16 +810,20 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/DocumentType/{DocumentTypeId}/Flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentTypeId: Id of the Document Type</code></p>
                 <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>[
     {
+        "Id": 432,
+        "MasterId": "1233a9e-ded6-4323-9c97-de69a327577y",
         "CustomerName": "DASHER TECHNOLOGIES INC",
         "TotalTax": "$606.42",
         "Amount": "$2,196.00"
     },
     {
+        "Id": 433,
+        "MasterId": "87adca9e-ded6-4323-9c97-de69a327577x",
         "CustomerName": "ABC INC",
         "TotalTax": "$450.51",
         "Amount": "$5,065.96"
@@ -827,11 +836,12 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentId : Id of the Document</code></p>
                 <p class="mt-4"><strong>Sample Response (200 - OK, truncated):</strong></p>
                 <pre><code>{
     "Id": 100,
+    "MasterId": "33213a9e-ded6-4323-9c97-de69a327577z",
     "Name": "Page (2 - 2) - invoice test.pdf",
     "DocumentType": "invoice",
     "Fields": [
@@ -864,10 +874,12 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/Verified/{DocumentId}/Flatten</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">GET</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Query String:</strong> <code class="code-inline">DocumentId: Id of the Document</code></p>
                 <p class="mt-4"><strong>Sample Response (200 - OK):</strong></p>
                 <pre><code>{
+    "Id": 31886, 
+    "MasterId": "n7fb112d-4142-4f3e-2x1e-8eb0f5ccs1ea", 
     "Supplier": "Alpine Ski House",
     "InvoiceNumber": "500045/22",
     "OrderNumber": "NUMBER",
@@ -919,7 +931,7 @@ DocumentTypeList: is optional to help the classifier engine to classify the docu
                 <p><strong>Endpoint:</strong> <code class="code-inline">/api/v4/Document/MarkDocumentsExported</code></p>
                 <p><strong>Method:</strong> <code class="code-inline">POST</code></p>
                 <p class="mt-4"><strong>Request Headers:</strong></p>
-                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the above format)</code></pre>
+                <pre><code>Authorization: Bearer jhsjhjd^$%... (Provide access token in the given format)</code></pre>
                 <p class="mt-4"><strong>Request Payload:</strong></p>
                 <pre><code>{
     "DocumentIdList": [1001,1002,1003]
