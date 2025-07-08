@@ -59,6 +59,25 @@
             transform: translateX(0%);
         }
 
+        .sidebar .breadcrumb{
+            font-size: 12px;
+            margin-bottom: 20px;
+         }
+
+        .sidebar .breadcrumb .breadcrumb-link a{
+            text-decoration: none;
+            color: #4d6b80;
+        }
+
+        .sidebar .breadcrumb .breadcrumb-link a:hover{
+            text-decoration: underline;
+        }
+
+        .sidebar .breadcrumb .breadcrumb-current{
+            color: #002b49;
+            font-weight: bold;
+        }
+
         .sidebar h2 {
             font-size: 1.1rem;
             font-weight: 700;
@@ -81,7 +100,8 @@
             color: #374151;
             transition: background-color 0.2s, color 0.2s;
             text-decoration: none;
-            font-size: 0.9rem;
+            /* font-size: 0.9rem; */
+            font-size: 13px;
         }
 
         .sidebar ul li a:hover {
@@ -471,7 +491,15 @@
 <body>
     <!-- Sidebar for navigation -->
     <div id="sidebar" class="sidebar">
-        <h2>DocAcquire API Guide</h2>
+        
+        <div class="breadcrumb">
+            <span class="breadcrumb-link">
+                <a href="knowledge-base-homepage.html">Documentation</a>
+            </span>
+            <span>&nbsp; / &nbsp;</span> 
+            <span class="breadcrumb-current">API Guide</span>
+        </div>
+
         <ul>
             <li>
                 <a href="#step1">Authentication</a>
@@ -510,7 +538,7 @@
     <!-- Main content area -->
     <div class="main-content" id="main-content">
         <h1>Automation Engineer's Guide to the DocAcquire API</h1>
-        <div class="meta">Updated on Jul 02, 2025 • Published on Feb 25, 2025</div>
+        <div class="meta">Updated on Jul 08, 2025 &nbsp;&nbsp; • &nbsp;&nbsp; Published on Jul 08, 2025</div>
 
         <!-- Content for Step 1 -->
         <div id="step1" class="page">
@@ -1249,7 +1277,7 @@ request.send(formData);</code></pre>
         let currentPage = 1;
         const totalPages = 8;
         const pages = document.querySelectorAll('.page');
-        const sidebarLinks = document.querySelectorAll('.sidebar a');
+        const sidebarLinks = document.querySelectorAll('.sidebar ul a');
         const sidebar = document.getElementById('sidebar');
         const sidebarToggle = document.getElementById('sidebarToggle');
 
