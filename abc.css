@@ -14001,6 +14001,7 @@ leadership team */
   padding-left: 30px;
   padding-right: 30px;
   padding-top: 30px;
+  padding-bottom: 30px;
   border-radius: 5px;
   min-width: 90%;
   max-width: 90%;
@@ -14022,6 +14023,8 @@ leadership team */
 }
 .success-stories .box img {
   max-width: 100%;
+  height: 50px;
+  object-fit: contain;
 }
 .success-stories .box .quote {
   font-style: italic;
