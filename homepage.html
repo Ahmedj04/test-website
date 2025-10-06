@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Homepage</title>
     <link rel="stylesheet" href="abc.css">
+    
+    
 </head>
 <body>
     <div id="home" class="homev2">
@@ -138,7 +140,7 @@
         </div>
     
          <!-- key features detailed section -->
-         <div id="features-section" class="container slide-up-fade-in">
+        <div id="features-section" class="container slide-up-fade-in">
             <div class="features-container">
                 <div class="features-list">
                     <div class="feature-item" data-image="https://www.docacquire.com/wp-content/uploads/2025/02/Instant-Data-Extraction-with-Zero-Training-3.png">
@@ -263,6 +265,103 @@
                     </div>
                 </div>
             </div>
+        </div>
+
+        <div id="document-type-section" class="container slide-up-fade-in">
+            <div class="header-content">
+                <p class="sub-heading">Out-of-the-Box Document Intelligence</p>
+                <h2 class="main-headings section-header-heading">
+                    Process Hundreds of Documents Instantly
+                </h2>
+                <p class="description">
+                    DocAcquire is pre-trained with a vast library of document types, allowing you to <strong>extract data with high accuracy from day one</strong>. Our platform instantly processes critical documents across diverse business functions and supports standardized document types for various countries and regions.
+                </p>
+            </div>
+
+            <!-- Tab Controls -->
+            <div class="tab-controls-container">
+                <div class="tabs">
+                    <button id="tab-business" class="tab-button active" data-tab="business">Business Functions</button>
+                    <button id="tab-country" class="tab-button" data-tab="country">Country / Region</button>
+                </div>
+            </div>
+
+            <!-- Tab Content Containers -->
+            <div id="tab-content-business" class="tab-content active-content">
+                <div class="dual-grid-section">
+                    
+                    <!-- Left: Business Function List -->
+                    <div class="function-list-container">
+                        <ul class="function-list" id="business-function-list">
+                            <li class="function-item" data-category="finance" id="finance-tab">
+                                <span class="function-item-title">Finance & Accounting</span>
+                                <span class="function-item-subtitle">Invoice, PO, Bank Statements, Receipts...</span>
+                            </li>
+                            <li class="function-item" data-category="operations" id="operations-tab">
+                                <span class="function-item-title">Operations & Logistics</span>
+                                <span class="function-item-subtitle">Rate Confirmation, Bill of Lading, Proof of Delivery...</span>
+                            </li>
+                            <li class="function-item" data-category="legal" id="legal-tab">
+                                <span class="function-item-title">Legal & Compliance</span>
+                                <span class="function-item-subtitle">Contracts, Agreements, Insurance Policies...</span>
+                            </li>
+                            <li class="function-item" data-category="hr" id="hr-tab">
+                                <span class="function-item-title">Human Resources (HR)</span>
+                                <span class="function-item-subtitle">Resumes, Passports, Driver's Licenses, IDs...</span>
+                            </li>
+                            <li class="function-item" data-category="medical" id="medical-tab">
+                                <span class="function-item-title">Medical & Benefits</span>
+                                <span class="function-item-subtitle">Prescriptions, Medical Reports...</span>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <!-- Right: Document Tiles Display (Default position for desktop) -->
+                    <div class="document-tiles-display">
+                        <div id="document-tiles-grid-business" class="document-tiles-grid">
+                            <p class="placeholder-text">Hover over a business function on the left to see the supported document types.</p>
+                        </div>
+                        <!-- Country Grid will be hidden initially -->
+                        <div id="document-tiles-grid-country" class="document-tiles-grid" style="display: none;">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div id="tab-content-country" class="tab-content hidden-content">
+                <div class="dual-grid-section">
+
+                    <!-- Left: Country List -->
+                    <div class="function-list-container">
+                        <ul class="function-list" id="country-list">
+                            <li class="function-item country-item" data-country="usa" id="usa-tab">
+                                <span class="function-item-title"><img class="flag" src="https://www.docacquire.com/wp-content/uploads/2025/10/usa-flag.png"/> USA</span>
+                                <span class="function-item-subtitle">Invoice, US Driver's License...</span>
+                            </li>
+                            <li class="function-item country-item" data-country="uk" id="uk-tab">
+                                <span class="function-item-title"><img class="flag" src="https://www.docacquire.com/wp-content/uploads/2025/10/uk-flag.png"/> UK</span>
+                                <span class="function-item-subtitle">Invoice, UK Driver's License...</span>
+                            </li>
+                            <li class="function-item country-item" data-country="uae" id="uae-tab">
+                                <span class="function-item-title"><img class="flag" src="https://www.docacquire.com/wp-content/uploads/2025/10/uae-flag.png"/> UAE</span>
+                                <span class="function-item-subtitle">Emirates ID, Residency Visa, Trade License...</span>
+                            </li>
+                            <li class="function-item country-item" data-country="ksa" id="ksa-tab">
+                                <span class="function-item-title"><img class="flag" src="https://www.docacquire.com/wp-content/uploads/2025/10/ksa-flag.png"/> Saudi Arabia</span>
+                                <span class="function-item-subtitle">Resident ID, KSA Driving License...</span>
+                            </li>
+                            
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="call_to_action">
+                <a href="https://www.docacquire.com/request-a-demo/" class="call_to_action_button">See Our AI in Action - Get a Demo</a>
+            </div>
+
         </div>
     
         <div class="product-grabber slide-up-fade-in">
@@ -571,5 +670,7 @@
     </div>
 
     <script src="script.js"></script>
+    <!-- <script src="script-2-doctype.js"></script> -->
+
 </body>
 </html>

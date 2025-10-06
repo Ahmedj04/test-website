@@ -359,7 +359,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // ===========================
 function showUseCase(useCase) {
   // Remove active class from all buttons
-  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.use-case-container .tab-button').forEach(btn => btn.classList.remove('active'));
 
   // Add active class to clicked button
   event.currentTarget.classList.add('active');
@@ -376,7 +376,7 @@ function showUseCase(useCase) {
 // ===========================
 function showDeploymentOption(deployment) {
   // Remove active class from all buttons
-  document.querySelectorAll('.tab-button').forEach(btn => btn.classList.remove('active'));
+  document.querySelectorAll('.deployment-options-container .tab-button').forEach(btn => btn.classList.remove('active'));
 
   // Add active class to clicked button
   event.currentTarget.classList.add('active');
@@ -407,4 +407,357 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 
+// ==============================================================
+//  logic for Document Type Section tabs and content in home page
+// ===============================================================
+document.addEventListener('DOMContentLoaded', () => {
+    const documentData = {
+        'finance': [
+            { title: 'Invoice' },
+            { title: 'Purchase Order' },
+            { title: 'Bank Statement' },
+            { title: 'Receipt' },
+            { title: 'PaySlip' },
+            { title: 'DEWA Bill' }
+        ],
+        'operations': [
+            { title: 'Rate Confirmation' },
+            { title: 'Bill of Lading' },
+            { title: 'Proof Of Delivery' },
+            { title: 'Form' }
+        ],
+        'legal': [
+            { title: 'Contract' },
+            { title: 'Employment Contract' },
+            { title: 'Rental Agreement' },
+            { title: 'Home Insurance' },
+            { title: 'Motor Insurance' },
+            { title: 'Insurance Claim' },
+            { title: 'Trade License' },
+            { title: 'Residency Visa' },
+            { title: 'Vehicle Registration Card' }
+        ],
+        'hr': [
+            { title: 'Resume' },
+            { title: 'Passport' },
+            { title: 'National ID Card' },
+            { title: 'Emirates ID' },
+            { title: 'Resident ID' },
+            { title: 'Driver\'s License USA' },
+            { title: 'Driver\'s License UK' },
+            { title: 'Driver\'s License UAE' },
+        ],
+        'medical': [
+            { title: 'Medical Prescription' },
+            { title: 'Medical Reports' }
+        ]
+    };
 
+    const countryData = {
+        'usa': [
+            { title: 'Invoice' },
+            { title: 'Bank Statement' },
+            { title: 'Driver\'s License US' },
+            { title: 'Passport' }
+        ],
+        'uk': [
+            { title: 'Invoice' },
+            { title: 'Driver\'s License UK' },
+            { title: 'Passport' }
+        ],
+        'uae': [
+            { title: 'Invoice' },
+            { title: 'Emirates ID' },
+            { title: 'Drivers Licence UAE' },
+            { title: 'Residency Visa' },
+            { title: 'DEWA Bill' },
+            { title: 'Trade License' }
+        ],
+        'ksa': [
+            { title: 'Invoice' },
+            { title: 'Driving License KSA' },
+            { title: 'Resident ID' },
+            { title: 'Vehicle Registration Card' },
+            { title: 'National ID Card' },
+        ],
+    };
+
+    let lastHighlightedItemId = null; // Used for mobile toggle state
+    let activeDesktopItemId = null; // Used for desktop persistent highlighting
+    const desktopBreakpoint = 1023;
+    const documentTilesDisplay = document.querySelector('#document-type-section .document-tiles-display');
+    const originalBusinessParent = document.querySelector('#document-type-section #tab-content-business .dual-grid-section');
+    const originalCountryParent = document.querySelector('#document-type-section #tab-content-country .dual-grid-section');
+    const businessGrid = document.getElementById('document-tiles-grid-business');
+    const countryGrid = document.getElementById('document-tiles-grid-country');
+
+    // Helper to check if we are in the mobile view
+    const isMobileView = () => window.innerWidth <= desktopBreakpoint;
+
+    const clearHighlighting = () => {
+        document.querySelectorAll('#document-type-section .function-item').forEach(item => {
+            item.classList.remove('highlighted');
+        });
+    };
+
+    // Function to render tiles for the Business tab
+    const renderBusinessTiles = (category) => {
+        businessGrid.innerHTML = '';
+        const docs = documentData[category];
+        if (docs) {
+            docs.forEach(doc => {
+                const tile = document.createElement('div');
+                tile.className = 'document-tile';
+                tile.textContent = doc.title;
+                businessGrid.appendChild(tile);
+            });
+        }
+        businessGrid.style.display = 'grid';
+        countryGrid.style.display = 'none';
+    };
+
+    // Function to render tiles for the Country tab
+    const renderCountryTiles = (country) => {
+        countryGrid.innerHTML = '';
+        const docs = countryData[country];
+        if (docs) {
+            docs.forEach(doc => {
+                const tile = document.createElement('div');
+                tile.className = 'document-tile';
+                tile.textContent = doc.title;
+                countryGrid.appendChild(tile);
+            });
+        }
+        countryGrid.style.display = 'grid';
+        businessGrid.style.display = 'none';
+    };
+
+    /**
+     * Resets the document tiles display back to its default location/visibility.
+     * This is crucial for transitions between mobile/desktop and when a mobile panel is closed.
+     */
+    const resetDisplayPosition = () => {
+        const activeTab = document.querySelector('#document-type-section .tab-button.active').getAttribute('data-tab');
+        const isBusinessTab = activeTab === 'business';
+        const targetParent = isBusinessTab ? originalBusinessParent : originalCountryParent;
+        const listContainer = targetParent.querySelector('#document-type-section .function-list-container');
+
+        documentTilesDisplay.classList.remove('mobile-expanded');
+        // Do NOT clear highlighting here. Highlighting is controlled by activeDesktopItemId logic.
+
+        if (!isMobileView()) {
+            // Desktop: Ensure the display is placed in the right column of the current dual-grid-section
+            if (documentTilesDisplay.parentNode !== targetParent || documentTilesDisplay.previousElementSibling !== listContainer) {
+                listContainer.after(documentTilesDisplay);
+            }
+        } else {
+            // Mobile: Ensure the display is in its original (hidden) location at the end of the current dual-grid-section
+            targetParent.appendChild(documentTilesDisplay);
+            // Clear all highlighting when switching to mobile state logic
+            clearHighlighting();
+            lastHighlightedItemId = null; // Clear mobile active state
+        }
+    };
+
+    /**
+     * Initializes content for the active tab (called on tab switch and resize).
+     * Ensures the first item is open by default on mobile, and permanently highlighted on desktop.
+     */
+    const initializeTabContent = (tabName) => {
+        const itemSelector = tabName === 'business' ? '#business-function-list .function-item' : '#country-list .function-item';
+        const items = document.querySelectorAll(itemSelector);
+
+        if (items.length > 0) {
+            const firstItem = items[0];
+            const isBusinessTab = tabName === 'business';
+            const categoryOrCountry = isBusinessTab ? firstItem.getAttribute('data-category') : firstItem.getAttribute('data-country');
+
+            // 1. Reset position
+            resetDisplayPosition();
+            clearHighlighting(); // Ensure a clean slate
+
+            // 2. Render initial content
+            if (isBusinessTab) {
+                renderBusinessTiles(categoryOrCountry);
+            } else {
+                renderCountryTiles(categoryOrCountry);
+            }
+
+            // 3. Set initial state based on view size
+            if (isMobileView()) {
+                // Mobile: Open the first item by default
+                firstItem.classList.add('highlighted');
+                firstItem.after(documentTilesDisplay);
+                documentTilesDisplay.classList.add('mobile-expanded');
+                lastHighlightedItemId = firstItem.id;
+                activeDesktopItemId = null;
+            } else {
+                // Desktop: Ensure first item is permanently highlighted
+                firstItem.classList.add('highlighted');
+                activeDesktopItemId = firstItem.id; // Track the currently active desktop item
+            }
+        }
+    };
+
+    /**
+     * Handles interaction (click on mobile, mouseenter on desktop).
+     */
+    // const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
+    //     const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
+
+    //     // 1. Render Content
+    //     if (isBusinessTab) {
+    //         renderBusinessTiles(categoryOrCountry);
+    //     } else {
+    //         renderCountryTiles(categoryOrCountry);
+    //     }
+
+    //     // 2. Responsive Logic
+    //     if (isMobileView() && isClickEvent) {
+    //         const currentItemId = item.id;
+    //         activeDesktopItemId = null; // Clear desktop state when using mobile interaction
+
+    //         // Toggle logic: If the same item is clicked, close the panel
+    //         if (lastHighlightedItemId === currentItemId) {
+    //             resetDisplayPosition();
+    //             return;
+    //         }
+
+    //         // New item clicked: highlight it, move panel below it
+    //         clearHighlighting();
+    //         item.classList.add('highlighted');
+
+    //         // Move the display panel directly after the clicked list item and show it
+    //         item.after(documentTilesDisplay);
+    //         documentTilesDisplay.classList.add('mobile-expanded');
+
+    //         lastHighlightedItemId = currentItemId;
+    //     } else if (!isMobileView()) {
+    //         // Desktop (Mouseover behavior)
+    //         const currentItemId = item.id;
+
+    //         // Only update highlighting if the item is changing
+    //         if (activeDesktopItemId !== currentItemId) {
+    //             clearHighlighting();
+    //             item.classList.add('highlighted');
+    //             activeDesktopItemId = currentItemId;
+    //         }
+    //         // If the item is the same, do nothing. The highlighted class persists.
+    //     }
+    // };
+const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
+        const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
+        
+        // 1. Responsive Logic
+        if (isMobileView() && isClickEvent) {
+            // --- MOBILE CLICK LOGIC ---
+            const currentItemId = item.id;
+            activeDesktopItemId = null; // Clear desktop state when using mobile interaction
+            
+            // Toggle logic: If the same item is clicked, close the panel
+            if (lastHighlightedItemId === currentItemId) {
+                resetDisplayPosition(); 
+                return; 
+            }
+
+            // RENDER CONTENT ONLY ON NEW MOBILE CLICK
+            if (isBusinessTab) {
+                renderBusinessTiles(categoryOrCountry);
+            } else {
+                renderComplianceTiles(categoryOrCountry);
+            }
+            
+            // Apply visual state changes
+            clearHighlighting();
+            item.classList.add('highlighted');
+            
+            // Move the display panel directly after the clicked list item and show it
+            item.after(documentTilesDisplay);
+            documentTilesDisplay.classList.add('mobile-expanded');
+            
+            lastHighlightedItemId = currentItemId;
+
+        } else if (!isMobileView()) {
+            // --- DESKTOP HOVER LOGIC ---
+            const currentItemId = item.id;
+
+            // Only update highlighting if the item is changing
+            if (activeDesktopItemId !== currentItemId) {
+                
+                // RENDER CONTENT ONLY ON NEW DESKTOP HOVER
+                if (isBusinessTab) {
+                    renderBusinessTiles(categoryOrCountry);
+                } else {
+                    renderComplianceTiles(categoryOrCountry);
+                }
+
+                // Apply visual state changes
+                clearHighlighting();
+                item.classList.add('highlighted');
+                activeDesktopItemId = currentItemId;
+            }
+            // If the item is the same, do nothing (persistence).
+        }
+        // If isMobileView() is true AND !isClickEvent (phantom hover), execution stops here,
+        // preventing the unexpected content change.
+    };
+    const tabButtons = document.querySelectorAll('#document-type-section .tab-button');
+    const tabContents = document.querySelectorAll('#document-type-section .tab-content');
+
+    // Combined list of all items for event attachment
+    const allItems = document.querySelectorAll('#business-function-list .function-item, #country-list .function-item');
+
+    const switchTab = (tabName) => {
+        tabButtons.forEach(btn => btn.classList.remove('active'));
+        tabContents.forEach(content => {
+            content.classList.remove('active-content');
+            content.classList.add('hidden-content');
+        });
+
+        const activeTabButton = document.querySelector(`#document-type-section .tab-button[data-tab="${tabName}"]`);
+        const activeTabContent = document.getElementById(`tab-content-${tabName}`);
+
+        if (activeTabButton && activeTabContent) {
+            activeTabButton.classList.add('active');
+            activeTabContent.classList.add('active-content');
+            activeTabContent.classList.remove('hidden-content');
+
+            // Initialize content for the newly active tab
+            initializeTabContent(tabName);
+        }
+    };
+
+    tabButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const tabName = button.getAttribute('data-tab');
+            switchTab(tabName);
+        });
+    });
+
+    // Setup Event Listeners for all list items
+    allItems.forEach(item => {
+        const isBusinessTab = item.closest('#business-function-list') !== null;
+
+        // Desktop hover behavior (mouseenter)
+        item.addEventListener('mouseenter', () => {
+            if (!isMobileView()) {
+                handleItemInteraction(item, isBusinessTab, false);
+            }
+        });
+
+        // Mobile/Click behavior (click)
+        item.addEventListener('click', (e) => {
+            handleItemInteraction(item, isBusinessTab, true);
+        });
+    });
+
+    // Ensure proper state when resizing
+    window.addEventListener('resize', () => {
+        const activeTab = document.querySelector('#document-type-section .tab-button.active').getAttribute('data-tab');
+        // Re-initialize the content to correctly switch between mobile and desktop layouts
+        initializeTabContent(activeTab);
+    });
+
+    // Initial setup on page load:
+    switchTab('business');
+});
