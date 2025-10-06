@@ -16986,3 +16986,252 @@ Contact Us */
     width: 70%;
   }
 }
+#document-type-section {
+  padding-top: 50px;
+  padding-bottom: 50px;
+  background-color: #ffffff;
+  /* Tab Controls Styling */
+  /* Responsive Tabs: Mobile-first (Default is scrollable) */
+  /* Hide scrollbar visually */
+  /* New Dual Grid Section Styles */
+  /* Left Column: Function List */
+  /* Unified style for both hover and persistent highlight */
+  /* Right Column: Document Tiles (Desktop View) */
+}
+#document-type-section .header-content {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+#document-type-section .sub-heading {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #ff4438;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+#document-type-section .description {
+  margin-top: 1rem;
+  max-width: 56rem;
+  margin-left: auto;
+  margin-right: auto;
+  font-size: 15px;
+  color: #6b7280;
+}
+#document-type-section .tab-controls-container {
+  margin-bottom: 1.5rem;
+  border-bottom: 2px solid #e5e7eb;
+  /* MOBILE FIX: Use negative margins to span the full viewport width (1rem is the .container padding) */
+  margin-left: -1rem;
+  margin-right: -1rem;
+}
+#document-type-section .tabs {
+  display: flex;
+  /* Default to scrollable and full width, left-aligned */
+  justify-content: flex-start;
+  width: 100%;
+  overflow-x: auto;
+  /* MOBILE FIX: Add padding back to align tabs with other content */
+  padding-left: 1rem;
+  padding-right: 1rem;
+  -ms-overflow-style: none;
+  /* Hide scrollbar */
+  scrollbar-width: none;
+  /* Hide scrollbar */
+}
+#document-type-section .tabs::-webkit-scrollbar {
+  display: none;
+}
+#document-type-section .tab-button {
+  padding: 1rem 1.5rem;
+  background-color: transparent;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #6b7280;
+  cursor: pointer;
+  transition: color 250ms, border-bottom 250ms;
+  border-bottom: 3px solid transparent;
+  white-space: nowrap;
+  outline: none;
+  flex-shrink: 0;
+  /* Prevents buttons from shrinking and forces scroll */
+}
+#document-type-section .tab-button:hover {
+  color: #ff6960;
+}
+#document-type-section .tab-button.active {
+  color: #ff574c;
+  border-bottom: 3px solid #ff574c;
+  font-weight: 600;
+}
+#document-type-section .tab-content {
+  padding: 1.5rem 0;
+}
+#document-type-section .active-content {
+  display: block;
+}
+#document-type-section .hidden-content {
+  display: none;
+}
+#document-type-section .dual-grid-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 58rem;
+  margin: 0 auto;
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.75rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  padding: 2rem;
+}
+#document-type-section .function-list-container {
+  flex: 1;
+  padding: 0;
+  min-width: 200px;
+}
+#document-type-section .function-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+#document-type-section .function-item {
+  padding: 1rem;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  border: 1px solid #e5e7eb;
+  color: #374151;
+  cursor: pointer;
+  transition: all 200ms ease-in-out;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+#document-type-section .function-item .flag {
+  height: 20px;
+  margin: auto 8px auto 0px;
+}
+#document-type-section .function-item-title {
+  font-weight: 600;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+#document-type-section .function-item-subtitle {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: #6b7280;
+  line-height: 1.3;
+}
+#document-type-section .function-item:hover,
+#document-type-section .function-item.highlighted {
+  background-color: #33556d;
+  color: #ffffff;
+  border-color: #33556d;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+  transform: none;
+}
+#document-type-section .function-item.highlighted .function-item-subtitle,
+#document-type-section .function-item:hover .function-item-subtitle {
+  color: #e5e7eb;
+}
+#document-type-section .document-tiles-display {
+  flex: 2;
+  min-height: 250px;
+  background-color: #ffffff;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  border: 1px solid #e5e7eb;
+  transition: all 0.3s ease;
+}
+#document-type-section .document-tiles-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1rem;
+}
+#document-type-section .document-tile {
+  height: 80px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem;
+  border: 1px dashed #c7d2fe;
+  border-radius: 0.5rem;
+  background-color: #f0f4ff;
+  color: #33556d;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 200ms;
+}
+#document-type-section .document-tile:hover {
+  background-color: #33556d;
+  color: #ffffff;
+  border-color: #33556d;
+}
+#document-type-section .placeholder-text {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #9ca3af;
+  font-style: italic;
+  font-size: 1.125rem;
+}
+@media (min-width: 640px) {
+  #document-type-section .document-tiles-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 1023px) {
+  #document-type-section {
+    /* Hide the tile display when it is in its original container (the right column) */
+    /* Style for the document tiles display when it is moved by JS below a list item */
+  }
+  #document-type-section .function-item:hover {
+    transform: none;
+    /* Disable hover transform on mobile */
+  }
+  #document-type-section .dual-grid-section > .document-tiles-display {
+    display: none !important;
+  }
+  #document-type-section .document-tiles-display.mobile-expanded {
+    display: block !important;
+    flex: none;
+    width: 100%;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    min-height: 100px;
+  }
+}
+/* Desktop: Override to center and constrain width, remove scroll behavior */
+@media (min-width: 1024px) {
+  #document-type-section .description {
+    font-size: 18px;
+  }
+  #document-type-section .tab-controls-container {
+    /* Reset mobile fix for desktop */
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 48rem;
+  }
+  #document-type-section .tabs {
+    justify-content: center;
+    /* Max width is applied to the parent container now (for centering border) */
+    max-width: 100%;
+    /* Relative to new parent width (48rem) */
+    margin: 0 auto;
+    overflow-x: hidden;
+    padding-bottom: 0;
+    /* Remove mobile padding for desktop centering */
+    padding-left: 0;
+    padding-right: 0;
+  }
+  #document-type-section .dual-grid-section {
+    flex-direction: row;
+    gap: 2rem;
+  }
+}
