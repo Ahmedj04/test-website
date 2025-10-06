@@ -602,104 +602,42 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Handles interaction (click on mobile, mouseenter on desktop).
      */
-    // const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
-    //     const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
-
-    //     // 1. Render Content
-    //     if (isBusinessTab) {
-    //         renderBusinessTiles(categoryOrCountry);
-    //     } else {
-    //         renderCountryTiles(categoryOrCountry);
-    //     }
-
-    //     // 2. Responsive Logic
-    //     if (isMobileView() && isClickEvent) {
-    //         const currentItemId = item.id;
-    //         activeDesktopItemId = null; // Clear desktop state when using mobile interaction
-
-    //         // Toggle logic: If the same item is clicked, close the panel
-    //         if (lastHighlightedItemId === currentItemId) {
-    //             resetDisplayPosition();
-    //             return;
-    //         }
-
-    //         // New item clicked: highlight it, move panel below it
-    //         clearHighlighting();
-    //         item.classList.add('highlighted');
-
-    //         // Move the display panel directly after the clicked list item and show it
-    //         item.after(documentTilesDisplay);
-    //         documentTilesDisplay.classList.add('mobile-expanded');
-
-    //         lastHighlightedItemId = currentItemId;
-    //     } else if (!isMobileView()) {
-    //         // Desktop (Mouseover behavior)
-    //         const currentItemId = item.id;
-
-    //         // Only update highlighting if the item is changing
-    //         if (activeDesktopItemId !== currentItemId) {
-    //             clearHighlighting();
-    //             item.classList.add('highlighted');
-    //             activeDesktopItemId = currentItemId;
-    //         }
-    //         // If the item is the same, do nothing. The highlighted class persists.
-    //     }
-    // };
     const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
         const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
-        const isMobile = isMobileView(); // Cache the result once
 
-        // **EXPLICIT GUARD: Block any non-click event if the viewport is mobile.**
-        // This is a defensive fix against any stray 'mouseenter' events that might occur on mobile/tablet devices.
-        if (isMobile && !isClickEvent) {
-            return; 
+        // 1. Render Content
+        if (isBusinessTab) {
+            renderBusinessTiles(categoryOrCountry);
+        } else {
+            renderCountryTiles(categoryOrCountry);
         }
 
-        // --- MOBILE CLICK LOGIC: Runs ONLY IF isMobile AND it was a CLICK event ---
-        if (isMobile && isClickEvent) {
-            
+        // 2. Responsive Logic
+        if (isMobileView() && isClickEvent) {
             const currentItemId = item.id;
             activeDesktopItemId = null; // Clear desktop state when using mobile interaction
-            
+
             // Toggle logic: If the same item is clicked, close the panel
             if (lastHighlightedItemId === currentItemId) {
-                resetDisplayPosition(); 
-                return; 
+                resetDisplayPosition();
+                return;
             }
 
-            // 1. RENDER CONTENT
-            if (isBusinessTab) {
-                renderBusinessTiles(categoryOrCountry);
-            } else {
-                renderComplianceTiles(categoryOrCountry);
-            }
-            
-            // 2. APPLY VISUAL STATE
+            // New item clicked: highlight it, move panel below it
             clearHighlighting();
             item.classList.add('highlighted');
-            
-            // 3. MOVE PANEL
+
+            // Move the display panel directly after the clicked list item and show it
             item.after(documentTilesDisplay);
             documentTilesDisplay.classList.add('mobile-expanded');
-            
-            lastHighlightedItemId = currentItemId;
 
-        // --- DESKTOP HOVER/CLICK LOGIC: Runs ONLY IF NOT Mobile ---
-        } else if (!isMobile) {
-            
+            lastHighlightedItemId = currentItemId;
+        } else if (!isMobileView()) {
+            // Desktop (Mouseover behavior)
             const currentItemId = item.id;
 
-            // Only update highlighting if the item is changing (for smooth hover)
+            // Only update highlighting if the item is changing
             if (activeDesktopItemId !== currentItemId) {
-                
-                // 1. RENDER CONTENT
-                if (isBusinessTab) {
-                    renderBusinessTiles(categoryOrCountry);
-                } else {
-                    renderComplianceTiles(categoryOrCountry);
-                }
-
-                // 2. APPLY VISUAL STATE
                 clearHighlighting();
                 item.classList.add('highlighted');
                 activeDesktopItemId = currentItemId;
@@ -707,6 +645,7 @@ document.addEventListener('DOMContentLoaded', () => {
             // If the item is the same, do nothing. The highlighted class persists.
         }
     };
+   
     const tabButtons = document.querySelectorAll('#document-type-section .tab-button');
     const tabContents = document.querySelectorAll('#document-type-section .tab-content');
 
