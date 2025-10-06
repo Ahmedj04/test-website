@@ -645,12 +645,19 @@ document.addEventListener('DOMContentLoaded', () => {
     //         // If the item is the same, do nothing. The highlighted class persists.
     //     }
     // };
-const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
+    const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
         const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
-        
-        // 1. Responsive Logic
-        if (isMobileView() && isClickEvent) {
-            // --- MOBILE CLICK LOGIC ---
+        const isMobile = isMobileView(); // Cache the result once
+
+        // **EXPLICIT GUARD: Block any non-click event if the viewport is mobile.**
+        // This is a defensive fix against any stray 'mouseenter' events that might occur on mobile/tablet devices.
+        if (isMobile && !isClickEvent) {
+            return; 
+        }
+
+        // --- MOBILE CLICK LOGIC: Runs ONLY IF isMobile AND it was a CLICK event ---
+        if (isMobile && isClickEvent) {
+            
             const currentItemId = item.id;
             activeDesktopItemId = null; // Clear desktop state when using mobile interaction
             
@@ -660,46 +667,45 @@ const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
                 return; 
             }
 
-            // RENDER CONTENT ONLY ON NEW MOBILE CLICK
+            // 1. RENDER CONTENT
             if (isBusinessTab) {
                 renderBusinessTiles(categoryOrCountry);
             } else {
                 renderComplianceTiles(categoryOrCountry);
             }
             
-            // Apply visual state changes
+            // 2. APPLY VISUAL STATE
             clearHighlighting();
             item.classList.add('highlighted');
             
-            // Move the display panel directly after the clicked list item and show it
+            // 3. MOVE PANEL
             item.after(documentTilesDisplay);
             documentTilesDisplay.classList.add('mobile-expanded');
             
             lastHighlightedItemId = currentItemId;
 
-        } else if (!isMobileView()) {
-            // --- DESKTOP HOVER LOGIC ---
+        // --- DESKTOP HOVER/CLICK LOGIC: Runs ONLY IF NOT Mobile ---
+        } else if (!isMobile) {
+            
             const currentItemId = item.id;
 
-            // Only update highlighting if the item is changing
+            // Only update highlighting if the item is changing (for smooth hover)
             if (activeDesktopItemId !== currentItemId) {
                 
-                // RENDER CONTENT ONLY ON NEW DESKTOP HOVER
+                // 1. RENDER CONTENT
                 if (isBusinessTab) {
                     renderBusinessTiles(categoryOrCountry);
                 } else {
                     renderComplianceTiles(categoryOrCountry);
                 }
 
-                // Apply visual state changes
+                // 2. APPLY VISUAL STATE
                 clearHighlighting();
                 item.classList.add('highlighted');
                 activeDesktopItemId = currentItemId;
             }
-            // If the item is the same, do nothing (persistence).
+            // If the item is the same, do nothing. The highlighted class persists.
         }
-        // If isMobileView() is true AND !isClickEvent (phantom hover), execution stops here,
-        // preventing the unexpected content change.
     };
     const tabButtons = document.querySelectorAll('#document-type-section .tab-button');
     const tabContents = document.querySelectorAll('#document-type-section .tab-content');
