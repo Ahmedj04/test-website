@@ -602,51 +602,7 @@ document.addEventListener('DOMContentLoaded', () => {
     /**
      * Handles interaction (click on mobile, mouseenter on desktop).
      */
-    // const handleItemInteraction = (item, isBusinessTab, isClickEvent) => {
-    //     const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
-
-    //     // 1. Render Content
-    //     if (isBusinessTab) {
-    //         renderBusinessTiles(categoryOrCountry);
-    //     } else {
-    //         renderCountryTiles(categoryOrCountry);
-    //     }
-
-    //     // 2. Responsive Logic
-    //     if (isMobileView() && isClickEvent) {
-    //         const currentItemId = item.id;
-    //         activeDesktopItemId = null; // Clear desktop state when using mobile interaction
-
-    //         // Toggle logic: If the same item is clicked, close the panel
-    //         if (lastHighlightedItemId === currentItemId) {
-    //             resetDisplayPosition();
-    //             return;
-    //         }
-
-    //         // New item clicked: highlight it, move panel below it
-    //         clearHighlighting();
-    //         item.classList.add('highlighted');
-
-    //         // Move the display panel directly after the clicked list item and show it
-    //         item.after(documentTilesDisplay);
-    //         documentTilesDisplay.classList.add('mobile-expanded');
-
-    //         lastHighlightedItemId = currentItemId;
-    //     } else if (!isMobileView()) {
-    //         // Desktop (Mouseover behavior)
-    //         const currentItemId = item.id;
-
-    //         // Only update highlighting if the item is changing
-    //         if (activeDesktopItemId !== currentItemId) {
-    //             clearHighlighting();
-    //             item.classList.add('highlighted');
-    //             activeDesktopItemId = currentItemId;
-    //         }
-    //         // If the item is the same, do nothing. The highlighted class persists.
-    //     }
-    // };
-  
-      const handleItemInteraction = (item, isBusinessTab, eventType) => {  // eventType: 'click' or 'mouseenter'
+    const handleItemInteraction = (item, isBusinessTab, eventType) => {  // eventType: 'click' or 'mouseenter'
       const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
 
       // Responsive Logic (render ONLY when handling the event appropriately)
@@ -697,7 +653,7 @@ document.addEventListener('DOMContentLoaded', () => {
           }
           // If same item, render still happens (refreshes content), but no re-highlight
       }
-  };
+    };
     const tabButtons = document.querySelectorAll('#document-type-section .tab-button');
     const tabContents = document.querySelectorAll('#document-type-section .tab-content');
 
