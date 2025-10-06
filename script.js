@@ -645,57 +645,59 @@ document.addEventListener('DOMContentLoaded', () => {
     //         // If the item is the same, do nothing. The highlighted class persists.
     //     }
     // };
-   /**
- * Handles interaction (click on mobile, mouseenter on desktop).
- */
-    const handleItemInteraction = (item, isBusinessTab, eventType) => {  // eventType: 'click' or 'mouseenter'
-        const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
+  
+      const handleItemInteraction = (item, isBusinessTab, eventType) => {  // eventType: 'click' or 'mouseenter'
+      const categoryOrCountry = isBusinessTab ? item.getAttribute('data-category') : item.getAttribute('data-country');
 
-        // Responsive Logic (render ONLY when handling the event appropriately)
-        if (isMobileView()) {
-            if (eventType === 'click') {
-                // Mobile: Render for this click
-                if (isBusinessTab) {
-                    renderBusinessTiles(categoryOrCountry);
-                } else {
-                    renderCountryTiles(categoryOrCountry);
-                }
+      // Responsive Logic (render ONLY when handling the event appropriately)
+      if (isMobileView()) {
+          if (eventType === 'click') {
+              // Mobile: Render for this click
+              if (isBusinessTab) {
+                  renderBusinessTiles(categoryOrCountry);
+              } else {
+                  renderCountryTiles(categoryOrCountry);
+              }
 
-                // Toggle logic
-                const currentItemId = item.id;
-                activeDesktopItemId = null;
+              // Toggle logic
+              const currentItemId = item.id;
+              activeDesktopItemId = null;
 
-                if (lastHighlightedItemId === currentItemId) {
-                    resetDisplayPosition();
-                    return;
-                }
+              if (lastHighlightedItemId === currentItemId) {
+                  resetDisplayPosition();
+                  return;
+              }
 
-                clearHighlighting();
-                item.classList.add('highlighted');
+              clearHighlighting();
+              item.classList.add('highlighted');
+              
+              // Optional: Brief tap feedback (ADD THIS BLOCK HERE)
+              item.classList.add('mobileclick');
+              setTimeout(() => item.classList.remove('mobileclick'), 200);  // Removes after 200ms
 
-                item.after(documentTilesDisplay);
-                documentTilesDisplay.classList.add('mobile-expanded');
+              item.after(documentTilesDisplay);
+              documentTilesDisplay.classList.add('mobile-expanded');
 
-                lastHighlightedItemId = currentItemId;
-            }
-            // Intentionally ignore 'mouseenter' on mobile (no render, no logic)
-        } else {
-            // Desktop: Render and handle hover
-            if (isBusinessTab) {
-                renderBusinessTiles(categoryOrCountry);
-            } else {
-                renderCountryTiles(categoryOrCountry);
-            }
+              lastHighlightedItemId = currentItemId;
+          }
+          // Intentionally ignore 'mouseenter' on mobile (no render, no logic)
+      } else {
+          // Desktop: Render and handle hover
+          if (isBusinessTab) {
+              renderBusinessTiles(categoryOrCountry);
+          } else {
+              renderCountryTiles(categoryOrCountry);
+          }
 
-            const currentItemId = item.id;
-            if (activeDesktopItemId !== currentItemId) {
-                clearHighlighting();
-                item.classList.add('highlighted');
-                activeDesktopItemId = currentItemId;
-            }
-            // If same item, render still happens (refreshes content), but no re-highlight
-        }
-    };
+          const currentItemId = item.id;
+          if (activeDesktopItemId !== currentItemId) {
+              clearHighlighting();
+              item.classList.add('highlighted');
+              activeDesktopItemId = currentItemId;
+          }
+          // If same item, render still happens (refreshes content), but no re-highlight
+      }
+  };
     const tabButtons = document.querySelectorAll('#document-type-section .tab-button');
     const tabContents = document.querySelectorAll('#document-type-section .tab-content');
 
