@@ -20709,3 +20709,319 @@ h2 {
         width: 70%;
     }
 }
+
+
+// ==========================
+#document-type-section {
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: #ffffff;
+
+    .header-content {
+        text-align: center;
+        margin-bottom: 4rem;
+    }
+
+    .sub-heading {
+        font-size: 1rem;
+        font-weight: 600;
+        color:  #ff4438;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+    }
+
+    .description {
+        margin-top: 1rem;
+        max-width: 56rem;
+        margin-left: auto;
+        margin-right: auto;
+        font-size: 15px;
+        color: #6b7280;
+    }
+    
+    /* Tab Controls Styling */
+    .tab-controls-container {
+        margin-bottom: 1.5rem;
+        border-bottom: 2px solid #e5e7eb;
+        /* MOBILE FIX: Use negative margins to span the full viewport width (1rem is the .container padding) */
+        margin-left: -1rem; 
+        margin-right: -1rem;
+    }
+
+    /* Responsive Tabs: Mobile-first (Default is scrollable) */
+    .tabs {
+        display: flex;
+        /* Default to scrollable and full width, left-aligned */
+        justify-content: flex-start;
+        width: 100%; 
+        overflow-x: auto; 
+        /* MOBILE FIX: Add padding back to align tabs with other content */
+        padding-left: 1rem;
+        padding-right: 1rem;
+        
+        -ms-overflow-style: none;  /* Hide scrollbar */
+        scrollbar-width: none;     /* Hide scrollbar */
+    }
+    
+    /* Hide scrollbar visually */
+    .tabs::-webkit-scrollbar {
+        display: none; 
+    }
+
+    .tab-button {
+        padding: 1rem 1.5rem;
+        background-color: transparent;
+        border: none;
+        font-size: 1rem;
+        font-weight: 500;
+        color: #6b7280;
+        cursor: pointer;
+        transition: color 250ms, border-bottom 250ms;
+        border-bottom: 3px solid transparent;
+        white-space: nowrap; 
+        outline: none;
+        flex-shrink: 0; /* Prevents buttons from shrinking and forces scroll */
+    }
+
+    .tab-button:hover {
+        color: #ff6960;
+    }
+
+    .tab-button.active {
+        color:  #ff574c;
+        border-bottom: 3px solid  #ff574c;
+        font-weight: 600;
+    }
+    
+    .tab-content {
+        padding: 1.5rem 0;
+    }
+    
+    .active-content {
+        display: block;
+    }
+
+    .hidden-content {
+        display: none;
+    }
+
+    /* New Dual Grid Section Styles */
+    .dual-grid-section {
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+        max-width: 58rem;
+        margin: 0 auto;
+        background-color: #f9fafb;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.75rem;
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        padding: 2rem;
+    }
+
+    /* Left Column: Function List */
+    .function-list-container {
+        flex: 1;
+        padding: 0;
+        min-width: 200px;
+    }
+
+    .function-list {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
+    .function-item {
+        padding: 1rem;
+        height:100px;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        border: 1px solid #e5e7eb;
+        color: #374151;
+        cursor: pointer;
+        transition: all 200ms ease-in-out;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .function-item .flag {
+        height: 20px;
+        margin:auto 8px auto 0px;
+    }
+    
+    .function-item-title {
+        font-weight: 600;
+        font-size: 1rem;
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.25rem;
+    }
+    
+    .function-item-subtitle {
+        font-size: 0.8rem;
+        font-weight: 400;
+        color: #6b7280;
+        line-height: 1.3;
+    }
+
+    /* Unified style for highlighted (always applies, including mobile) */
+    .function-item.highlighted {
+        background-color: #33556d;
+        color: #ffffff;
+        border-color: #33556d;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        transform: none; 
+    }
+
+    .function-item.highlighted .function-item-subtitle {
+        color: #e5e7eb;
+    }
+
+    /* Right Column: Document Tiles (Desktop View) */
+    .document-tiles-display {
+        flex: 2;
+        min-height: 250px;
+        background-color: #ffffff;
+        border-radius: 0.5rem;
+        padding: 1.5rem;
+        border: 1px solid #e5e7eb;
+        transition: all 0.3s ease;
+    }
+    
+    .document-tiles-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1rem;
+    }
+
+    .document-tile {
+        height: 80px;
+        text-align: center;
+        display: flex;
+        align-items: center; 
+        justify-content: center;
+        padding: 0.75rem;
+        border: 1px dashed #c7d2fe;
+        border-radius: 0.5rem;
+        background-color: #f0f4ff;
+        color: #33556d;
+        font-size: 0.875rem;
+        font-weight: 600;
+        transition: all 200ms;
+    }
+    
+    .document-tile:hover {
+        background-color: #33556d;
+        color: #ffffff;
+        border-color: #33556d;
+    }
+
+    .placeholder-text {
+        grid-column: 1 / -1;
+        text-align: center;
+        padding: 3rem;
+        color: #9ca3af;
+        font-style: italic;
+        font-size: 1.125rem;
+    }
+        
+}
+
+/* Apply hover and highlighted styles ONLY on hover-capable devices */
+@media (hover: hover) {
+    #document-type-section{
+        .function-item:hover, 
+        .function-item.highlighted {
+            background-color: #33556d;
+            color: #ffffff;
+            border-color: #33556d;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+            transform: none; 
+        }
+
+        .function-item.highlighted .function-item-subtitle,
+        .function-item:hover .function-item-subtitle {
+            color: #e5e7eb;
+        }
+    }
+    
+}
+
+@media (min-width: 640px) {
+    #document-type-section .document-tiles-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 1023px) {
+    #document-type-section {
+        .function-item:hover {
+            transform: none; /* Disable hover transform on mobile */
+        }
+
+        .function-item.mobileclick {
+            background-color: #33556d !important;
+            color: #ffffff !important;
+            border-color: #33556d !important;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+        }
+        
+        .function-item.mobileclick .function-item-subtitle {
+            color: #e5e7eb !important;
+        }
+
+        /* Hide the tile display when it is in its original container (the right column) */
+        .dual-grid-section > .document-tiles-display {
+            display: none !important; 
+        }
+        
+        /* Style for the document tiles display when it is moved by JS below a list item */
+        .document-tiles-display.mobile-expanded {
+            display: block !important;
+            flex: none; 
+            width: 100%;
+            margin-top: 0.5rem; 
+            margin-bottom: 0.5rem;
+            min-height: 100px; 
+        }
+    }  
+}
+
+/* Desktop: Override to center and constrain width, remove scroll behavior */
+@media (min-width: 1024px) {
+    #document-type-section {
+        .description{
+            font-size: 18px;
+        }
+        
+        .tab-controls-container {
+            /* Reset mobile fix for desktop */
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 48rem;
+         }
+
+        .tabs {
+            justify-content: center;
+            /* Max width is applied to the parent container now (for centering border) */
+            max-width: 100%; /* Relative to new parent width (48rem) */
+            margin: 0 auto;
+            overflow-x: hidden; 
+            padding-bottom: 0; 
+            /* Remove mobile padding for desktop centering */
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .dual-grid-section {
+            flex-direction: row;
+            gap: 2rem;
+        }
+    }  
+}
+

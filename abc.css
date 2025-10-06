@@ -16996,7 +16996,6 @@ Contact Us */
   /* New Dual Grid Section Styles */
   /* Left Column: Function List */
   /* Unified style for highlighted (always applies, including mobile) */
-  /* Unified style for both hover and persistent highlight */
   /* Right Column: Document Tiles (Desktop View) */
 }
 #document-type-section .header-content {
@@ -17101,6 +17100,7 @@ Contact Us */
 }
 #document-type-section .function-item {
   padding: 1rem;
+  height: 100px;
   background-color: #ffffff;
   border-radius: 0.5rem;
   border: 1px solid #e5e7eb;
@@ -17209,6 +17209,15 @@ Contact Us */
     transform: none;
     /* Disable hover transform on mobile */
   }
+  #document-type-section .function-item.mobileclick {
+    background-color: #33556d !important;
+    color: #ffffff !important;
+    border-color: #33556d !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
+  }
+  #document-type-section .function-item.mobileclick .function-item-subtitle {
+    color: #e5e7eb !important;
+  }
   #document-type-section .dual-grid-section > .document-tiles-display {
     display: none !important;
   }
@@ -17219,15 +17228,6 @@ Contact Us */
     margin-top: 0.5rem;
     margin-bottom: 0.5rem;
     min-height: 100px;
-  }
-  #document-type-section .function-item.mobileclick {
-    background-color: #33556d !important;
-    color: #ffffff !important;
-    border-color: #33556d !important;
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1) !important;
-  }
-  #document-type-section .function-item.mobileclick .function-item-subtitle {
-    color: #e5e7eb !important;
   }
 }
 /* Desktop: Override to center and constrain width, remove scroll behavior */
