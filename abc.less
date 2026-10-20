@@ -19100,6 +19100,31 @@ h2 {
 
 }
 }
+
+.case-studies{
+    margin-top:50px;
+
+    .desktop({
+        margin-top: 60px;
+    });
+
+    .blog_inner{
+        margin-top: 50px;
+
+        .desktop({
+            margin-top: 100px;
+        });
+    }
+}
+
+.blog_entry{
+    .desktop({
+        -webkit-box-flex: 0;
+        flex: 0 0 30.33333%;
+        max-width: 30.33333%;
+    });
+}
+
 }
 
 /* *********************** */
@@ -20710,8 +20735,6 @@ h2 {
     }
 }
 
-
-// ==========================
 #document-type-section {
     padding-top: 50px;
     padding-bottom: 50px;
@@ -20992,7 +21015,6 @@ h2 {
     }  
 }
 
-/* Desktop: Override to center and constrain width, remove scroll behavior */
 @media (min-width: 1024px) {
     #document-type-section {
         .description{
@@ -21024,4 +21046,3 @@ h2 {
         }
     }  
 }
-

@@ -15796,6 +15796,29 @@ Contact Us */
     border-radius: 10px;
   }
 }
+.partners-campaign .case-studies {
+  margin-top: 50px;
+}
+@media (min-width: 992px) {
+  .partners-campaign .case-studies {
+    margin-top: 60px;
+  }
+}
+.partners-campaign .case-studies .blog_inner {
+  margin-top: 50px;
+}
+@media (min-width: 992px) {
+  .partners-campaign .case-studies .blog_inner {
+    margin-top: 100px;
+  }
+}
+@media (min-width: 992px) {
+  .partners-campaign .blog_entry {
+    -webkit-box-flex: 0;
+    flex: 0 0 30.33333%;
+    max-width: 30.33333%;
+  }
+}
 /* *********************** */
 .case-style {
   margin-top: 120px;
@@ -17230,7 +17253,6 @@ Contact Us */
     min-height: 100px;
   }
 }
-/* Desktop: Override to center and constrain width, remove scroll behavior */
 @media (min-width: 1024px) {
   #document-type-section .description {
     font-size: 18px;
