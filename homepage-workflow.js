@@ -1,48 +1,48 @@
 (() => {
     'use strict';
-    // These examples explain the stages; they do not create or process workflows.
+    // One illustrative invoice demonstrates the six stages. This is not a live workflow.
     const stages = {
         ingest: {
             number: '01', label: 'Ingest', title: 'Give every document a starting point.',
-            description: 'Upload documents or receive them through an integration. Ingestion brings documents into the workflow so the next steps can begin.',
-            question: 'How will documents enter this workflow?',
-            exampleTitle: 'An invoice arrives.', exampleDescription: 'A supplier invoice enters the workflow, ready for the configured fields to be captured.',
-            from: 'Incoming document', to: 'Ready for extraction'
+            description: 'Upload PDFs and images, import Outlook messages or attachments, or submit documents through the API.',
+            exampleTitle: 'An invoice arrives.',
+            exampleDescription: 'A supplier uploads invoice-201.pdf to start this example workflow.',
+            from: 'invoice-201.pdf', to: 'Document received'
         },
         extract: {
             number: '02', label: 'Extract', title: 'Capture the information that matters.',
-            description: 'Capture configured fields and repeated data from your documents. Define the single values and repeated information, such as line items, that your process needs.',
-            question: 'Which fields and repeated data do you need to capture?',
-            exampleTitle: 'From invoice to structured data.', exampleDescription: 'Capture the supplier name, invoice number, total and individual line items from the invoice.',
-            from: 'Invoice document', to: 'Configured fields and line items'
+            description: 'Capture single values and repeated sections using the fields and extraction guidance configured for the workflow.',
+            exampleTitle: 'From invoice to structured data.',
+            exampleDescription: 'Invoice number 201, the date, total and line items become structured fields.',
+            from: 'Invoice 201', to: 'Fields and line items'
         },
         transform: {
             number: '03', label: 'Transform', title: 'Get your data into the right format.',
-            description: 'Convert extracted values into the required format. Prepare the captured information for the checks, review and downstream use that follow.',
-            question: 'What format should the extracted values use?',
-            exampleTitle: 'Make the values consistent.', exampleDescription: 'For this example, convert an extracted invoice date into the date format required by the receiving process.',
-            from: 'Extracted values', to: 'Values in the required format'
+            description: 'Map values into a common output structure. Standardise dates and numbers, apply lookups and calculate derived values.',
+            exampleTitle: 'Make the values consistent.',
+            exampleDescription: 'Convert the invoice date into a consistent format for the receiving process.',
+            from: 'Jan 28, 2025', to: '2025-01-28'
         },
         validate: {
             number: '04', label: 'Validate', title: 'Put your business rules to work.',
-            description: 'Apply required checks and business rules to your data. Make validation part of the process before values are reviewed and results are delivered.',
-            question: 'Which required checks and business rules should apply?',
-            exampleTitle: 'Check what the process needs.', exampleDescription: 'In this invoice example, check that the required invoice number and supplier information are present before review.',
-            from: 'Prepared invoice data', to: 'Data checked against your rules'
+            description: 'Check required values, ranges, allowed values and dates, with warning or blocking rules.',
+            exampleTitle: 'Check what the process needs.',
+            exampleDescription: 'A required-field check confirms that the invoice number has been captured.',
+            from: 'Required invoice number', to: '201 · check passed'
         },
         review: {
-            number: '05', label: 'Review', title: 'Bring people in where attention is needed.',
-            description: 'Confirm values and resolve issues that need attention. Give your team a review step before results move to their destination.',
-            question: 'What should your team confirm before delivery?',
-            exampleTitle: 'A reviewer resolves an issue.', exampleDescription: 'A team member checks the invoice data, confirms the values and resolves information that needs attention.',
-            from: 'Data needing attention', to: 'Confirmed, reviewed results'
+            number: '05', label: 'Review', title: 'Choose where people are needed.',
+            description: 'Review all documents, focus on exceptions, or omit routine review. Blocking validation failures still require attention.',
+            exampleTitle: 'Let routine invoices continue.',
+            exampleDescription: 'With required values present and checks passed, this example invoice can continue without routine review under an exceptions-only policy.',
+            from: 'Checks passed', to: 'No routine review'
         },
         deliver: {
             number: '06', label: 'Deliver', title: 'Get the results where they belong.',
-            description: 'Keep results in DocAcquire or send them downstream. Complete the workflow by choosing where the usable, reviewed data should go.',
-            question: 'Where should the reviewed results be delivered?',
-            exampleTitle: 'Ready for the next business step.', exampleDescription: 'Keep the reviewed invoice results in DocAcquire or send the data to the downstream destination configured for the workflow.',
-            from: 'Reviewed invoice results', to: 'DocAcquire or your next system'
+            description: 'Deliver configured records to applications or storage, with delivery status and supported retries.',
+            exampleTitle: 'Deliver the invoice record.',
+            exampleDescription: 'Send the eligible invoice record to the Zoho Books connection configured for this example workflow.',
+            from: 'Invoice 201 · validated record', to: 'Zoho Books'
         }
     };
     const tabs = Array.from(document.querySelectorAll('.da-stage-tab'));
@@ -61,7 +61,7 @@
         const text = {
             'stage-eyebrow': `${stage.number} / ${stage.label.toUpperCase()}`,
             'stage-title': stage.title, 'stage-description': stage.description,
-            'stage-question': stage.question, 'stage-example-title': stage.exampleTitle,
+            'stage-example-title': stage.exampleTitle,
             'stage-example-description': stage.exampleDescription,
             'stage-example-from': stage.from, 'stage-example-to': stage.to
         };
@@ -80,8 +80,5 @@
             event.preventDefault();
             selectStage(tabs[nextIndex].dataset.stage, true);
         });
-    });
-    document.querySelectorAll('[data-stage-link]').forEach(link => {
-        link.addEventListener('click', () => selectStage(link.dataset.stageLink, true));
     });
 })();
