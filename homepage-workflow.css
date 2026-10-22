@@ -456,3 +456,37 @@ html { scroll-behavior: smooth; scroll-padding-top: 40px; }
 @media (prefers-reduced-motion:reduce) { .da-scene-moving { animation:none; stroke-dasharray:none; opacity:.5; } }
 
 @media (max-width:600px) { .da-manual-setup { margin-top:20px!important; } }
+
+/* Six business areas show representative workflows from the product library. */
+#use-cases .da-eyebrow { color:var(--teal); }
+.da-use-cases { grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; border:0; }
+.da-use-case,.da-use-case:first-child,.da-use-case:last-child { min-width:0; padding:25px; border:1px solid var(--line); border-radius:9px; background:white; }
+.da-case-sector { display:flex; align-items:center; gap:10px; color:var(--teal); font-size:9px; font-weight:650; letter-spacing:1px; text-transform:uppercase; line-height:1.5; }
+.da-case-sector svg { width:34px; height:34px; padding:7px; border-radius:7px; background:#edf6f3; stroke-width:1.5; }
+.da-library-case:nth-child(3n+2) .da-case-sector svg { color:#476c9d; background:#edf2fa; }
+.da-library-case:nth-child(3n) .da-case-sector svg { color:#ad7158; background:#fff1e9; }
+.da-use-case h3 { min-height:58px; margin-top:19px; font-size:24px; line-height:1.22; letter-spacing:-.6px; font-weight:600; }
+.da-use-case .da-case-description { min-height:69px; margin:12px 0 22px; font-size:13px; line-height:1.8; color:var(--muted); }
+.da-case-examples { padding:15px; margin-top:auto; background:#f6f9fa; border:1px solid #e6edef; border-radius:6px; }
+.da-case-examples>span { display:block; color:#6c838d; font-size:8px; font-weight:650; letter-spacing:1px; line-height:1.5; }
+.da-case-examples ul { display:grid; gap:9px; list-style:none; padding:0; margin:13px 0 0; min-height:72px; align-content:start; }
+.da-case-examples li { display:flex; align-items:flex-start; gap:9px; color:var(--navy); font-size:12px; line-height:1.5; }
+.da-case-examples li svg { width:16px; height:16px; color:var(--teal); margin-top:1px; stroke-width:1.4; }
+.da-case-outcome { margin-top:20px; padding-top:17px; border-top:1px solid var(--line); }
+.da-case-outcome>span { display:block; color:var(--teal); font-size:8px; font-weight:700; letter-spacing:1.2px; }
+.da-case-outcome>p { min-height:43px; margin:7px 0 0; font-size:13px; line-height:1.7; color:var(--navy); }
+.da-use-cases-footer { display:flex; align-items:flex-start; justify-content:space-between; gap:40px; margin-top:23px; }
+.da-use-cases-footer .da-use-case-note { margin:0!important; max-width:770px; font-size:10px; line-height:1.8; }
+.da-use-cases-footer .da-text-link { flex-shrink:0; color:var(--teal); font-size:12px; padding-top:2px; }
+@media(max-width:1150px) { .da-use-cases { gap:18px; } .da-use-case,.da-use-case:first-child,.da-use-case:last-child { padding:22px; } .da-use-case h3 { font-size:23px; } .da-case-sector { font-size:8px; } }
+@media(max-width:900px) { .da-use-cases { grid-template-columns:repeat(2,minmax(0,1fr)); } .da-use-case h3 { max-width:none; } .da-use-cases-footer { gap:25px; } }
+@media(max-width:600px) {
+ .da-use-cases { grid-template-columns:1fr; gap:18px; }
+ .da-use-case,.da-use-case:first-child,.da-use-case:last-child { padding:24px; }
+ .da-case-sector { font-size:9px; }
+ .da-use-case h3 { min-height:0; max-width:none; margin-top:16px; font-size:26px; }
+ .da-use-case .da-case-description { min-height:0; margin:12px 0 20px; }
+ .da-case-examples ul { min-height:0; }
+ .da-case-outcome>p { min-height:0; margin-bottom:0; }
+ .da-use-cases-footer { flex-direction:column; gap:16px; }
+}
