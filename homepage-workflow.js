@@ -1,52 +1,35 @@
 (() => {
     'use strict';
-    // One illustrative invoice demonstrates the six stages. This is not a live workflow.
+    // These are illustrative workflow scenes, not live product or delivery states.
     const stages = {
         ingest: {
-            number: '01', label: 'Ingest', title: 'Give every document a starting point.',
-            description: 'Upload PDFs and images, import Outlook messages or attachments, or submit documents through the API.',
-            exampleTitle: 'An invoice arrives.',
-            exampleDescription: 'A supplier uploads invoice-201.pdf to start this example workflow.',
-            from: 'invoice-201.pdf', to: 'Document received'
+            number: '01', label: 'Ingest', title: 'Start processing when a document arrives.',
+            description: 'Upload PDFs and images, import Outlook messages or attachments, or submit documents through the API.'
         },
         extract: {
-            number: '02', label: 'Extract', title: 'Capture the information that matters.',
-            description: 'Capture single values and repeated sections using the fields and extraction guidance configured for the workflow.',
-            exampleTitle: 'From invoice to structured data.',
-            exampleDescription: 'Invoice number 201, the date, total and line items become structured fields.',
-            from: 'Invoice 201', to: 'Fields and line items'
+            number: '02', label: 'Extract', title: 'Capture once. Use throughout the process.',
+            description: 'Capture single values and repeated sections using the fields and extraction guidance configured for your workflow.'
         },
         transform: {
-            number: '03', label: 'Transform', title: 'Get your data into the right format.',
-            description: 'Map values into a common output structure. Standardise dates and numbers, apply lookups and calculate derived values.',
-            exampleTitle: 'Make the values consistent.',
-            exampleDescription: 'Convert the invoice date into a consistent format for the receiving process.',
-            from: 'Jan 28, 2025', to: '2025-01-28'
+            number: '03', label: 'Transform', title: 'Remove the manual reformatting.',
+            description: 'Map values into a common output structure. Standardise dates and numbers, apply lookups and calculate derived values.'
         },
         validate: {
             number: '04', label: 'Validate', title: 'Put your business rules to work.',
-            description: 'Check required values, ranges, allowed values and dates, with warning or blocking rules.',
-            exampleTitle: 'Check what the process needs.',
-            exampleDescription: 'A required-field check confirms that the invoice number has been captured.',
-            from: 'Required invoice number', to: '201 · check passed'
+            description: 'Check required values, ranges, allowed values and dates before delivery. Configure warning or blocking rules to fit your process.'
         },
         review: {
-            number: '05', label: 'Review', title: 'Choose where people are needed.',
-            description: 'Review all documents, focus on exceptions, or omit routine review. Blocking validation failures still require attention.',
-            exampleTitle: 'Let routine invoices continue.',
-            exampleDescription: 'With required values present and checks passed, this example invoice can continue without routine review under an exceptions-only policy.',
-            from: 'Checks passed', to: 'No routine review'
+            number: '05', label: 'Review', title: 'Keep work moving. Bring people in where needed.',
+            description: 'Review all documents, focus on exceptions, or omit routine review. Blocking failures still need attention. This is data review; business approval stays in your downstream process.'
         },
         deliver: {
-            number: '06', label: 'Deliver', title: 'Get the results where they belong.',
-            description: 'Deliver configured records to applications or storage, with delivery status and supported retries.',
-            exampleTitle: 'Deliver the invoice record.',
-            exampleDescription: 'Send the eligible invoice record to the Zoho Books connection configured for this example workflow.',
-            from: 'Invoice 201 · validated record', to: 'Zoho Books'
+            number: '06', label: 'Deliver', title: 'Finish with a record in your system.',
+            description: 'Deliver configured records to your applications or storage, with delivery status and supported retries. Your receiving system handles the business actions that follow.'
         }
     };
     const tabs = Array.from(document.querySelectorAll('.da-stage-tab'));
     const panel = document.getElementById('stage-panel');
+    const illustrations = Array.from(document.querySelectorAll('[data-stage-art]'));
     if (!tabs.length || !panel) return;
     function selectStage(key, moveFocus = false) {
         const stage = stages[key];
@@ -58,15 +41,10 @@
             if (selected && moveFocus) tab.focus({ preventScroll: true });
         });
         panel.setAttribute('aria-labelledby', `tab-${key}`);
-        const text = {
-            'stage-eyebrow': `${stage.number} / ${stage.label.toUpperCase()}`,
-            'stage-title': stage.title, 'stage-description': stage.description,
-            'stage-example-title': stage.exampleTitle,
-            'stage-example-description': stage.exampleDescription,
-            'stage-example-from': stage.from, 'stage-example-to': stage.to
-        };
-        Object.entries(text).forEach(([id, value]) => { document.getElementById(id).textContent = value; });
-        document.querySelector('#stage-icon use').setAttribute('href', `#i-${key}`);
+        document.getElementById('stage-eyebrow').textContent = `${stage.number} / ${stage.label.toUpperCase()}`;
+        document.getElementById('stage-title').textContent = stage.title;
+        document.getElementById('stage-description').textContent = stage.description;
+        illustrations.forEach(figure => { figure.hidden = figure.dataset.stageArt !== key; });
     }
     tabs.forEach((tab, index) => {
         tab.addEventListener('click', () => selectStage(tab.dataset.stage));
@@ -81,4 +59,5 @@
             selectStage(tabs[nextIndex].dataset.stage, true);
         });
     });
+    selectStage('ingest');
 })();
