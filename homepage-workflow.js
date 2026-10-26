@@ -41,8 +41,9 @@
             if (selected && moveFocus) tab.focus({ preventScroll: true });
         });
         panel.setAttribute('aria-labelledby', `tab-${key}`);
-        document.getElementById('stage-eyebrow').textContent = `${stage.number} / ${stage.label.toUpperCase()}`;
-        document.getElementById('stage-title').textContent = stage.title;
+        document.getElementById('stage-eyebrow').textContent = `${stage.number} / 06`;
+        document.getElementById('stage-title').textContent = stage.label;
+        document.getElementById('stage-subtitle').textContent = stage.title;
         document.getElementById('stage-description').textContent = stage.description;
         illustrations.forEach(figure => { figure.hidden = figure.dataset.stageArt !== key; });
     }
