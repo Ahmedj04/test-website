@@ -487,8 +487,6 @@ html {
 
 .da-process .da-section-heading h2 {
   margin-top: 12px;
-  font-size: clamp(30px, 2.7vw, 36px);
-  line-height: 1.2;
 }
 
 .da-process .da-section-heading>p {
@@ -561,10 +559,6 @@ html {
 @media (max-width:600px) {
   .da-process .da-section-heading {
     padding: 0 0 24px;
-  }
-
-  .da-process .da-section-heading h2 {
-    font-size: 30px;
   }
 
   .da-process .da-section-heading>p {
@@ -876,8 +870,7 @@ html {
 }
 
 .da-reviews-section {
-  border-bottom: 1px solid var(--line);
-  padding-bottom: calc(var(--section-space) / 2);
+  padding-bottom: var(--section-space);
 }
 
 .da-reviews-section .da-eyebrow {
@@ -1034,11 +1027,15 @@ html {
   gap: 17px;
 }
 
+.da-faq-band {
+  background: var(--navy-3);
+  margin-bottom: var(--section-space);
+}
+
 .da-faq-section {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
   gap: 110px;
-  padding-top: calc(var(--section-space) / 2);
 }
 
 .da-faq-section h2 {
@@ -1597,6 +1594,32 @@ html {
     max-width: none;
   }
 
+  .da-trust-heading,
+  .da-process .da-section-heading,
+  #use-cases .da-section-heading,
+  .da-reviews-section .da-section-heading {
+    text-align: left;
+  }
+
+  .da-trust-heading .da-eyebrow,
+  .da-process .da-section-heading .da-eyebrow,
+  #use-cases .da-section-heading .da-eyebrow,
+  .da-reviews-section .da-section-heading .da-eyebrow {
+    justify-content: flex-start;
+  }
+
+  .da-page .da-trust-heading h2,
+  #use-cases .da-section-heading h2,
+  .da-reviews-section .da-section-heading h2 {
+    margin-inline: 0;
+  }
+
+  .da-process .da-section-heading>p,
+  #use-cases .da-section-heading>p {
+    margin-inline: 0;
+    text-wrap: wrap;
+  }
+
   .da-page h2 {
     font-size: 30px;
     letter-spacing: -1px;
@@ -1831,7 +1854,6 @@ html {
 
 .da-product-copy h2 {
   margin-top: 17px;
-  font-size: 38px;
 }
 
 .da-setup-list {
@@ -1951,10 +1973,6 @@ html {
 
   .da-hero-art img {
     margin-top: 14px;
-  }
-
-  .da-product-copy h2 {
-    font-size: 30px;
   }
 
   .da-setup-list {
