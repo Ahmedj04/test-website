@@ -13,7 +13,7 @@ get_header(); ?>
             <rect x="15" y="15" width="6" height="6" rx="1" />
             <path d="M9 6h6M6 9v9h9" />
         </symbol>
-        <symbol id="i-ingest" viewBox="0 0 24 24">
+        <symbol id="i-acquire" viewBox="0 0 24 24">
             <path d="M14 3H5v18h14V8zM14 3v5h5M12 18v-7m-3 3 3-3 3 3" />
         </symbol>
         <symbol id="i-extract" viewBox="0 0 24 24">
@@ -202,10 +202,10 @@ get_header(); ?>
                     moving. Explore how the steps connect.</p>
             </div>
             <div class="da-stage-tabs" role="tablist" aria-label="Document workflow stages">
-                <button type="button" id="tab-ingest" class="da-stage-tab" role="tab" aria-selected="true"
-                    aria-controls="stage-panel" data-stage="ingest"><span>01</span><svg aria-hidden="true">
-                        <use href="#i-ingest" />
-                    </svg><strong>Ingest</strong></button>
+                <button type="button" id="tab-acquire" class="da-stage-tab" role="tab" aria-selected="true"
+                    aria-controls="stage-panel" data-stage="acquire"><span>01</span><svg aria-hidden="true">
+                        <use href="#i-acquire" />
+                    </svg><strong>Acquire</strong></button>
                 <button type="button" id="tab-extract" class="da-stage-tab" role="tab" aria-selected="false"
                     aria-controls="stage-panel" tabindex="-1" data-stage="extract"><span>02</span><svg
                         aria-hidden="true">
@@ -232,15 +232,15 @@ get_header(); ?>
                         <use href="#i-deliver" />
                     </svg><strong>Deliver</strong></button>
             </div>
-            <div class="da-stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="tab-ingest" tabindex="0">
+            <div class="da-stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="tab-acquire" tabindex="0">
                 <div class="da-stage-content">
                     <p class="da-eyebrow" id="stage-eyebrow">01 / 06</p>
-                    <h3 id="stage-title">Ingest</h3>
+                    <h3 id="stage-title">Acquire</h3>
                     <p class="da-stage-subtitle" id="stage-subtitle">Start processing when a document arrives.</p>
                     <p id="stage-description">Upload PDFs and images, import Outlook messages or attachments, or submit
                         documents through the API.</p>
                 </div>
-                <figure class="da-stage-art da-scene-ingest" data-stage-art="ingest" role="img"
+                <figure class="da-stage-art da-scene-acquire" data-stage-art="acquire" role="img"
                     aria-label="Sample resume and employment contract, with document data, arrive through upload, email and API.">
                     <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
                             preserveAspectRatio="none" aria-hidden="true">
@@ -251,7 +251,7 @@ get_header(); ?>
                             <path class="da-scene-moving" d="M125 280H220Q250 280 250 250V190H325" />
                         </svg>
                         <div class="da-scene-channel da-scene-channel-top"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                                <use href="#i-acquire" />
                             </svg><span>Upload</span></div>
                         <div class="da-scene-channel da-scene-channel-middle"><svg viewBox="0 0 24 24">
                                 <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
@@ -259,18 +259,18 @@ get_header(); ?>
                         <div class="da-scene-channel da-scene-channel-bottom"><svg viewBox="0 0 24 24">
                                 <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
                             </svg><span>API</span></div>
-                        <div class="da-scene-paper da-scene-document da-ingest-paper-back"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                        <div class="da-scene-paper da-scene-document da-acquire-paper-back"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <use href="#i-acquire" />
                             </svg><strong class="da-doc-title">Employment contract</strong>
                             <dl class="da-doc-data"><div><dt>Contract</dt><dd>EMP-0284</dd></div><div><dt>Role</dt><dd>Data analyst</dd></div><div><dt>Start date</dt><dd>02 Nov 2026</dd></div></dl>
                         </div>
-                        <div class="da-scene-paper da-scene-document da-ingest-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                        <div class="da-scene-paper da-scene-document da-acquire-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <use href="#i-acquire" />
                             </svg><strong class="da-doc-title">Resume</strong>
                             <dl class="da-doc-data"><div><dt>Candidate</dt><dd>Alex Morgan</dd></div><div><dt>Experience</dt><dd>5 years</dd></div><div><dt>Skills</dt><dd>Python · SQL</dd></div></dl>
                             <div class="da-doc-footer">APPLICATION · HR-027</div>
                         </div>
-                        <div class="da-scene-badge da-ingest-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
+                        <div class="da-scene-badge da-acquire-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
                                 <use href="#i-check" />
                             </svg><span>Documents received</span></div>
                     </div>
@@ -284,7 +284,7 @@ get_header(); ?>
                             <path class="da-scene-moving" d="M190 224H230Q260 224 260 200V190H326" />
                         </svg>
                         <div class="da-scene-paper da-scene-document da-extract-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                                <use href="#i-acquire" />
                             </svg><strong class="da-doc-title">Bank statement</strong>
                             <dl class="da-doc-data"><div><dt>Account</dt><dd>•••• 4821</dd></div><div><dt>Period</dt><dd>September 2026</dd></div><div><dt>Closing balance</dt><dd>$12,840.50</dd></div></dl>
                             <div class="da-doc-transactions"><div><span>Deposit</span><strong>+1,200.00</strong></div><div><span>Payment</span><strong>−84.00</strong></div></div>
@@ -342,7 +342,7 @@ get_header(); ?>
                             <path class="da-scene-moving" d="M200 168H325" />
                         </svg>
                         <div class="da-scene-paper da-scene-document da-validate-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                                <use href="#i-acquire" />
                             </svg><strong class="da-doc-title">Purchase order</strong>
                             <dl class="da-doc-data"><div><dt>PO number</dt><dd>PO-1042</dd></div><div><dt>Quantity</dt><dd>48 units</dd></div><div><dt>Delivery date</dt><dd>12 Nov 2026</dd></div></dl>
                             <div class="da-doc-footer">SUPPLIER · NORTHLINE</div>
@@ -386,7 +386,7 @@ get_header(); ?>
                                 <use href="#i-deliver" />
                             </svg><span>Continue automatically</span></div>
                         <div class="da-review-branch-label">Where attention is needed</div>
-                        <div class="da-scene-paper da-scene-document da-review-document"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-ingest" /></svg>
+                        <div class="da-scene-paper da-scene-document da-review-document"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-acquire" /></svg>
                             <strong class="da-doc-title">Rental agreement</strong>
                             <dl class="da-doc-data"><div><dt>Reference</dt><dd>RA-3108</dd></div><div><dt>Deposit</dt><dd>$1,200.00</dd></div></dl>
                         </div>
@@ -411,7 +411,7 @@ get_header(); ?>
                             <path class="da-scene-moving" d="M190 170H260Q285 170 285 200V265H360" />
                         </svg>
                         <div class="da-scene-paper da-scene-document da-deliver-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-ingest" />
+                                <use href="#i-acquire" />
                             </svg><strong class="da-doc-title">Proof of delivery</strong>
                             <dl class="da-doc-data"><div><dt>Delivery ref.</dt><dd>POD-7312</dd></div><div><dt>Delivered</dt><dd>21 Oct 2026</dd></div><div><dt>Received</dt><dd>24 cartons</dd></div></dl>
                             <div class="da-doc-footer">SIGNED · J. LEE</div>
@@ -472,13 +472,13 @@ get_header(); ?>
                     <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
                         <ul>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Invoice Processing</span></li>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Bank Statement Processing</span></li>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Purchase Order Processing</span></li>
                         </ul>
                     </div>
@@ -496,7 +496,7 @@ get_header(); ?>
                     <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
                         <ul>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Cash Settlement Instructions Processing</span></li>
                         </ul>
                     </div>
@@ -514,13 +514,13 @@ get_header(); ?>
                     <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
                         <ul>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Bill of Lading Processing</span></li>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Proof of Delivery Processing</span></li>
                             <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-ingest" />
+                                    <use href="#i-acquire" />
                                 </svg><span>Rate Confirmation Processing</span></li>
                         </ul>
                     </div>
@@ -642,7 +642,7 @@ get_header(); ?>
                     <details open>
                         <summary>What is a workflow in DocAcquire?</summary>
                         <p>A workflow is the process each document follows in DocAcquire, from receipt through delivery into
-                            your next business system. It connects ingestion, extraction, transformation, validation, review
+                            your next business system. It connects acquisition, extraction, transformation, validation, review
                             and delivery.</p>
                     </details>
                     <details>

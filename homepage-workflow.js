@@ -2,8 +2,8 @@
     'use strict';
     // These are illustrative workflow scenes, not live product or delivery states.
     const stages = {
-        ingest: {
-            number: '01', label: 'Ingest', title: 'Start processing when a document arrives.',
+        acquire: {
+            number: '01', label: 'Acquire', title: 'Start processing when a document arrives.',
             description: 'Upload PDFs and images, import Outlook messages or attachments, or submit documents through the API.'
         },
         extract: {
@@ -60,5 +60,5 @@
             selectStage(tabs[nextIndex].dataset.stage, true);
         });
     });
-    selectStage('ingest');
+    selectStage('acquire');
 })();
