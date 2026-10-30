@@ -13,8 +13,9 @@
     <script src="homepage-workflow.js?v=stage-headings" defer></script>
 </head>
 
-<body class="da-page">
-    <svg class="da-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+<body>
+    <div id="home" class="da-page">
+        <svg class="da-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
         <symbol id="i-flow" viewBox="0 0 24 24">
             <rect x="3" y="3" width="6" height="6" rx="1" />
             <rect x="15" y="3" width="6" height="6" rx="1" />
@@ -46,663 +47,653 @@
         <symbol id="i-check" viewBox="0 0 24 24">
             <path d="m5 12 4 4L19 6" />
         </symbol>
-    </svg>
-    <main>
-        <section class="da-hero " aria-labelledby="hero-heading">
-            <div class="container da-hero-grid">
-                <div class="da-hero-copy">
-                    <p class="da-eyebrow"><span class="da-live-dot"></span> PUT YOUR DOCUMENTS TO WORK</p>
-                    <h1 id="hero-heading">Automate the workflow<br> behind <span>every document.</span></h1>
-                    <p class="da-lead">Capture the information you need, standardise it, apply business checks and send
-                        validated records to your systems.</p>
-                    <div class="da-actions"><a class="da-button" href="https://www.docacquire.com/request-a-demo/">Book
-                            a demo <svg aria-hidden="true">
-                                <use href="#i-arrow" />
-                            </svg></a><a class="da-text-link" href="#workflow">See how it works <span
-                                aria-hidden="true">↓</span></a></div>
-                    <div class="da-hero-notes"><span><svg aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg> From receipt to delivery</span><span><svg aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg> Review exceptions</span></div>
-                </div>
-                <figure class="da-flow-art"
-                    aria-label="Workflow illustration: documents flow through DocAcquire, with human review where needed, and checked records are delivered to connected systems.">
-                    <svg class="da-art-paths" viewBox="0 0 600 480" aria-hidden="true">
-                        <defs>
-                            <path id="da-art-input-path" d="M140 212 C185 212 188 234 228 234" />
-                            <path id="da-art-email-path" d="M138 362 C200 362 175 250 228 250" />
-                            <path id="da-art-api-path" d="M142 53 H206 Q230 53 230 80 V143 Q230 165 263 168" />
-                            <path id="da-art-output-path" d="M360 234 H408" />
-                        </defs>
-                        <g class="da-art-tracks">
-                            <use href="#da-art-input-path" />
-                            <use href="#da-art-email-path" />
-                            <use href="#da-art-api-path" />
-                            <use href="#da-art-output-path" />
-                        </g>
-                        <path class="da-art-review-path"
-                            d="M294 300 V345 Q294 365 315 365 H327 M423 392 H450 Q480 392 480 362 V320" />
-                        <g class="da-art-signals">
-                            <use href="#da-art-input-path" />
-                            <use href="#da-art-email-path" />
-                            <use href="#da-art-api-path" />
-                            <use href="#da-art-output-path" />
-                        </g>
-                        <path class="da-art-arrow" d="m400 229 8 5-8 5" />
-                    </svg>
-                    <div class="da-art-paper da-art-paper-back" aria-hidden="true"><i></i><i></i><i></i></div>
-                    <div class="da-art-paper da-art-paper-front" aria-hidden="true">
-                        <div class="da-art-paper-heading"><svg viewBox="0 0 24 24">
-                                <path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8m-8 4h5" />
-                            </svg><span>PDF</span></div>
-                        <dl class="da-art-paper-fields">
-                            <div>
-                                <dt>REFERENCE</dt>
-                                <dd>DA-2048</dd>
-                            </div>
-                            <div>
-                                <dt>DATE</dt>
-                                <dd>28 Jan 2025</dd>
-                            </div>
-                            <div>
-                                <dt>TOTAL</dt>
-                                <dd>$2,480.00</dd>
-                            </div>
-                        </dl>
-                        <span class="da-art-paper-tick"><svg>
-                                <use href="#i-check" />
-                            </svg></span>
+        </svg>
+        <main>
+            <section class="da-hero " aria-labelledby="hero-heading">
+                <div class="container da-hero-grid">
+                    <div class="da-hero-copy">
+                        <p class="da-eyebrow"><span class="da-live-dot"></span> PUT YOUR DOCUMENTS TO WORK</p>
+                        <h1 id="hero-heading">Automate the workflow<br> behind <span>every document.</span></h1>
+                        <p class="da-lead">Capture the information you need, standardise it, apply business checks and send
+                            validated records to your systems.</p>
+                        <div class="da-actions"><a class="da-button" href="https://www.docacquire.com/request-a-demo/">Book
+                                a demo <svg aria-hidden="true">
+                                    <use href="#i-arrow" />
+                                </svg></a><a class="da-text-link" href="#workflow">See how it works <span
+                                    aria-hidden="true">↓</span></a></div>
+                        <div class="da-hero-notes"><span><svg aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg> From receipt to delivery</span><span><svg aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg> Review exceptions</span></div>
                     </div>
-                    <div class="da-art-channel da-art-channel-api"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
-                        </svg><span>API</span></div>
-                    <div class="da-art-channel da-art-channel-email"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
-                        </svg><span>Email attachments</span></div>
-                    <div class="da-art-hub"><span><svg aria-hidden="true">
-                                <use href="#i-flow" />
-                            </svg></span><img class="da-art-logo" src="https://www.docacquire.com/wp-content/uploads/2026/10/DocAcquire_master-marque-scaled.png" alt="DocAcquire"
-                            width="8482" height="1495" decoding="async"></div>
-                    <div class="da-art-check-badge"><svg aria-hidden="true">
-                            <use href="#i-check" />
-                        </svg><span>Checks passed</span></div>
-                    <div class="da-art-destination">
-                        <div class="da-art-destination-heading"><span
-                                class="da-live-dot"></span><strong>Delivered</strong><svg aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg></div>
-                        <div class="da-art-record" aria-hidden="true">
-                            <div><span class="da-art-record-value">DA-2048</span><span>✓</span></div>
-                            <div><span class="da-art-record-value">2025-01-28</span><span>✓</span></div>
-                            <div><span class="da-art-record-value">USD 2,480.00</span><span>✓</span></div>
+                    <figure class="da-flow-art"
+                        aria-label="Workflow illustration: documents flow through DocAcquire, with human review where needed, and checked records are delivered to connected systems.">
+                        <svg class="da-art-paths" viewBox="0 0 600 480" aria-hidden="true">
+                            <defs>
+                                <path id="da-art-input-path" d="M140 212 C185 212 188 234 228 234" />
+                                <path id="da-art-email-path" d="M138 362 C200 362 175 250 228 250" />
+                                <path id="da-art-api-path" d="M142 53 H206 Q230 53 230 80 V143 Q230 165 263 168" />
+                                <path id="da-art-output-path" d="M360 234 H408" />
+                            </defs>
+                            <g class="da-art-tracks">
+                                <use href="#da-art-input-path" />
+                                <use href="#da-art-email-path" />
+                                <use href="#da-art-api-path" />
+                                <use href="#da-art-output-path" />
+                            </g>
+                            <path class="da-art-review-path"
+                                d="M294 300 V345 Q294 365 315 365 H327 M423 392 H450 Q480 392 480 362 V320" />
+                            <g class="da-art-signals">
+                                <use href="#da-art-input-path" />
+                                <use href="#da-art-email-path" />
+                                <use href="#da-art-api-path" />
+                                <use href="#da-art-output-path" />
+                            </g>
+                            <path class="da-art-arrow" d="m400 229 8 5-8 5" />
+                        </svg>
+                        <div class="da-art-paper da-art-paper-back" aria-hidden="true"><i></i><i></i><i></i></div>
+                        <div class="da-art-paper da-art-paper-front" aria-hidden="true">
+                            <div class="da-art-paper-heading"><svg viewBox="0 0 24 24">
+                                    <path d="M14 3H5v18h14V8zM14 3v5h5M8 12h8m-8 4h5" />
+                                </svg><span>PDF</span></div>
+                            <dl class="da-art-paper-fields">
+                                <div>
+                                    <dt>REFERENCE</dt>
+                                    <dd>DA-2048</dd>
+                                </div>
+                                <div>
+                                    <dt>DATE</dt>
+                                    <dd>28 Jan 2025</dd>
+                                </div>
+                                <div>
+                                    <dt>TOTAL</dt>
+                                    <dd>$2,480.00</dd>
+                                </div>
+                            </dl>
+                            <span class="da-art-paper-tick"><svg>
+                                    <use href="#i-check" />
+                                </svg></span>
                         </div>
-                        <p>Your systems</p>
-                        <div class="da-art-apps" aria-label="Applications, databases and cloud storage"><span><svg
-                                    viewBox="0 0 24 24" aria-hidden="true">
+                        <div class="da-art-channel da-art-channel-api"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
+                            </svg><span>API</span></div>
+                        <div class="da-art-channel da-art-channel-email"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
+                            </svg><span>Email attachments</span></div>
+                        <div class="da-art-hub"><span><svg aria-hidden="true">
+                                    <use href="#i-flow" />
+                                </svg></span><img class="da-art-logo" src="https://www.docacquire.com/wp-content/uploads/2026/10/DocAcquire_master-marque-scaled.png" alt="DocAcquire"
+                                width="8482" height="1495" decoding="async"></div>
+                        <div class="da-art-check-badge"><svg aria-hidden="true">
+                                <use href="#i-check" />
+                            </svg><span>Checks passed</span></div>
+                        <div class="da-art-destination">
+                            <div class="da-art-destination-heading"><span
+                                    class="da-live-dot"></span><strong>Delivered</strong><svg aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg></div>
+                            <div class="da-art-record" aria-hidden="true">
+                                <div><span class="da-art-record-value">DA-2048</span><span>✓</span></div>
+                                <div><span class="da-art-record-value">2025-01-28</span><span>✓</span></div>
+                                <div><span class="da-art-record-value">USD 2,480.00</span><span>✓</span></div>
+                            </div>
+                            <p>Your systems</p>
+                            <div class="da-art-apps" aria-label="Applications, databases and cloud storage"><span><svg
+                                        viewBox="0 0 24 24" aria-hidden="true">
+                                        <rect x="4" y="4" width="6" height="6" rx="1" />
+                                        <rect x="14" y="4" width="6" height="6" rx="1" />
+                                        <rect x="4" y="14" width="6" height="6" rx="1" />
+                                        <rect x="14" y="14" width="6" height="6" rx="1" />
+                                    </svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <ellipse cx="12" cy="5" rx="8" ry="3" />
+                                        <path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" />
+                                    </svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <path d="M7 19h11a4 4 0 0 0 1-8 7 7 0 0 0-13-2 5 5 0 0 0 1 10z" />
+                                    </svg></span></div>
+                        </div>
+                        <div class="da-art-human"><span><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <circle cx="12" cy="8" r="3" />
+                                    <path d="M5 21v-3a7 7 0 0 1 14 0v3" />
+                                </svg></span>
+                            <div><strong>A human touch</strong><span>Only where needed</span></div>
+                        </div>
+                        <figcaption>Sample data · checked records delivered.</figcaption>
+                    </figure>
+                </div>
+                <div class="container da-hero-bottom"><span>FROM ARRIVAL</span>
+                    <div aria-hidden="true"></div><span>TO ACTION <svg aria-hidden="true">
+                            <use href="#i-arrow" />
+                        </svg></span>
+                </div>
+            </section>
+            <section class="da-trust container" aria-labelledby="trust-heading">
+                <div class="da-trust-heading">
+                    <p class="da-eyebrow">OUR CUSTOMERS</p>
+                    <h2 id="trust-heading">Trusted by teams across industries</h2>
+                </div>
+                <ul class="da-trust-logos" aria-label="Organizations using DocAcquire">
+                    <li><img src="https://www.docacquire.com/wp-content/uploads/2024/11/welbeck_logo.png" alt="Welbeck"
+                            width="116" height="48" loading="lazy"></li>
+                    <li><img src="https://www.docacquire.com/wp-content/uploads/2025/03/omnix-logo.png" alt="Omnix"
+                            width="116" height="48" loading="lazy"></li>
+                    <li><img src="https://www.docacquire.com/wp-content/uploads/2025/09/arabian-shield-logo-2.png"
+                            alt="Arabian Shield" width="124" height="48" loading="lazy"></li>
+                    <li><img src="https://www.docacquire.com/wp-content/uploads/2021/07/lwines.png" alt="Latitude Wines"
+                            width="116" height="48" loading="lazy"></li>
+                    <li><img src="https://www.docacquire.com/wp-content/uploads/2024/11/nintex_logo.png" alt="Nintex"
+                            width="108" height="48" loading="lazy"></li>
+                </ul>
+            </section>
+            <aside class="da-proof container" aria-label="Published invoice processing case study">
+                <div class="da-proof-stat"><strong>88%<span>+</span></strong><span>less document processing time</span>
+                </div>
+                <div class="da-proof-story">
+                    <p class="da-eyebrow">LATITUDE WINES / INVOICE PROCESSING</p>
+                    <p>Automating supplier invoices within a Mendix-based finance process.</p><small>Reported in the
+                        published case study; results reflect that implementation.</small>
+                </div>
+                <a class="da-text-link"
+                    href="https://www.docacquire.com/resources/case-studies/latitude-wines-streamlines-invoice-processing-with-docacquire-ai/">Read
+                    the case study <span aria-hidden="true">↗</span></a>
+            </aside>
+            <section class="da-section da-process" id="workflow" aria-labelledby="workflow-heading">
+                <div class="da-workflow-shell container">
+                <div class="da-section-heading">
+                    <div>
+                        <p class="da-eyebrow">THE WORKFLOW, END TO END</p>
+                        <h2 id="workflow-heading">One process.<br>Six connected stages.</h2>
+                    </div>
+                    <p>From the moment a document arrives to the record reaching your system, every stage keeps the work
+                        moving. Explore how the steps connect.</p>
+                </div>
+                <div class="da-stage-tabs" role="tablist" aria-label="Document workflow stages">
+                    <button type="button" id="tab-acquire" class="da-stage-tab" role="tab" aria-selected="true"
+                        aria-controls="stage-panel" data-stage="acquire"><span>01</span><svg aria-hidden="true">
+                            <use href="#i-acquire" />
+                        </svg><strong>Acquire</strong></button>
+                    <button type="button" id="tab-extract" class="da-stage-tab" role="tab" aria-selected="false"
+                        aria-controls="stage-panel" tabindex="-1" data-stage="extract"><span>02</span><svg
+                            aria-hidden="true">
+                            <use href="#i-extract" />
+                        </svg><strong>Extract</strong></button>
+                    <button type="button" id="tab-transform" class="da-stage-tab" role="tab" aria-selected="false"
+                        aria-controls="stage-panel" tabindex="-1" data-stage="transform"><span>03</span><svg
+                            aria-hidden="true">
+                            <use href="#i-transform" />
+                        </svg><strong>Transform</strong></button>
+                    <button type="button" id="tab-validate" class="da-stage-tab" role="tab" aria-selected="false"
+                        aria-controls="stage-panel" tabindex="-1" data-stage="validate"><span>04</span><svg
+                            aria-hidden="true">
+                            <use href="#i-validate" />
+                        </svg><strong>Validate</strong></button>
+                    <button type="button" id="tab-review" class="da-stage-tab" role="tab" aria-selected="false"
+                        aria-controls="stage-panel" tabindex="-1" data-stage="review"><span>05</span><svg
+                            aria-hidden="true">
+                            <use href="#i-review" />
+                        </svg><strong>Review</strong></button>
+                    <button type="button" id="tab-deliver" class="da-stage-tab" role="tab" aria-selected="false"
+                        aria-controls="stage-panel" tabindex="-1" data-stage="deliver"><span>06</span><svg
+                            aria-hidden="true">
+                            <use href="#i-deliver" />
+                        </svg><strong>Deliver</strong></button>
+                </div>
+                <div class="da-stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="tab-acquire" tabindex="0">
+                    <div class="da-stage-content">
+                        <p class="da-eyebrow" id="stage-eyebrow">01 / 06</p>
+                        <h3 id="stage-title">Acquire</h3>
+                        <p class="da-stage-subtitle" id="stage-subtitle">Start processing when a document arrives.</p>
+                        <p id="stage-description">Upload PDFs and images, import Outlook messages or attachments, or submit
+                            documents through the API.</p>
+                    </div>
+                    <figure class="da-stage-art da-scene-acquire" data-stage-art="acquire" role="img"
+                        aria-label="Sample resume and employment contract, with document data, arrive through upload, email and API.">
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path
+                                    d="M125 70H220Q250 70 250 100V170H325M130 180H325M125 280H220Q250 280 250 250V190H325" />
+                                <path class="da-scene-moving" d="M125 70H220Q250 70 250 100V170H325" />
+                                <path class="da-scene-moving" d="M130 180H325" />
+                                <path class="da-scene-moving" d="M125 280H220Q250 280 250 250V190H325" />
+                            </svg>
+                            <div class="da-scene-channel da-scene-channel-top"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><span>Upload</span></div>
+                            <div class="da-scene-channel da-scene-channel-middle"><svg viewBox="0 0 24 24">
+                                    <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
+                                </svg><span>Email</span></div>
+                            <div class="da-scene-channel da-scene-channel-bottom"><svg viewBox="0 0 24 24">
+                                    <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
+                                </svg><span>API</span></div>
+                            <div class="da-scene-paper da-scene-document da-acquire-paper-back"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><strong class="da-doc-title">Employment contract</strong>
+                                <dl class="da-doc-data"><div><dt>Contract</dt><dd>EMP-0284</dd></div><div><dt>Role</dt><dd>Data analyst</dd></div><div><dt>Start date</dt><dd>02 Nov 2026</dd></div></dl>
+                            </div>
+                            <div class="da-scene-paper da-scene-document da-acquire-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><strong class="da-doc-title">Resume</strong>
+                                <dl class="da-doc-data"><div><dt>Candidate</dt><dd>Alex Morgan</dd></div><div><dt>Experience</dt><dd>5 years</dd></div><div><dt>Skills</dt><dd>Python · SQL</dd></div></dl>
+                                <div class="da-doc-footer">APPLICATION · HR-027</div>
+                            </div>
+                            <div class="da-scene-badge da-acquire-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg><span>Documents received</span></div>
+                        </div>
+                    </figure>
+                    <figure class="da-stage-art da-scene-extract" data-stage-art="extract" role="img"
+                        aria-label="A sample bank statement shows account ending 4821, a closing balance of $12,840.50, and two transactions captured into a record." hidden>
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M190 120H230Q260 120 260 150V175H326M190 224H230Q260 224 260 200V190H326" />
+                                <path class="da-scene-moving" d="M190 120H230Q260 120 260 150V175H326" />
+                                <path class="da-scene-moving" d="M190 224H230Q260 224 260 200V190H326" />
+                            </svg>
+                            <div class="da-scene-paper da-scene-document da-extract-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><strong class="da-doc-title">Bank statement</strong>
+                                <dl class="da-doc-data"><div><dt>Account</dt><dd>•••• 4821</dd></div><div><dt>Period</dt><dd>September 2026</dd></div><div><dt>Closing balance</dt><dd>$12,840.50</dd></div></dl>
+                                <div class="da-doc-transactions"><div><span>Deposit</span><strong>+1,200.00</strong></div><div><span>Payment</span><strong>−84.00</strong></div></div>
+                            </div>
+                            <div class="da-scene-card da-extract-fields">
+                                <div class="da-scene-card-title"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-extract" />
+                                    </svg><strong>Captured fields</strong></div>
+                                <div class="da-scene-field"><span>Account</span><strong>•••• 4821</strong></div>
+                                <div class="da-scene-field"><span>Closing balance</span><strong>$12,840.50</strong></div>
+                                <div class="da-scene-field"><span>Transactions</span><strong>2 captured</strong></div>
+                            </div>
+                            <div class="da-scene-badge da-extract-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg><span>Fields + repeated rows</span></div>
+                        </div>
+                    </figure>
+                    <figure class="da-stage-art da-scene-transform" data-stage-art="transform" role="img"
+                        aria-label="Sample bill of lading data is standardised: 21 Oct 2026 becomes 2026-10-21, 1,250.00 kg becomes 1250.00, and 024 cartons becomes a package count of 24."
+                        hidden>
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M200 170H360" />
+                                <path class="da-scene-moving" d="M200 170H360" />
+                            </svg>
+                            <div class="da-scene-card da-transform-before">
+                                <div class="da-scene-card-title"><strong>Bill of lading</strong></div>
+                                <p class="da-scene-card-note">AS RECEIVED · BL-2086</p>
+                                <div class="da-scene-value">21 Oct 2026</div>
+                                <div class="da-scene-value">1,250.00 kg</div>
+                                <div class="da-scene-value">024 cartons</div>
+                            </div>
+                            <div class="da-scene-action"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-transform" />
+                                </svg></div>
+                            <div class="da-scene-card da-transform-after">
+                                <div class="da-scene-card-title"><strong>Your format</strong><svg viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <use href="#i-check" />
+                                    </svg></div>
+                                <p class="da-scene-card-note">STANDARDISED RECORD</p>
+                                <div class="da-scene-value">2026-10-21</div>
+                                <div class="da-scene-value">Weight (kg) · 1250.00</div>
+                                <div class="da-scene-value">Packages · 24</div>
+                            </div>
+                            <div class="da-scene-badge da-transform-badge">One consistent record</div>
+                        </div>
+                    </figure>
+                    <figure class="da-stage-art da-scene-validate" data-stage-art="validate" role="img"
+                        aria-label="Sample purchase order PO-1042, for 48 units due 12 Nov 2026, passes a required-reference check, a quantity range of 1 to 100, and a delivery-date check."
+                        hidden>
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M200 168H325" />
+                                <path class="da-scene-moving" d="M200 168H325" />
+                            </svg>
+                            <div class="da-scene-paper da-scene-document da-validate-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><strong class="da-doc-title">Purchase order</strong>
+                                <dl class="da-doc-data"><div><dt>PO number</dt><dd>PO-1042</dd></div><div><dt>Quantity</dt><dd>48 units</dd></div><div><dt>Delivery date</dt><dd>12 Nov 2026</dd></div></dl>
+                                <div class="da-doc-footer">SUPPLIER · NORTHLINE</div>
+                            </div>
+                            <div class="da-scene-card da-validate-checks">
+                                <div class="da-scene-card-title"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-validate" />
+                                    </svg><strong>Your business rules</strong></div>
+                                <div class="da-scene-check"><span>PO number present</span><svg viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <use href="#i-check" />
+                                    </svg></div>
+                                <div class="da-scene-check"><span>Quantity · 1–100</span><svg viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <use href="#i-check" />
+                                    </svg></div>
+                                <div class="da-scene-check"><span>Delivery date valid</span><svg viewBox="0 0 24 24"
+                                        aria-hidden="true">
+                                        <use href="#i-check" />
+                                    </svg></div>
+                            </div>
+                            <div class="da-scene-badge da-validate-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg><span>Checked before delivery</span></div>
+                        </div>
+                    </figure>
+                    <figure class="da-stage-art da-scene-review" data-stage-art="review" role="img"
+                        aria-label="Routine records continue automatically. A sample rental agreement RA-3108, with a deposit of USD 1,200.00, is shown for source comparison during human data review."
+                        hidden>
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path d="M142 95H407" />
+                                <path class="da-scene-moving" pathLength="100" d="M142 95H407" />
+                                <path class="da-scene-branch" d="M210 95V220Q210 245 238 245H300" />
+                                <path class="da-scene-moving da-scene-moving-review" pathLength="100" d="M210 95V220Q210 245 238 245H300" />
+                            </svg>
+                            <div class="da-review-ready"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg><span>Checks passed</span></div>
+                            <div class="da-review-continue"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-deliver" />
+                                </svg><span>Continue automatically</span></div>
+                            <div class="da-review-branch-label">Where attention is needed</div>
+                            <div class="da-scene-paper da-scene-document da-review-document"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-acquire" /></svg>
+                                <strong class="da-doc-title">Rental agreement</strong>
+                                <dl class="da-doc-data"><div><dt>Reference</dt><dd>RA-3108</dd></div><div><dt>Deposit</dt><dd>$1,200.00</dd></div></dl>
+                            </div>
+                            <div class="da-scene-card da-review-person"><span class="da-scene-avatar"><svg
+                                        viewBox="0 0 24 24">
+                                        <circle cx="12" cy="8" r="3" />
+                                        <path d="M5 21v-3a7 7 0 0 1 14 0v3" />
+                                    </svg></span>
+                                <div><strong>A human touch</strong><span>Check deposit against source</span></div>
+                            </div>
+                        </div>
+                    </figure>
+                    <figure class="da-stage-art da-scene-deliver" data-stage-art="deliver" role="img"
+                        aria-label="Sample proof of delivery POD-7312, for 24 cartons delivered 21 Oct 2026, is sent to connected applications, databases or cloud storage with delivery confirmation."
+                        hidden>
+                        <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
+                                preserveAspectRatio="none" aria-hidden="true">
+                                <path
+                                    d="M190 170H260Q285 170 285 140V75H360M190 170H360M190 170H260Q285 170 285 200V265H360" />
+                                <path class="da-scene-moving" d="M190 170H260Q285 170 285 140V75H360" />
+                                <path class="da-scene-moving" d="M190 170H360" />
+                                <path class="da-scene-moving" d="M190 170H260Q285 170 285 200V265H360" />
+                            </svg>
+                            <div class="da-scene-paper da-scene-document da-deliver-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-acquire" />
+                                </svg><strong class="da-doc-title">Proof of delivery</strong>
+                                <dl class="da-doc-data"><div><dt>Delivery ref.</dt><dd>POD-7312</dd></div><div><dt>Delivered</dt><dd>21 Oct 2026</dd></div><div><dt>Received</dt><dd>24 cartons</dd></div></dl>
+                                <div class="da-doc-footer">SIGNED · J. LEE</div>
+                            </div><span class="da-deliver-paper-tick"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg></span>
+                            <div class="da-scene-channel da-destination-app"><svg viewBox="0 0 24 24">
                                     <rect x="4" y="4" width="6" height="6" rx="1" />
                                     <rect x="14" y="4" width="6" height="6" rx="1" />
                                     <rect x="4" y="14" width="6" height="6" rx="1" />
                                     <rect x="14" y="14" width="6" height="6" rx="1" />
-                                </svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true">
+                                </svg><span>Applications</span></div>
+                            <div class="da-scene-channel da-destination-database"><svg viewBox="0 0 24 24">
                                     <ellipse cx="12" cy="5" rx="8" ry="3" />
                                     <path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" />
-                                </svg></span><span><svg viewBox="0 0 24 24" aria-hidden="true">
+                                </svg><span>Databases</span></div>
+                            <div class="da-scene-channel da-destination-cloud"><svg viewBox="0 0 24 24">
                                     <path d="M7 19h11a4 4 0 0 0 1-8 7 7 0 0 0-13-2 5 5 0 0 0 1 10z" />
-                                </svg></span></div>
-                    </div>
-                    <div class="da-art-human"><span><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <circle cx="12" cy="8" r="3" />
-                                <path d="M5 21v-3a7 7 0 0 1 14 0v3" />
-                            </svg></span>
-                        <div><strong>A human touch</strong><span>Only where needed</span></div>
-                    </div>
-                    <figcaption>Sample data · checked records delivered.</figcaption>
-                </figure>
-            </div>
-            <div class="container da-hero-bottom"><span>FROM ARRIVAL</span>
-                <div aria-hidden="true"></div><span>TO ACTION <svg aria-hidden="true">
-                        <use href="#i-arrow" />
-                    </svg></span>
-            </div>
-        </section>
-        <section class="da-trust container" aria-labelledby="trust-heading">
-            <div class="da-trust-heading">
-                <p class="da-eyebrow">OUR CUSTOMERS</p>
-                <h2 id="trust-heading">Trusted by teams across industries</h2>
-            </div>
-            <ul class="da-trust-logos" aria-label="Organizations using DocAcquire">
-                <li><img src="https://www.docacquire.com/wp-content/uploads/2024/11/welbeck_logo.png" alt="Welbeck"
-                        width="116" height="48" loading="lazy"></li>
-                <li><img src="https://www.docacquire.com/wp-content/uploads/2025/03/omnix-logo.png" alt="Omnix"
-                        width="116" height="48" loading="lazy"></li>
-                <li><img src="https://www.docacquire.com/wp-content/uploads/2025/09/arabian-shield-logo-2.png"
-                        alt="Arabian Shield" width="124" height="48" loading="lazy"></li>
-                <li><img src="https://www.docacquire.com/wp-content/uploads/2021/07/lwines.png" alt="Latitude Wines"
-                        width="116" height="48" loading="lazy"></li>
-                <li><img src="https://www.docacquire.com/wp-content/uploads/2024/11/nintex_logo.png" alt="Nintex"
-                        width="108" height="48" loading="lazy"></li>
-            </ul>
-        </section>
-        <aside class="da-proof container" aria-label="Published invoice processing case study">
-            <div class="da-proof-stat"><strong>88%<span>+</span></strong><span>less document processing time</span>
-            </div>
-            <div class="da-proof-story">
-                <p class="da-eyebrow">LATITUDE WINES / INVOICE PROCESSING</p>
-                <p>Automating supplier invoices within a Mendix-based finance process.</p><small>Reported in the
-                    published case study; results reflect that implementation.</small>
-            </div>
-            <a class="da-text-link"
-                href="https://www.docacquire.com/resources/case-studies/latitude-wines-streamlines-invoice-processing-with-docacquire-ai/">Read
-                the case study <span aria-hidden="true">↗</span></a>
-        </aside>
-        <section class="da-section da-process" id="workflow" aria-labelledby="workflow-heading">
-            <div class="da-workflow-shell container">
-            <div class="da-section-heading">
-                <div>
-                    <p class="da-eyebrow">THE WORKFLOW, END TO END</p>
-                    <h2 id="workflow-heading">One process.<br>Six connected stages.</h2>
+                                </svg><span>Cloud storage</span></div>
+                            <div class="da-scene-badge da-deliver-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                    <use href="#i-check" />
+                                </svg><span>Delivery confirmed</span></div>
+                        </div>
+                    </figure>
                 </div>
-                <p>From the moment a document arrives to the record reaching your system, every stage keeps the work
-                    moving. Explore how the steps connect.</p>
-            </div>
-            <div class="da-stage-tabs" role="tablist" aria-label="Document workflow stages">
-                <button type="button" id="tab-acquire" class="da-stage-tab" role="tab" aria-selected="true"
-                    aria-controls="stage-panel" data-stage="acquire"><span>01</span><svg aria-hidden="true">
-                        <use href="#i-acquire" />
-                    </svg><strong>Acquire</strong></button>
-                <button type="button" id="tab-extract" class="da-stage-tab" role="tab" aria-selected="false"
-                    aria-controls="stage-panel" tabindex="-1" data-stage="extract"><span>02</span><svg
-                        aria-hidden="true">
-                        <use href="#i-extract" />
-                    </svg><strong>Extract</strong></button>
-                <button type="button" id="tab-transform" class="da-stage-tab" role="tab" aria-selected="false"
-                    aria-controls="stage-panel" tabindex="-1" data-stage="transform"><span>03</span><svg
-                        aria-hidden="true">
-                        <use href="#i-transform" />
-                    </svg><strong>Transform</strong></button>
-                <button type="button" id="tab-validate" class="da-stage-tab" role="tab" aria-selected="false"
-                    aria-controls="stage-panel" tabindex="-1" data-stage="validate"><span>04</span><svg
-                        aria-hidden="true">
-                        <use href="#i-validate" />
-                    </svg><strong>Validate</strong></button>
-                <button type="button" id="tab-review" class="da-stage-tab" role="tab" aria-selected="false"
-                    aria-controls="stage-panel" tabindex="-1" data-stage="review"><span>05</span><svg
-                        aria-hidden="true">
-                        <use href="#i-review" />
-                    </svg><strong>Review</strong></button>
-                <button type="button" id="tab-deliver" class="da-stage-tab" role="tab" aria-selected="false"
-                    aria-controls="stage-panel" tabindex="-1" data-stage="deliver"><span>06</span><svg
-                        aria-hidden="true">
-                        <use href="#i-deliver" />
-                    </svg><strong>Deliver</strong></button>
-            </div>
-            <div class="da-stage-panel" id="stage-panel" role="tabpanel" aria-labelledby="tab-acquire" tabindex="0">
-                <div class="da-stage-content">
-                    <p class="da-eyebrow" id="stage-eyebrow">01 / 06</p>
-                    <h3 id="stage-title">Acquire</h3>
-                    <p class="da-stage-subtitle" id="stage-subtitle">Start processing when a document arrives.</p>
-                    <p id="stage-description">Upload PDFs and images, import Outlook messages or attachments, or submit
-                        documents through the API.</p>
+                <noscript>
+                    <div class="da-no-script">
+                        <p><strong>Extract:</strong> Capture configured fields and repeated data.</p>
+                        <p><strong>Transform:</strong> Map values into your output structure, with formatting, lookups and
+                            calculations.</p>
+                        <p><strong>Validate:</strong> Apply required checks, allowed values, ranges and date rules.</p>
+                        <p><strong>Review:</strong> Review all documents, focus on exceptions, or omit routine review.
+                            Blocking failures still need attention.</p>
+                        <p><strong>Deliver:</strong> Deliver eligible records to your configured business system or storage
+                            destination.</p>
+                    </div>
+                </noscript>
                 </div>
-                <figure class="da-stage-art da-scene-acquire" data-stage-art="acquire" role="img"
-                    aria-label="Sample resume and employment contract, with document data, arrive through upload, email and API.">
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path
-                                d="M125 70H220Q250 70 250 100V170H325M130 180H325M125 280H220Q250 280 250 250V190H325" />
-                            <path class="da-scene-moving" d="M125 70H220Q250 70 250 100V170H325" />
-                            <path class="da-scene-moving" d="M130 180H325" />
-                            <path class="da-scene-moving" d="M125 280H220Q250 280 250 250V190H325" />
-                        </svg>
-                        <div class="da-scene-channel da-scene-channel-top"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><span>Upload</span></div>
-                        <div class="da-scene-channel da-scene-channel-middle"><svg viewBox="0 0 24 24">
-                                <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
-                            </svg><span>Email</span></div>
-                        <div class="da-scene-channel da-scene-channel-bottom"><svg viewBox="0 0 24 24">
-                                <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
-                            </svg><span>API</span></div>
-                        <div class="da-scene-paper da-scene-document da-acquire-paper-back"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><strong class="da-doc-title">Employment contract</strong>
-                            <dl class="da-doc-data"><div><dt>Contract</dt><dd>EMP-0284</dd></div><div><dt>Role</dt><dd>Data analyst</dd></div><div><dt>Start date</dt><dd>02 Nov 2026</dd></div></dl>
-                        </div>
-                        <div class="da-scene-paper da-scene-document da-acquire-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><strong class="da-doc-title">Resume</strong>
-                            <dl class="da-doc-data"><div><dt>Candidate</dt><dd>Alex Morgan</dd></div><div><dt>Experience</dt><dd>5 years</dd></div><div><dt>Skills</dt><dd>Python · SQL</dd></div></dl>
-                            <div class="da-doc-footer">APPLICATION · HR-027</div>
-                        </div>
-                        <div class="da-scene-badge da-acquire-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg><span>Documents received</span></div>
+            </section>
+            <section class="da-section container" id="use-cases" aria-labelledby="use-cases-heading">
+                <div class="da-section-heading">
+                    <div>
+                        <p class="da-eyebrow">USE CASES</p>
+                        <h2 id="use-cases-heading">A workflow library for your team.</h2>
                     </div>
-                </figure>
-                <figure class="da-stage-art da-scene-extract" data-stage-art="extract" role="img"
-                    aria-label="A sample bank statement shows account ending 4821, a closing balance of $12,840.50, and two transactions captured into a record." hidden>
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path d="M190 120H230Q260 120 260 150V175H326M190 224H230Q260 224 260 200V190H326" />
-                            <path class="da-scene-moving" d="M190 120H230Q260 120 260 150V175H326" />
-                            <path class="da-scene-moving" d="M190 224H230Q260 224 260 200V190H326" />
-                        </svg>
-                        <div class="da-scene-paper da-scene-document da-extract-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><strong class="da-doc-title">Bank statement</strong>
-                            <dl class="da-doc-data"><div><dt>Account</dt><dd>•••• 4821</dd></div><div><dt>Period</dt><dd>September 2026</dd></div><div><dt>Closing balance</dt><dd>$12,840.50</dd></div></dl>
-                            <div class="da-doc-transactions"><div><span>Deposit</span><strong>+1,200.00</strong></div><div><span>Payment</span><strong>−84.00</strong></div></div>
+                    <p>Explore 30 document workflows across six business areas in the DocAcquire Workflow Library.
+                        Choose a starting point, then configure capture, formatting, checks, review and delivery for your process.</p>
+                </div>
+                <div class="da-use-cases da-library-use-cases">
+                    <article class="da-use-case da-library-case" aria-labelledby="case-finance-heading">
+                        <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
+                                <use href="#i-extract" />
+                            </svg><span>Finance &amp; Accounting</span></div>
+                        <h3 id="case-finance-heading">Financial document processing</h3>
+                        <p class="da-case-description">Move invoice, statement and purchase-order details into a consistent
+                            record for your finance process.</p>
+                        <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Invoice Processing</span></li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Bank Statement Processing</span></li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Purchase Order Processing</span></li>
+                            </ul>
                         </div>
-                        <div class="da-scene-card da-extract-fields">
-                            <div class="da-scene-card-title"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-extract" />
-                                </svg><strong>Captured fields</strong></div>
-                            <div class="da-scene-field"><span>Account</span><strong>•••• 4821</strong></div>
-                            <div class="da-scene-field"><span>Closing balance</span><strong>$12,840.50</strong></div>
-                            <div class="da-scene-field"><span>Transactions</span><strong>2 captured</strong></div>
+                        <div class="da-case-outcome"><span>WORK REMOVED</span>
+                            <p>Less manual entry and reformatting across finance documents.</p>
                         </div>
-                        <div class="da-scene-badge da-extract-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg><span>Fields + repeated rows</span></div>
-                    </div>
-                </figure>
-                <figure class="da-stage-art da-scene-transform" data-stage-art="transform" role="img"
-                    aria-label="Sample bill of lading data is standardised: 21 Oct 2026 becomes 2026-10-21, 1,250.00 kg becomes 1250.00, and 024 cartons becomes a package count of 24."
-                    hidden>
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path d="M200 170H360" />
-                            <path class="da-scene-moving" d="M200 170H360" />
-                        </svg>
-                        <div class="da-scene-card da-transform-before">
-                            <div class="da-scene-card-title"><strong>Bill of lading</strong></div>
-                            <p class="da-scene-card-note">AS RECEIVED · BL-2086</p>
-                            <div class="da-scene-value">21 Oct 2026</div>
-                            <div class="da-scene-value">1,250.00 kg</div>
-                            <div class="da-scene-value">024 cartons</div>
-                        </div>
-                        <div class="da-scene-action"><svg viewBox="0 0 24 24" aria-hidden="true">
+                    </article>
+                    <article class="da-use-case da-library-case" aria-labelledby="case-investment-heading">
+                        <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
                                 <use href="#i-transform" />
-                            </svg></div>
-                        <div class="da-scene-card da-transform-after">
-                            <div class="da-scene-card-title"><strong>Your format</strong><svg viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <use href="#i-check" />
-                                </svg></div>
-                            <p class="da-scene-card-note">STANDARDISED RECORD</p>
-                            <div class="da-scene-value">2026-10-21</div>
-                            <div class="da-scene-value">Weight (kg) · 1250.00</div>
-                            <div class="da-scene-value">Packages · 24</div>
+                            </svg><span>Investment Management</span></div>
+                        <h3 id="case-investment-heading">Settlement instruction processing</h3>
+                        <p class="da-case-description">Turn cash settlement instructions into structured records for your
+                            team and connected systems.</p>
+                        <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Cash Settlement Instructions Processing</span></li>
+                            </ul>
                         </div>
-                        <div class="da-scene-badge da-transform-badge">One consistent record</div>
-                    </div>
-                </figure>
-                <figure class="da-stage-art da-scene-validate" data-stage-art="validate" role="img"
-                    aria-label="Sample purchase order PO-1042, for 48 units due 12 Nov 2026, passes a required-reference check, a quantity range of 1 to 100, and a delivery-date check."
-                    hidden>
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path d="M200 168H325" />
-                            <path class="da-scene-moving" d="M200 168H325" />
-                        </svg>
-                        <div class="da-scene-paper da-scene-document da-validate-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><strong class="da-doc-title">Purchase order</strong>
-                            <dl class="da-doc-data"><div><dt>PO number</dt><dd>PO-1042</dd></div><div><dt>Quantity</dt><dd>48 units</dd></div><div><dt>Delivery date</dt><dd>12 Nov 2026</dd></div></dl>
-                            <div class="da-doc-footer">SUPPLIER · NORTHLINE</div>
+                        <div class="da-case-outcome"><span>WORK REMOVED</span>
+                            <p>Less manual transcription of settlement details.</p>
                         </div>
-                        <div class="da-scene-card da-validate-checks">
-                            <div class="da-scene-card-title"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-validate" />
-                                </svg><strong>Your business rules</strong></div>
-                            <div class="da-scene-check"><span>PO number present</span><svg viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <use href="#i-check" />
-                                </svg></div>
-                            <div class="da-scene-check"><span>Quantity · 1–100</span><svg viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <use href="#i-check" />
-                                </svg></div>
-                            <div class="da-scene-check"><span>Delivery date valid</span><svg viewBox="0 0 24 24"
-                                    aria-hidden="true">
-                                    <use href="#i-check" />
-                                </svg></div>
-                        </div>
-                        <div class="da-scene-badge da-validate-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg><span>Checked before delivery</span></div>
-                    </div>
-                </figure>
-                <figure class="da-stage-art da-scene-review" data-stage-art="review" role="img"
-                    aria-label="Routine records continue automatically. A sample rental agreement RA-3108, with a deposit of USD 1,200.00, is shown for source comparison during human data review."
-                    hidden>
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path d="M142 95H407" />
-                            <path class="da-scene-moving" pathLength="100" d="M142 95H407" />
-                            <path class="da-scene-branch" d="M210 95V220Q210 245 238 245H300" />
-                            <path class="da-scene-moving da-scene-moving-review" pathLength="100" d="M210 95V220Q210 245 238 245H300" />
-                        </svg>
-                        <div class="da-review-ready"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg><span>Checks passed</span></div>
-                        <div class="da-review-continue"><svg viewBox="0 0 24 24" aria-hidden="true">
+                    </article>
+                    <article class="da-use-case da-library-case" aria-labelledby="case-logistics-heading">
+                        <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
                                 <use href="#i-deliver" />
-                            </svg><span>Continue automatically</span></div>
-                        <div class="da-review-branch-label">Where attention is needed</div>
-                        <div class="da-scene-paper da-scene-document da-review-document"><svg viewBox="0 0 24 24" aria-hidden="true"><use href="#i-acquire" /></svg>
-                            <strong class="da-doc-title">Rental agreement</strong>
-                            <dl class="da-doc-data"><div><dt>Reference</dt><dd>RA-3108</dd></div><div><dt>Deposit</dt><dd>$1,200.00</dd></div></dl>
+                            </svg><span>Operations &amp; Logistics</span></div>
+                        <h3 id="case-logistics-heading">Shipment &amp; delivery document processing</h3>
+                        <p class="da-case-description">Capture shipment references and delivery details for checks and
+                            delivery into your operations systems.</p>
+                        <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
+                            <ul>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Bill of Lading Processing</span></li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Proof of Delivery Processing</span></li>
+                                <li><svg viewBox="0 0 24 24" aria-hidden="true">
+                                        <use href="#i-acquire" />
+                                    </svg><span>Rate Confirmation Processing</span></li>
+                            </ul>
                         </div>
-                        <div class="da-scene-card da-review-person"><span class="da-scene-avatar"><svg
-                                    viewBox="0 0 24 24">
-                                    <circle cx="12" cy="8" r="3" />
-                                    <path d="M5 21v-3a7 7 0 0 1 14 0v3" />
-                                </svg></span>
-                            <div><strong>A human touch</strong><span>Check deposit against source</span></div>
+                        <div class="da-case-outcome"><span>WORK REMOVED</span>
+                            <p>Less rekeying of transport and delivery document details.</p>
                         </div>
-                    </div>
-                </figure>
-                <figure class="da-stage-art da-scene-deliver" data-stage-art="deliver" role="img"
-                    aria-label="Sample proof of delivery POD-7312, for 24 cartons delivered 21 Oct 2026, is sent to connected applications, databases or cloud storage with delivery confirmation."
-                    hidden>
-                    <div class="da-scene-canvas" aria-hidden="true"><svg class="da-scene-paths" viewBox="0 0 560 340"
-                            preserveAspectRatio="none" aria-hidden="true">
-                            <path
-                                d="M190 170H260Q285 170 285 140V75H360M190 170H360M190 170H260Q285 170 285 200V265H360" />
-                            <path class="da-scene-moving" d="M190 170H260Q285 170 285 140V75H360" />
-                            <path class="da-scene-moving" d="M190 170H360" />
-                            <path class="da-scene-moving" d="M190 170H260Q285 170 285 200V265H360" />
-                        </svg>
-                        <div class="da-scene-paper da-scene-document da-deliver-paper"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-acquire" />
-                            </svg><strong class="da-doc-title">Proof of delivery</strong>
-                            <dl class="da-doc-data"><div><dt>Delivery ref.</dt><dd>POD-7312</dd></div><div><dt>Delivered</dt><dd>21 Oct 2026</dd></div><div><dt>Received</dt><dd>24 cartons</dd></div></dl>
-                            <div class="da-doc-footer">SIGNED · J. LEE</div>
-                        </div><span class="da-deliver-paper-tick"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg></span>
-                        <div class="da-scene-channel da-destination-app"><svg viewBox="0 0 24 24">
-                                <rect x="4" y="4" width="6" height="6" rx="1" />
-                                <rect x="14" y="4" width="6" height="6" rx="1" />
-                                <rect x="4" y="14" width="6" height="6" rx="1" />
-                                <rect x="14" y="14" width="6" height="6" rx="1" />
-                            </svg><span>Applications</span></div>
-                        <div class="da-scene-channel da-destination-database"><svg viewBox="0 0 24 24">
-                                <ellipse cx="12" cy="5" rx="8" ry="3" />
-                                <path d="M4 5v14c0 4 16 4 16 0V5M4 12c0 4 16 4 16 0" />
-                            </svg><span>Databases</span></div>
-                        <div class="da-scene-channel da-destination-cloud"><svg viewBox="0 0 24 24">
-                                <path d="M7 19h11a4 4 0 0 0 1-8 7 7 0 0 0-13-2 5 5 0 0 0 1 10z" />
-                            </svg><span>Cloud storage</span></div>
-                        <div class="da-scene-badge da-deliver-badge"><svg viewBox="0 0 24 24" aria-hidden="true">
-                                <use href="#i-check" />
-                            </svg><span>Delivery confirmed</span></div>
-                    </div>
-                </figure>
-            </div>
-            <noscript>
-                <div class="da-no-script">
-                    <p><strong>Extract:</strong> Capture configured fields and repeated data.</p>
-                    <p><strong>Transform:</strong> Map values into your output structure, with formatting, lookups and
-                        calculations.</p>
-                    <p><strong>Validate:</strong> Apply required checks, allowed values, ranges and date rules.</p>
-                    <p><strong>Review:</strong> Review all documents, focus on exceptions, or omit routine review.
-                        Blocking failures still need attention.</p>
-                    <p><strong>Deliver:</strong> Deliver eligible records to your configured business system or storage
-                        destination.</p>
+                    </article>
                 </div>
-            </noscript>
-            </div>
-        </section>
-        <section class="da-section container" id="use-cases" aria-labelledby="use-cases-heading">
-            <div class="da-section-heading">
-                <div>
-                    <p class="da-eyebrow">USE CASES</p>
-                    <h2 id="use-cases-heading">A workflow library for your team.</h2>
+                <div class="da-use-cases-footer">
+                    <p class="da-use-case-note">Representative workflows from the DocAcquire Workflow Library. Configure checks,
+                        review and delivery for your process; business decisions and downstream actions remain in your
+                        systems.</p><a class="da-text-link" href="https://www.docacquire.com/platform#workflow-library">Explore the workflow library
+                        <span aria-hidden="true">↗</span></a>
                 </div>
-                <p>Explore 30 document workflows across six business areas in the DocAcquire Workflow Library.
-                    Choose a starting point, then configure capture, formatting, checks, review and delivery for your process.</p>
-            </div>
-            <div class="da-use-cases da-library-use-cases">
-                <article class="da-use-case da-library-case" aria-labelledby="case-finance-heading">
-                    <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#i-extract" />
-                        </svg><span>Finance &amp; Accounting</span></div>
-                    <h3 id="case-finance-heading">Financial document processing</h3>
-                    <p class="da-case-description">Move invoice, statement and purchase-order details into a consistent
-                        record for your finance process.</p>
-                    <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Invoice Processing</span></li>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Bank Statement Processing</span></li>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Purchase Order Processing</span></li>
-                        </ul>
+            </section>
+            <section class="da-setup" id="setup" aria-labelledby="setup-heading">
+                <div class="container da-product-grid">
+                    <div class="da-product-copy">
+                        <p class="da-eyebrow">INSIDE DOCACQUIRE</p>
+                        <h2 id="setup-heading">Build your workflow.</h2>
+                        <p class="da-setup-summary">Define the record your system needs. Use sample documents to configure
+                            capture, transformations and checks, choose a review policy, then test the workflow before
+                            activation.</p>
+                        <a class="da-text-link" href="https://www.docacquire.com/platform/">Explore the platform <span
+                                aria-hidden="true">↗</span></a>
+                        <p class="da-manual-setup">See a configured workflow and exception review in your demo.</p>
                     </div>
-                    <div class="da-case-outcome"><span>WORK REMOVED</span>
-                        <p>Less manual entry and reformatting across finance documents.</p>
-                    </div>
-                </article>
-                <article class="da-use-case da-library-case" aria-labelledby="case-investment-heading">
-                    <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#i-transform" />
-                        </svg><span>Investment Management</span></div>
-                    <h3 id="case-investment-heading">Settlement instruction processing</h3>
-                    <p class="da-case-description">Turn cash settlement instructions into structured records for your
-                        team and connected systems.</p>
-                    <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Cash Settlement Instructions Processing</span></li>
-                        </ul>
-                    </div>
-                    <div class="da-case-outcome"><span>WORK REMOVED</span>
-                        <p>Less manual transcription of settlement details.</p>
-                    </div>
-                </article>
-                <article class="da-use-case da-library-case" aria-labelledby="case-logistics-heading">
-                    <div class="da-case-sector"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <use href="#i-deliver" />
-                        </svg><span>Operations &amp; Logistics</span></div>
-                    <h3 id="case-logistics-heading">Shipment &amp; delivery document processing</h3>
-                    <p class="da-case-description">Capture shipment references and delivery details for checks and
-                        delivery into your operations systems.</p>
-                    <div class="da-case-examples"><span>EXAMPLE WORKFLOWS</span>
-                        <ul>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Bill of Lading Processing</span></li>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Proof of Delivery Processing</span></li>
-                            <li><svg viewBox="0 0 24 24" aria-hidden="true">
-                                    <use href="#i-acquire" />
-                                </svg><span>Rate Confirmation Processing</span></li>
-                        </ul>
-                    </div>
-                    <div class="da-case-outcome"><span>WORK REMOVED</span>
-                        <p>Less rekeying of transport and delivery document details.</p>
-                    </div>
-                </article>
-            </div>
-            <div class="da-use-cases-footer">
-                <p class="da-use-case-note">Representative workflows from the DocAcquire Workflow Library. Configure checks,
-                    review and delivery for your process; business decisions and downstream actions remain in your
-                    systems.</p><a class="da-text-link" href="https://www.docacquire.com/platform#workflow-library">Explore the workflow library
-                    <span aria-hidden="true">↗</span></a>
-            </div>
-        </section>
-        <section class="da-setup" id="setup" aria-labelledby="setup-heading">
-            <div class="container da-product-grid">
-                <div class="da-product-copy">
-                    <p class="da-eyebrow">INSIDE DOCACQUIRE</p>
-                    <h2 id="setup-heading">Build your workflow.</h2>
-                    <p class="da-setup-summary">Define the record your system needs. Use sample documents to configure
-                        capture, transformations and checks, choose a review policy, then test the workflow before
-                        activation.</p>
-                    <a class="da-text-link" href="https://www.docacquire.com/platform/">Explore the platform <span
-                            aria-hidden="true">↗</span></a>
-                    <p class="da-manual-setup">See a configured workflow and exception review in your demo.</p>
+                    <figure class="da-dashboard">
+                        <div class="da-dashboard-bar">
+                            <div aria-hidden="true"><i></i><i></i><i></i></div><span>DOCACQUIRE / FIRST WORKFLOW</span><svg
+                                aria-hidden="true">
+                                <use href="#i-flow" />
+                            </svg>
+                        </div>
+                        <img class="da-dashboard-image" src="assets/workflow-dashboard.png"
+                            alt="Actual DocAcquire starting dashboard, before a workflow is configured, with Create your first workflow and setup guidance."
+                            width="1773" height="956" loading="lazy">
+                        <figcaption>The starting dashboard, before your first workflow is configured.</figcaption>
+                    </figure>
                 </div>
-                <figure class="da-dashboard">
-                    <div class="da-dashboard-bar">
-                        <div aria-hidden="true"><i></i><i></i><i></i></div><span>DOCACQUIRE / FIRST WORKFLOW</span><svg
-                            aria-hidden="true">
-                            <use href="#i-flow" />
-                        </svg>
+            </section>
+            <section class="da-section container da-reviews-section" id="customer-reviews"
+                aria-labelledby="reviews-heading">
+                <div class="da-section-heading">
+                    <div>
+                        <p class="da-eyebrow">OUR CUSTOMER SUCCESS</p>
+                        <h2 id="reviews-heading">In our customers’ words.</h2>
                     </div>
-                    <img class="da-dashboard-image" src="assets/workflow-dashboard.png"
-                        alt="Actual DocAcquire starting dashboard, before a workflow is configured, with Create your first workflow and setup guidance."
-                        width="1773" height="956" loading="lazy">
-                    <figcaption>The starting dashboard, before your first workflow is configured.</figcaption>
-                </figure>
-            </div>
-        </section>
-        <section class="da-section container da-reviews-section" id="customer-reviews"
-            aria-labelledby="reviews-heading">
-            <div class="da-section-heading">
-                <div>
-                    <p class="da-eyebrow">OUR CUSTOMER SUCCESS</p>
-                    <h2 id="reviews-heading">In our customers’ words.</h2>
-                </div>
 
-            </div>
-            <div class="da-reviews-grid">
-                <figure class="da-review-card">
-                    <div class="da-review-top">
-                        <img src="https://www.docacquire.com/wp-content/uploads/2021/07/lwines.png" alt="Latitude Wines"
-                            width="120" height="42" loading="lazy">
-                        <span aria-hidden="true">“</span>
+                </div>
+                <div class="da-reviews-grid">
+                    <figure class="da-review-card">
+                        <div class="da-review-top">
+                            <img src="https://www.docacquire.com/wp-content/uploads/2021/07/lwines.png" alt="Latitude Wines"
+                                width="120" height="42" loading="lazy">
+                            <span aria-hidden="true">“</span>
+                        </div>
+                        <blockquote>
+                            <p>"The complexity of the documents we process was a challenge for every vendor we assessed, but
+                                DocAcquire did the job perfectly."</p>
+                        </blockquote>
+                        <figcaption><strong>Philip Burkhart</strong><span>Owner, Latitude Wines USA</span></figcaption>
+                    </figure>
+                    <figure class="da-review-card">
+                        <div class="da-review-top">
+                            <img src="https://www.docacquire.com/wp-content/uploads/2022/02/ubiquity.png" alt="Ubiquity"
+                                width="120" height="42" loading="lazy">
+                            <span aria-hidden="true">“</span>
+                        </div>
+                        <blockquote>
+                            <p>"DocAcquire solution in data capture and ML models allow us to expand our services offer
+                                through a strong combination of technology accuracy dealing with complex unstructured data,
+                                flexibility and outstanding support."</p>
+                        </blockquote>
+                        <figcaption><strong>Denny Morais</strong><span>Head of Automation &amp; Projects Director
+                                Portugal</span></figcaption>
+                    </figure>
+                    <figure class="da-review-card">
+                        <div class="da-review-top">
+                            <img src="https://www.docacquire.com/wp-content/uploads/2021/07/jaam-logo-small.png"
+                                alt="Jaam Automation" width="120" height="42" loading="lazy">
+                            <span aria-hidden="true">“</span>
+                        </div>
+                        <blockquote>
+                            <p>"DocAcquire was super easy to get up and running. Within 15 mins we'd extracted all data,
+                                within an hour we'd configured our own document types, within a day we'd it integrated with
+                                our end-to-end workflow processes."</p>
+                        </blockquote>
+                        <figcaption><strong>Graham Penman</strong><span>Head of Automation, Jaam Automation UK</span>
+                        </figcaption>
+                    </figure>
+                    <figure class="da-review-card">
+                        <div class="da-review-top">
+                            <img src="https://www.docacquire.com/wp-content/uploads/2021/07/Tevince-small.png" alt="Tevince"
+                                width="120" height="42" loading="lazy">
+                            <span aria-hidden="true">“</span>
+                        </div>
+                        <blockquote>
+                            <p>"DocAcquire is a great solution to capture data from various sources with multiple formats.
+                                DocAcquire has helped us to help our customers to deliver a great value and helps in end to
+                                end automation using RPA."</p>
+                        </blockquote>
+                        <figcaption><strong>Rahul Uppal</strong><span>CEO @ Tevince India</span></figcaption>
+                    </figure>
+                </div>
+            </section>
+            <section class="da-section da-faq-band" id="faq" aria-labelledby="faq-heading">
+                <div class="container da-faq-section">
+                    <div>
+                        <p class="da-eyebrow">A FEW THINGS TO KNOW</p>
+                        <h2 id="faq-heading">Before you<br> get started.</h2>
+                        <p>Have a specific process in mind?<br><a href="https://www.docacquire.com/contact-us/">Let’s talk about
+                                it <span aria-hidden="true">↗</span></a></p>
                     </div>
-                    <blockquote>
-                        <p>"The complexity of the documents we process was a challenge for every vendor we assessed, but
-                            DocAcquire did the job perfectly."</p>
-                    </blockquote>
-                    <figcaption><strong>Philip Burkhart</strong><span>Owner, Latitude Wines USA</span></figcaption>
-                </figure>
-                <figure class="da-review-card">
-                    <div class="da-review-top">
-                        <img src="https://www.docacquire.com/wp-content/uploads/2022/02/ubiquity.png" alt="Ubiquity"
-                            width="120" height="42" loading="lazy">
-                        <span aria-hidden="true">“</span>
+                    <div class="da-faq-list">
+                        <details open>
+                            <summary>What is a workflow in DocAcquire?</summary>
+                            <p>A workflow is the process each document follows in DocAcquire, from receipt through delivery into
+                                your next business system. It connects acquisition, extraction, transformation, validation, review
+                                and delivery.</p>
+                        </details>
+                        <details>
+                            <summary>What do I set up first?</summary>
+                            <p>Start by choosing what to capture, including individual fields and repeated information such as
+                                line items. Then check the mappings, validation and results with a representative document
+                                before activating the workflow.</p>
+                        </details>
+                        <details>
+                            <summary>How are transformation and validation different?</summary>
+                            <p>Transformation converts extracted values into the format you need. Validation applies required
+                                checks and business rules to that data. Both happen before the review and delivery stages.</p>
+                        </details>
+                        <details>
+                            <summary>Is data review the same as business approval?</summary>
+                            <p>Yes. Choose review for all documents or exceptions, or omit routine review. People can check and
+                                correct document values; blocking validation failures still need attention. This is data review.
+                                Invoice authorisation, payment approval and other business decisions take place in your
+                                downstream process.</p>
+                        </details>
+                        <details>
+                            <summary>Where do the results go?</summary>
+                            <p>Deliver eligible records to a configured destination such as Zoho Books, a webhook, SQL Server or
+                                cloud storage. Delivery completes the DocAcquire document workflow; the receiving system handles
+                                the next business activity.</p>
+                        </details>
+                        <details>
+                            <summary>Can I test before processing live documents?</summary>
+                            <p>Yes. Review and test your mappings, validation and results against a representative document
+                                before activating your workflow.</p>
+                        </details>
                     </div>
-                    <blockquote>
-                        <p>"DocAcquire solution in data capture and ML models allow us to expand our services offer
-                            through a strong combination of technology accuracy dealing with complex unstructured data,
-                            flexibility and outstanding support."</p>
-                    </blockquote>
-                    <figcaption><strong>Denny Morais</strong><span>Head of Automation &amp; Projects Director
-                            Portugal</span></figcaption>
-                </figure>
-                <figure class="da-review-card">
-                    <div class="da-review-top">
-                        <img src="https://www.docacquire.com/wp-content/uploads/2021/07/jaam-logo-small.png"
-                            alt="Jaam Automation" width="120" height="42" loading="lazy">
-                        <span aria-hidden="true">“</span>
-                    </div>
-                    <blockquote>
-                        <p>"DocAcquire was super easy to get up and running. Within 15 mins we'd extracted all data,
-                            within an hour we'd configured our own document types, within a day we'd it integrated with
-                            our end-to-end workflow processes."</p>
-                    </blockquote>
-                    <figcaption><strong>Graham Penman</strong><span>Head of Automation, Jaam Automation UK</span>
-                    </figcaption>
-                </figure>
-                <figure class="da-review-card">
-                    <div class="da-review-top">
-                        <img src="https://www.docacquire.com/wp-content/uploads/2021/07/Tevince-small.png" alt="Tevince"
-                            width="120" height="42" loading="lazy">
-                        <span aria-hidden="true">“</span>
-                    </div>
-                    <blockquote>
-                        <p>"DocAcquire is a great solution to capture data from various sources with multiple formats.
-                            DocAcquire has helped us to help our customers to deliver a great value and helps in end to
-                            end automation using RPA."</p>
-                    </blockquote>
-                    <figcaption><strong>Rahul Uppal</strong><span>CEO @ Tevince India</span></figcaption>
-                </figure>
-            </div>
-        </section>
-        <section class="da-section da-faq-band" id="faq" aria-labelledby="faq-heading">
-            <div class="container da-faq-section">
+                </div>
+            </section>
+            <section class="da-final-cta container" aria-labelledby="cta-heading">
                 <div>
-                    <p class="da-eyebrow">A FEW THINGS TO KNOW</p>
-                    <h2 id="faq-heading">Before you<br> get started.</h2>
-                    <p>Have a specific process in mind?<br><a href="https://www.docacquire.com/contact-us/">Let’s talk about
-                            it <span aria-hidden="true">↗</span></a></p>
-                </div>
-                <div class="da-faq-list">
-                    <details open>
-                        <summary>What is a workflow in DocAcquire?</summary>
-                        <p>A workflow is the process each document follows in DocAcquire, from receipt through delivery into
-                            your next business system. It connects acquisition, extraction, transformation, validation, review
-                            and delivery.</p>
-                    </details>
-                    <details>
-                        <summary>What do I set up first?</summary>
-                        <p>Start by choosing what to capture, including individual fields and repeated information such as
-                            line items. Then check the mappings, validation and results with a representative document
-                            before activating the workflow.</p>
-                    </details>
-                    <details>
-                        <summary>How are transformation and validation different?</summary>
-                        <p>Transformation converts extracted values into the format you need. Validation applies required
-                            checks and business rules to that data. Both happen before the review and delivery stages.</p>
-                    </details>
-                    <details>
-                        <summary>Is data review the same as business approval?</summary>
-                        <p>Yes. Choose review for all documents or exceptions, or omit routine review. People can check and
-                            correct document values; blocking validation failures still need attention. This is data review.
-                            Invoice authorisation, payment approval and other business decisions take place in your
-                            downstream process.</p>
-                    </details>
-                    <details>
-                        <summary>Where do the results go?</summary>
-                        <p>Deliver eligible records to a configured destination such as Zoho Books, a webhook, SQL Server or
-                            cloud storage. Delivery completes the DocAcquire document workflow; the receiving system handles
-                            the next business activity.</p>
-                    </details>
-                    <details>
-                        <summary>Can I test before processing live documents?</summary>
-                        <p>Yes. Review and test your mappings, validation and results against a representative document
-                            before activating your workflow.</p>
-                    </details>
-                </div>
-            </div>
-        </section>
-        <!-- <section class="da-security container" aria-labelledby="security-heading">
-            <div>
-                <p class="da-eyebrow">DATA HANDLING &amp; ACCESS</p>
-                <h2 id="security-heading">Understand how your data is handled.</h2>
-                <p>Read the published privacy policy for account access, data storage, transfers and service-provider
-                    practices. Discuss the controls your deployment requires with our team.</p>
-            </div>
-            <div class="da-security-links"><a href="https://www.docacquire.com/privacy-policy/">Privacy &amp;
-                    data-handling policy <span aria-hidden="true">↗</span></a><a
-                    href="https://www.docacquire.com/contact-us/">Discuss security &amp; access requirements <span
-                        aria-hidden="true">↗</span></a></div>
-        </section> -->
-        <section class="da-final-cta container" aria-labelledby="cta-heading">
-            <div>
-                <p class="da-eyebrow">LET’S CONNECT THE STEPS</p>
-                <h2 id="cta-heading">Move your business <br>processes forward.</h2>
-                <p>Show us where work slows down. We’ll help you automate the document-driven steps and connect them to your wider business process.</p>
-            </div><a class="da-button" href="https://www.docacquire.com/request-a-demo/">Book a demo <svg
-                    aria-hidden="true">
-                    <use href="#i-arrow" />
-                </svg></a><svg class="da-cta-art" aria-hidden="true">
-                <use href="#i-flow" />
-            </svg>
-        </section>
-    </main>
+                    <p class="da-eyebrow">LET’S CONNECT THE STEPS</p>
+                    <h2 id="cta-heading">Move your business <br>processes forward.</h2>
+                    <p>Show us where work slows down. We’ll help you automate the document-driven steps and connect them to your wider business process.</p>
+                </div><a class="da-button" href="https://www.docacquire.com/request-a-demo/">Book a demo <svg
+                        aria-hidden="true">
+                        <use href="#i-arrow" />
+                    </svg></a><svg class="da-cta-art" aria-hidden="true">
+                    <use href="#i-flow" />
+                </svg>
+            </section>
+        </main>
+    </div>
+    
 </body>
 
 </html>

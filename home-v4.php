@@ -7,40 +7,40 @@ get_header(); ?>
 
 <div id="home" class="da-page">
     <svg class="da-symbols" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <symbol id="i-flow" viewBox="0 0 24 24">
-            <rect x="3" y="3" width="6" height="6" rx="1" />
-            <rect x="15" y="3" width="6" height="6" rx="1" />
-            <rect x="15" y="15" width="6" height="6" rx="1" />
-            <path d="M9 6h6M6 9v9h9" />
-        </symbol>
-        <symbol id="i-acquire" viewBox="0 0 24 24">
-            <path d="M14 3H5v18h14V8zM14 3v5h5M12 18v-7m-3 3 3-3 3 3" />
-        </symbol>
-        <symbol id="i-extract" viewBox="0 0 24 24">
-            <path d="M6 3H3v5m15-5h3v5M3 16v5h3m15-5v5h-3M8 6h8v12H8zM10 10h4m-4 4h4" />
-        </symbol>
-        <symbol id="i-transform" viewBox="0 0 24 24">
-            <path d="M4 7h16m-4-4 4 4-4 4" />
-            <path d="M20 17H4m4-4-4 4 4 4" />
-        </symbol>
-        <symbol id="i-validate" viewBox="0 0 24 24">
-            <path d="M3 7h7m-7 10h7m4-11 2 2 5-5m-7 12 6 6m0-6-6 6" />
-        </symbol>
-        <symbol id="i-review" viewBox="0 0 24 24">
-            <path d="M4 4h16v16H4zM7 8h3m-3 4h3m-3 4h3m3-5 2 2 3-4" />
-        </symbol>
-        <symbol id="i-deliver" viewBox="0 0 24 24">
-            <path d="m3 3 19 9-19 9 4-9zm4 9h15" />
-        </symbol>
-        <symbol id="i-arrow" viewBox="0 0 24 24">
-            <path d="M4 12h15m-6-6 6 6-6 6" />
-        </symbol>
-        <symbol id="i-check" viewBox="0 0 24 24">
-            <path d="m5 12 4 4L19 6" /> 
-        </symbol>
+    <symbol id="i-flow" viewBox="0 0 24 24">
+        <rect x="3" y="3" width="6" height="6" rx="1" />
+        <rect x="15" y="3" width="6" height="6" rx="1" />
+        <rect x="15" y="15" width="6" height="6" rx="1" />
+        <path d="M9 6h6M6 9v9h9" />
+    </symbol>
+    <symbol id="i-acquire" viewBox="0 0 24 24">
+        <path d="M14 3H5v18h14V8zM14 3v5h5M12 18v-7m-3 3 3-3 3 3" />
+    </symbol>
+    <symbol id="i-extract" viewBox="0 0 24 24">
+        <path d="M6 3H3v5m15-5h3v5M3 16v5h3m15-5v5h-3M8 6h8v12H8zM10 10h4m-4 4h4" />
+    </symbol>
+    <symbol id="i-transform" viewBox="0 0 24 24">
+        <path d="M4 7h16m-4-4 4 4-4 4" />
+        <path d="M20 17H4m4-4-4 4 4 4" />
+    </symbol>
+    <symbol id="i-validate" viewBox="0 0 24 24">
+        <path d="M3 7h7m-7 10h7m4-11 2 2 5-5m-7 12 6 6m0-6-6 6" />
+    </symbol>
+    <symbol id="i-review" viewBox="0 0 24 24">
+        <path d="M4 4h16v16H4zM7 8h3m-3 4h3m-3 4h3m3-5 2 2 3-4" />
+    </symbol>
+    <symbol id="i-deliver" viewBox="0 0 24 24">
+        <path d="m3 3 19 9-19 9 4-9zm4 9h15" />
+    </symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24">
+        <path d="M4 12h15m-6-6 6 6-6 6" />
+    </symbol>
+    <symbol id="i-check" viewBox="0 0 24 24">
+        <path d="m5 12 4 4L19 6" />
+    </symbol>
     </svg>
     <main>
-        <section class="da-hero" aria-labelledby="hero-heading">
+        <section class="da-hero " aria-labelledby="hero-heading">
             <div class="container da-hero-grid">
                 <div class="da-hero-copy">
                     <p class="da-eyebrow"><span class="da-live-dot"></span> PUT YOUR DOCUMENTS TO WORK</p>
@@ -104,17 +104,17 @@ get_header(); ?>
                         </dl>
                         <span class="da-art-paper-tick"><svg>
                                 <use href="#i-check" />
-                            </svg></span> 
+                            </svg></span>
                     </div>
                     <div class="da-art-channel da-art-channel-api"><svg viewBox="0 0 24 24" aria-hidden="true">
                             <path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18" />
                         </svg><span>API</span></div>
                     <div class="da-art-channel da-art-channel-email"><svg viewBox="0 0 24 24" aria-hidden="true">
-                            <path d="M3 5h18v14H3zm0 0 9 8 9-8" /> 
+                            <path d="M3 5h18v14H3zm0 0 9 8 9-8" />
                         </svg><span>Email attachments</span></div>
                     <div class="da-art-hub"><span><svg aria-hidden="true">
                                 <use href="#i-flow" />
-                            </svg></span><img class="da-art-logo" src="https://www.docacquire.com/wp-content/uploads/2026/10/DocAcquire_master-scaled.png" alt="DocAcquire"
+                            </svg></span><img class="da-art-logo" src="https://www.docacquire.com/wp-content/uploads/2026/10/DocAcquire_master-marque-scaled.png" alt="DocAcquire"
                             width="8482" height="1495" decoding="async"></div>
                     <div class="da-art-check-badge"><svg aria-hidden="true">
                             <use href="#i-check" />
@@ -158,7 +158,6 @@ get_header(); ?>
                     </svg></span>
             </div>
         </section>
-        
         <section class="da-trust container" aria-labelledby="trust-heading">
             <div class="da-trust-heading">
                 <p class="da-eyebrow">OUR CUSTOMERS</p>
@@ -177,7 +176,6 @@ get_header(); ?>
                         width="108" height="48" loading="lazy"></li>
             </ul>
         </section>
-        
         <aside class="da-proof container" aria-label="Published invoice processing case study">
             <div class="da-proof-stat"><strong>88%<span>+</span></strong><span>less document processing time</span>
             </div>
@@ -190,7 +188,6 @@ get_header(); ?>
                 href="https://www.docacquire.com/resources/case-studies/latitude-wines-streamlines-invoice-processing-with-docacquire-ai/">Read
                 the case study <span aria-hidden="true">↗</span></a>
         </aside>
-        
         <section class="da-section da-process" id="workflow" aria-labelledby="workflow-heading">
             <div class="da-workflow-shell container">
             <div class="da-section-heading">
@@ -451,7 +448,6 @@ get_header(); ?>
             </noscript>
             </div>
         </section>
-        
         <section class="da-section container" id="use-cases" aria-labelledby="use-cases-heading">
             <div class="da-section-heading">
                 <div>
@@ -532,11 +528,10 @@ get_header(); ?>
             <div class="da-use-cases-footer">
                 <p class="da-use-case-note">Representative workflows from the DocAcquire Workflow Library. Configure checks,
                     review and delivery for your process; business decisions and downstream actions remain in your
-                    systems.</p><a class="da-text-link" href="platform.html#workflow-library">Explore the workflow library
+                    systems.</p><a class="da-text-link" href="https://www.docacquire.com/platform#workflow-library">Explore the workflow library
                     <span aria-hidden="true">↗</span></a>
             </div>
         </section>
-        
         <section class="da-setup" id="setup" aria-labelledby="setup-heading">
             <div class="container da-product-grid">
                 <div class="da-product-copy">
@@ -545,7 +540,7 @@ get_header(); ?>
                     <p class="da-setup-summary">Define the record your system needs. Use sample documents to configure
                         capture, transformations and checks, choose a review policy, then test the workflow before
                         activation.</p>
-                    <a class="da-text-link" href="platform.html#workflow-library">Explore the platform <span
+                    <a class="da-text-link" href="https://www.docacquire.com/platform/">Explore the platform <span
                             aria-hidden="true">↗</span></a>
                     <p class="da-manual-setup">See a configured workflow and exception review in your demo.</p>
                 </div>
@@ -556,14 +551,13 @@ get_header(); ?>
                             <use href="#i-flow" />
                         </svg>
                     </div>
-                    <img class="da-dashboard-image" src="https://www.docacquire.com/wp-content/uploads/2026/10/workflow-dashboard.png"
+                    <img class="da-dashboard-image" src="assets/workflow-dashboard.png"
                         alt="Actual DocAcquire starting dashboard, before a workflow is configured, with Create your first workflow and setup guidance."
                         width="1773" height="956" loading="lazy">
                     <figcaption>The starting dashboard, before your first workflow is configured.</figcaption>
                 </figure>
             </div>
         </section>
-        
         <section class="da-section container da-reviews-section" id="customer-reviews"
             aria-labelledby="reviews-heading">
             <div class="da-section-heading">
@@ -629,7 +623,6 @@ get_header(); ?>
                 </figure>
             </div>
         </section>
-        
         <section class="da-section da-faq-band" id="faq" aria-labelledby="faq-heading">
             <div class="container da-faq-section">
                 <div>
@@ -677,20 +670,6 @@ get_header(); ?>
                 </div>
             </div>
         </section>
-        
-        <!-- <section class="da-security container" aria-labelledby="security-heading">
-            <div>
-                <p class="da-eyebrow">DATA HANDLING &amp; ACCESS</p>
-                <h2 id="security-heading">Understand how your data is handled.</h2>
-                <p>Read the published privacy policy for account access, data storage, transfers and service-provider
-                    practices. Discuss the controls your deployment requires with our team.</p>
-            </div>
-            <div class="da-security-links"><a href="https://www.docacquire.com/privacy-policy/">Privacy &amp;
-                    data-handling policy <span aria-hidden="true">↗</span></a><a
-                    href="https://www.docacquire.com/contact-us/">Discuss security &amp; access requirements <span
-                        aria-hidden="true">↗</span></a></div>
-        </section> -->
-        
         <section class="da-final-cta container" aria-labelledby="cta-heading">
             <div>
                 <p class="da-eyebrow">LET’S CONNECT THE STEPS</p>
