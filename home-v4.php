@@ -3,6 +3,15 @@
  Template Name: Home Page V4
   * @package docacquire
  */
+// Load the same script used by the standalone homepage and platform page.
+// Keep pages.js in the theme root; its modification time refreshes cached copies after edits.
+wp_enqueue_script(
+    'site-pages',
+    get_theme_file_uri('/pages.js'),
+    array(),
+    filemtime(get_theme_file_path('/pages.js')),
+    true
+);
 get_header(); ?>
 
 <div id="home" class="da-page">
