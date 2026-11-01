@@ -17297,7 +17297,6 @@ Contact Us */
 .da-page figure {
   margin: 0;
 }
-/* Korolev and weight 500 match the body typography in abc.css. */
 .da-page {
   /* Brand colors. All UI tints and shades below derive from these four hues. */
   --navy: #002b49;
@@ -20243,8 +20242,8 @@ Contact Us */
 }
 .da-platform .dp-section-nav > a[aria-current="location"] {
   text-decoration: none;
-  color: var(--teal);
-  box-shadow: 0 2px 0 var(--teal);
+  color: var(--coral);
+  box-shadow: 0 2px 0 currentColor;
 }
 .da-platform .dp-build-layout {
   display: grid;
