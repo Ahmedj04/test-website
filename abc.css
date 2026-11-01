@@ -20236,7 +20236,6 @@ Contact Us */
   padding-block: 5px;
 }
 .da-platform .dp-section-nav > a:hover {
-  color: var(--teal);
   text-decoration: underline;
   text-underline-offset: 5px;
 }
