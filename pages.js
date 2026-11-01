@@ -2,6 +2,20 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
+    // FAQ: keep one question open per list. Support both old and new class names.
+    document.querySelectorAll('.faq-list, .da-faq-list').forEach(list => {
+        const details = list.querySelectorAll('details');
+        details.forEach(target => {
+            // The toggle event also handles opening a question with the keyboard.
+            target.addEventListener('toggle', () => {
+                if (!target.open) return;
+                details.forEach(detail => {
+                    if (detail !== target) detail.open = false;
+                });
+            });
+        });
+    });
+
     // Both pages use the same click and keyboard controls for their stage tabs.
     function setupTabs(tabs, showStage) {
         tabs.forEach((tab, index) => {
@@ -151,3 +165,24 @@ document.addEventListener('DOMContentLoaded', () => {
         updateNavigation();
     }
 });
+
+// USE CASES: keep this function global for existing onclick="showUseCase('finance')" buttons.
+// You can also pass the clicked button explicitly: onclick="showUseCase('finance', this)".
+function showUseCase(useCase, clickedButton) {
+    const selectedDetail = document.getElementById(useCase);
+    if (!selectedDetail) return;
+    const container = selectedDetail.closest('.use-case-container');
+    if (!container) return;
+
+    // Only change this use-case group, leaving other tabs on the page alone.
+    container.querySelectorAll('.use-case-detail').forEach(detail => {
+        detail.classList.toggle('active', detail === selectedDetail);
+    });
+    container.querySelectorAll('.tab-button').forEach(button => {
+        // Find the matching button when older markup passes only the use-case ID.
+        const action = button.getAttribute('onclick') || '';
+        const matchesId = action.includes("'" + useCase + "'") || action.includes('"' + useCase + '"');
+        const selected = clickedButton ? button === clickedButton : matchesId;
+        button.classList.toggle('active', selected);
+    });
+}
