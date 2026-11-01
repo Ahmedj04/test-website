@@ -24286,8 +24286,8 @@ h2 {
    ========================================================================== */
 .da-platform {
 
-    main>section[id] {
-        scroll-margin-top: calc(var(--dp-nav-height, 160px) + 24px);
+    .dp-section-group>section[id] {
+        scroll-margin-top: calc(var(--dp-nav-top, 0px) + var(--dp-nav-height, 160px) + 24px);
     }
 
     .da-eyebrow {
@@ -24303,7 +24303,7 @@ h2 {
     }
 
     .dp-hero {
-        padding-top: 70px;
+        padding-top: calc(70px + var(--dp-hero-offset, 0px));
         padding-bottom: 60px;
     }
 
@@ -24574,7 +24574,7 @@ h2 {
 
     .dp-sticky-nav {
         position: sticky;
-        top: 0;
+        top: var(--dp-nav-top, 0px);
         z-index: 100;
         background: var(--white);
         border-bottom: 1px solid var(--line);
@@ -25773,7 +25773,7 @@ h2 {
         }
 
         .dp-hero {
-            padding-top: 50px;
+            padding-top: calc(50px + var(--dp-hero-offset, 0px));
             padding-bottom: 35px;
         }
 
@@ -25909,7 +25909,7 @@ h2 {
         }
 
         .dp-hero {
-            padding-top: 38px;
+            padding-top: calc(38px + var(--dp-hero-offset, 0px));
         }
 
         .dp-hero h1 {

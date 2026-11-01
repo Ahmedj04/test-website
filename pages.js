@@ -100,15 +100,35 @@ document.addEventListener('DOMContentLoaded', () => {
     const nav = document.querySelector('.dp-sticky-nav');
     if (nav) {
         const links = nav.querySelectorAll('a[href^="#"]');
+        const topBars = document.querySelectorAll('body > header, #wpadminbar');
+        const hero = document.querySelector('.dp-hero');
 
         function updateNavigation() {
+            // WordPress adds a fixed header and, when logged in, an admin toolbar.
+            // Keep the section menu below whichever bar extends furthest down.
+            let topOffset = 0;
+            topBars.forEach(bar => {
+                const position = getComputedStyle(bar).position;
+                if (position === 'fixed' || position === 'sticky') {
+                    topOffset = Math.max(topOffset, bar.getBoundingClientRect().bottom);
+                }
+            });
             const navHeight = nav.offsetHeight;
+            document.documentElement.style.setProperty('--dp-nav-top', topOffset + 'px');
             document.documentElement.style.setProperty('--dp-nav-height', navHeight + 'px');
+
+            // Give the hero room below the fixed header, without adding space
+            // that the theme or WordPress admin toolbar has already provided.
+            if (hero) {
+                const heroStart = hero.getBoundingClientRect().top + window.scrollY;
+                const heroOffset = Math.max(0, topOffset - heroStart);
+                document.documentElement.style.setProperty('--dp-hero-offset', heroOffset + 'px');
+            }
             let currentLink = null;
 
             links.forEach(link => {
                 const section = document.getElementById(link.hash.slice(1));
-                if (section && section.getBoundingClientRect().top <= navHeight + 40) {
+                if (section && section.getBoundingClientRect().top <= topOffset + navHeight + 40) {
                     currentLink = link;
                 }
             });
@@ -124,7 +144,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Images and changing stage panels can move sections without a window resize.
         if ('ResizeObserver' in window) {
-            new ResizeObserver(updateNavigation).observe(document.getElementById('platform-content'));
+            const observer = new ResizeObserver(updateNavigation);
+            observer.observe(document.getElementById('platform-content'));
+            topBars.forEach(bar => observer.observe(bar));
         }
         updateNavigation();
     }

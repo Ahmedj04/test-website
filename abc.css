@@ -19962,8 +19962,8 @@ Contact Us */
 /* ==========================================================================
    Platform: shared homepage primitives above; all new rules scoped to this page.
    ========================================================================== */
-.da-platform main > section[id] {
-  scroll-margin-top: calc(var(--dp-nav-height, 160px) + 24px);
+.da-platform .dp-section-group > section[id] {
+  scroll-margin-top: calc(var(--dp-nav-top, 0px) + var(--dp-nav-height, 160px) + 24px);
 }
 .da-platform .da-eyebrow {
   color: var(--teal);
@@ -19975,7 +19975,7 @@ Contact Us */
   font-size: 15px;
 }
 .da-platform .dp-hero {
-  padding-top: 70px;
+  padding-top: calc(70px + var(--dp-hero-offset, 0px));
   padding-bottom: 60px;
 }
 .da-platform .dp-hero .da-hero-grid {
@@ -20210,7 +20210,7 @@ Contact Us */
 }
 .da-platform .dp-sticky-nav {
   position: sticky;
-  top: 0;
+  top: var(--dp-nav-top, 0px);
   z-index: 100;
   background: var(--white);
   border-bottom: 1px solid var(--line);
@@ -21223,7 +21223,7 @@ Contact Us */
     width: calc(100% - 64px);
   }
   .da-platform .dp-hero {
-    padding-top: 50px;
+    padding-top: calc(50px + var(--dp-hero-offset, 0px));
     padding-bottom: 35px;
   }
   .da-platform .dp-hero .da-hero-grid,
@@ -21332,7 +21332,7 @@ Contact Us */
     width: calc(100% - 40px);
   }
   .da-platform .dp-hero {
-    padding-top: 38px;
+    padding-top: calc(38px + var(--dp-hero-offset, 0px));
   }
   .da-platform .dp-hero h1 {
     font-size: 40px;
