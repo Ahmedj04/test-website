@@ -2,7 +2,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     'use strict';
 
-    // FAQ: keep one question open per list. Support both old and new class names.
+    // FAQ: keep one question open per list.
     document.querySelectorAll('.faq-list, .da-faq-list').forEach(list => {
         const details = list.querySelectorAll('details');
         details.forEach(target => {
@@ -118,8 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const hero = document.querySelector('.dp-hero');
 
         function updateNavigation() {
-            // WordPress adds a fixed header and, when logged in, an admin toolbar.
-            // Keep the section menu below whichever bar extends furthest down.
+            // Keep the section menu below the header bar.
             let topOffset = 0;
             topBars.forEach(bar => {
                 const position = getComputedStyle(bar).position;
@@ -131,8 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
             document.documentElement.style.setProperty('--dp-nav-top', topOffset + 'px');
             document.documentElement.style.setProperty('--dp-nav-height', navHeight + 'px');
 
-            // Give the hero room below the fixed header, without adding space
-            // that the theme or WordPress admin toolbar has already provided.
+            // Offset the hero below the fixed header without duplicating existing spacing.
             if (hero) {
                 const heroStart = hero.getBoundingClientRect().top + window.scrollY;
                 const heroOffset = Math.max(0, topOffset - heroStart);
@@ -166,7 +164,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// USE CASES: keep this function global for existing onclick="showUseCase('finance')" buttons.
+// USE CASES: function for existing onclick="showUseCase('finance')" buttons.
 // You can also pass the clicked button explicitly: onclick="showUseCase('finance', this)".
 function showUseCase(useCase, clickedButton) {
     const selectedDetail = document.getElementById(useCase);
